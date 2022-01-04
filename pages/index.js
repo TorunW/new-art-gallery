@@ -2,7 +2,6 @@ import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
 import Gallery from '../components/Gallery';
 import About from '../components/About';
-import Head from 'next/head';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState } from 'react';
@@ -35,7 +34,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
         href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css'
         integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=='
         crossOrigin='anonymous'
-        referrerpolicy='no-referrer'
+        referrerPolicy='no-referrer'
       />
       <Header />
       <Gallery maingallery={maingallery} />

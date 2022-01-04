@@ -1,6 +1,5 @@
 {
-  "name": "new-art-gallery",
-  "version": "0.1.0",
+  "name": "art-gallery",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,15 +15,14 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "next": "11.1.2",
-    "react": "^17.0.2",
-    "react-dom": "17.0.2",
-    "react-photo-gallery": "^8.0.0"
+    "file-system": "^2.2.2",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.0.4",
-    "file-system": "^2.2.2",
+    "eslint": "8.6.0",
+    "eslint-config-next": "12.0.7",
     "filesystem": "^1.0.1",
     "formidable": "^2.0.1",
     "sqlite": "^4.0.23",

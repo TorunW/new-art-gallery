@@ -111,7 +111,6 @@ const About = ({ about, contact }) => {
                 <input
                   type='email'
                   onChange={(e) => setEmail(e.target.value)}
-                  type='text'
                   placeholder='Email'
                 />
 
@@ -122,7 +121,6 @@ const About = ({ about, contact }) => {
                 <textarea
                   type='text'
                   onChange={(e) => setMsg(e.target.value)}
-                  type='text'
                   placeholder='Meddelande'
                 ></textarea>
                 {messageErrorDisplay}

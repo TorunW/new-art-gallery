@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react/cjs/react.development';
-import { getServerSideProps } from '../pages/admin';
+import { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
