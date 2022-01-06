@@ -1,3 +1,4 @@
+ 
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
 import Gallery from '../components/Gallery';
@@ -5,10 +6,11 @@ import About from '../components/About';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState } from 'react';
-
+import Link from 'next/link';
+ 
 export default function Home({ maingallery, about, contact, initMessages }) {
   const [messages, setMessages] = useState(initMessages);
-
+ 
   async function onSubmitNewMessage(newMessage) {
     const response = await fetch(`${server}/api/messages`, {
       method: 'POST',
@@ -20,7 +22,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
     const newMessages = await response.json();
     setMessages(newMessages);
   }
-
+ 
   return (
     <div className={styles.home}>
       {/* <Head>
@@ -38,40 +40,38 @@ export default function Home({ maingallery, about, contact, initMessages }) {
       />
       <Header />
       <Gallery maingallery={maingallery} />
-
+      <h1>Se alla mina verk</h1>
       <div className={styles.container}>
         <div>
-          <div className={styles.preview}>
-            <img src='/uploads/thumbnail2.jpg' className={styles.firstImg} />
+          <div className={styles.previewT}>
+            <img className={styles.firstImg} />
             <div className={styles.caption}>
               <h2>
-                Se alla <br />
+                <br />
                 <span> tavlor</span>
               </h2>
-              <p>⟶</p> <a href='#'></a>
+              <p>⟶</p> <Link href='/tavlor'></Link>
             </div>
           </div>
         </div>
-        <div className={styles.preview}>
-          <img src='/uploads/thumbnail1.jpg' className={styles.secondImg} />
+        <div className={styles.previewM}>
+          <img className={styles.secondImg} />
           <div className={styles.caption}>
             <h2>
-              Se alla
               <br />
               <span>
                 Betong <br /> &<br /> Mosaik
               </span>
             </h2>
-            <p>⟶</p>
+            <p>⟶</p> <Link href='/betongmosaik'></Link>
           </div>
         </div>
       </div>
-
       <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
     </div>
   );
 }
-
+ 
 export const getServerSideProps = async () => {
   const db = await importDb();
   const maingallery = await db.all('select * from maingallery');

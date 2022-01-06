@@ -91,7 +91,7 @@ const SubGalleryForm = (props) => {
           <select value={type} onChange={(e) => setType(e.target.value)}>
             <option>Välj album</option>
             <option value='tavlor'>Tavlor</option>
-            <option value='betong&mosaik'>Betong & Mosaik</option>
+            <option value='betongmosaik'>Betong & Mosaik</option>
           </select>
         </div>
         <div className={FormStyles.buttonContainer}>

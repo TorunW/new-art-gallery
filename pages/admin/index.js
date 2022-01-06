@@ -70,7 +70,7 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
 
   let sculptureGalleryDisplay = subgallerys.map((subgallery, index) => (
     <div key={index} subgallery={subgallery}>
-      {subgallery.type_of === 'betong&mosaik' ? (
+      {subgallery.type_of === 'betongmosaik' ? (
         <div>
           <p>{subgallery.title}</p>
           <p>{subgallery.price}</p>
