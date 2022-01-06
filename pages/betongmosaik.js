@@ -6,7 +6,7 @@ import SecondGalleryStyles from '../styles/SecondGallery.module.css';
 export default function Betongmosaik({ subgallery }) {
   let galleryImageDisplay = subgallery.map((image, index) => [
     <div key={index} image={image}>
-      {image.type_of === 'betongmosaik' ? (
+      {image.type_of === 'betong&mosaik' ? (
         <>
           <img src={image.picture} />
           <div>

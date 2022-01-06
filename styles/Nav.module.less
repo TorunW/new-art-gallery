@@ -1,21 +1,17 @@
 @media (min-width: 992px) {
   .nav {
     .navContainerHidden {
-      background-color: #20202200;
-      transition: 1s;
+      top: -55px;
+      position: fixed;
     }
     .navContainer {
-      background-color: #202022f3;
-      transition: 1s;
-    }
-    .navContainer,
-    .navContainerHidden {
       list-style: none;
       display: flex;
       margin: 0;
       position: fixed;
       height: 55px;
       width: 100%;
+      background-color: #202022f3;
       margin-top: 0;
       font-family: 'Raleway';
       font-weight: 500;
@@ -57,14 +53,10 @@
 @media (max-width: 991px) {
   .nav {
     .navContainerHidden {
-      opacity: 0.5;
+      top: -55px;
+      position: fixed;
     }
-
     .navContainer {
-      opacity: 1;
-    }
-    .navContainer,
-    .navContainerHidden {
       list-style: none;
       display: flex;
       margin: 0;

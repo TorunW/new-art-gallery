@@ -1,17 +1,3 @@
-.galleryDisplay {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
-  margin-top: 70px;
-  grid-gap: 30px;
-}
-.galleryDisplay .container .imageContainer {
-  height: 400px;
-  width: 300px;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-}
-.galleryDisplay .container .imageContainer img {
-  width: 100%;
+.mosaic img {
+  width: 500px;
 }

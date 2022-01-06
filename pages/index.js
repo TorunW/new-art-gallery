@@ -5,7 +5,6 @@ import About from '../components/About';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState } from 'react';
-import Link from 'next/link';
 
 export default function Home({ maingallery, about, contact, initMessages }) {
   const [messages, setMessages] = useState(initMessages);
@@ -39,33 +38,35 @@ export default function Home({ maingallery, about, contact, initMessages }) {
       />
       <Header />
       <Gallery maingallery={maingallery} />
-      <h1>Se alla mina verk</h1>
+
       <div className={styles.container}>
         <div>
-          <div className={styles.previewT}>
-            <img className={styles.firstImg} />
+          <div className={styles.preview}>
+            <img src='/uploads/thumbnail2.jpg' className={styles.firstImg} />
             <div className={styles.caption}>
               <h2>
-                <br />
+                Se alla <br />
                 <span> tavlor</span>
               </h2>
-              <p>⟶</p> <Link href='/tavlor'></Link>
+              <p>⟶</p> <a href='#'></a>
             </div>
           </div>
         </div>
-        <div className={styles.previewM}>
-          <img className={styles.secondImg} />
+        <div className={styles.preview}>
+          <img src='/uploads/thumbnail1.jpg' className={styles.secondImg} />
           <div className={styles.caption}>
             <h2>
+              Se alla
               <br />
               <span>
                 Betong <br /> &<br /> Mosaik
               </span>
             </h2>
-            <p>⟶</p> <Link href='/betongmosaik'></Link>
+            <p>⟶</p>
           </div>
         </div>
       </div>
+
       <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
     </div>
   );
