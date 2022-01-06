@@ -20,6 +20,7 @@ const Nav = () => {
   }
 
   function onMenuClick(divId) {
+    console.log('click');
     let element = document.getElementById(divId);
     if (element !== null) {
       element.scrollIntoView({ behavior: 'smooth' });
