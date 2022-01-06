@@ -35,11 +35,11 @@ const Nav = () => {
         }
       >
         <div className={navStyles.left}>
-          <a href='/'>Charlotte Hillborg</a>
+          <Link href='/'>Charlotte Hillborg</Link>
         </div>
         <div className={navStyles.right}>
-          <a href='/tavlor'>Tavlor</a>
-          <a href='/betongmosaik'>Betong & Mosaik</a>
+          <Link href='/tavlor'>Tavlor</Link>
+          <Link href='/betongmosaik'>Betong & Mosaik</Link>
           <a onClick={() => onMenuClick('about')}>About</a>
           <a onClick={() => onMenuClick('about')}>Contact</a>
         </div>
@@ -54,11 +54,11 @@ const Nav = () => {
     navbarTypeDisplay = (
       <div className={navStyles.navContainer}>
         <div className={navStyles.left}>
-          <a href='/'>Charlotte Hillborg</a>
+          <Link href='/'>Charlotte Hillborg</Link>
         </div>
         <div className={navStyles.right}>
-          <a href='/tavlor'>Tavlor</a>
-          <a href='/betongmosaik'>Betong & Mosaik</a>
+          <Link href='/tavlor'>Tavlor</Link>
+          <Link href='/betongmosaik'>Betong & Mosaik</Link>
           <a onClick={() => onMenuClick('about')}>About</a>
           <a onClick={() => onMenuClick('about')}>Contact</a>
         </div>
