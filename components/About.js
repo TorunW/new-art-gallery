@@ -9,7 +9,6 @@ const About = ({ about, contact }) => {
   const [msg, setMsg] = useState('');
   const [messageError, setMessageError] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
-
   function onSubmit() {
     if (formValidation()) {
       let newMessage = {

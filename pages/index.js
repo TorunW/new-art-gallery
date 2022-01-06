@@ -38,35 +38,33 @@ export default function Home({ maingallery, about, contact, initMessages }) {
       />
       <Header />
       <Gallery maingallery={maingallery} />
-
+      <h1>Se alla mina verk</h1>
       <div className={styles.container}>
         <div>
-          <div className={styles.preview}>
-            <img src='/uploads/thumbnail2.jpg' className={styles.firstImg} />
+          <div className={styles.previewT}>
+            <img className={styles.firstImg} />
             <div className={styles.caption}>
               <h2>
-                Se alla <br />
+                <br />
                 <span> tavlor</span>
               </h2>
-              <p>⟶</p> <a href='#'></a>
+              <p>⟶</p> <a href='/tavlor'></a>
             </div>
           </div>
         </div>
-        <div className={styles.preview}>
-          <img src='/uploads/thumbnail1.jpg' className={styles.secondImg} />
+        <div className={styles.previewM}>
+          <img className={styles.secondImg} />
           <div className={styles.caption}>
             <h2>
-              Se alla
               <br />
               <span>
                 Betong <br /> &<br /> Mosaik
               </span>
             </h2>
-            <p>⟶</p>
+            <p>⟶</p> <a href='/betongmosaik'></a>
           </div>
         </div>
       </div>
-
       <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
     </div>
   );

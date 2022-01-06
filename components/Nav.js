@@ -1,9 +1,10 @@
 import { useState } from 'react/cjs/react.development';
 import navStyles from '../styles/Nav.module.css';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 const Nav = () => {
   const [navbar, setNavbar] = useState(false);
+  const router = useRouter();
 
   function navbarDisplay() {
     if (window.scrollY >= 80) {
@@ -25,49 +26,44 @@ const Nav = () => {
   }
 
   let navbarTypeDisplay;
-  if (typeof window !== 'undefined') {
-    if (window.location.pathname === '/') {
-      navbarTypeDisplay = (
-        <div
-          className={
-            navbar ? navStyles.navContainer : navStyles.navContainerHidden
-          }
-        >
-          <div className={navStyles.left}>
-            <Link href='/'>Charlotte Hillborg</Link>
-          </div>
-          <div className={navStyles.right}>
-            <Link href='/tavlor'>Tavlor</Link>
-            <Link href='/betong&mosaik'>Betong & Mosaik</Link>
-            <Link onClick={() => onMenuClick('about')}>About</Link>
-            <Link onClick={() => onMenuClick('about')}>Contact</Link>
-          </div>
+
+  if (router.pathname === '/') {
+    navbarTypeDisplay = (
+      <div
+        className={
+          navbar ? navStyles.navContainer : navStyles.navContainerHidden
+        }
+      >
+        <div className={navStyles.left}>
+          <a href='/'>Charlotte Hillborg</a>
         </div>
-      );
-    } else if (window.location.pathname === '/admin') {
-      console.log('This is admin');
-    } else if (
-      window.location.pathname === '/tavlor' ||
-      window.location.pathname === '/betong&mosaik'
-    ) {
-      navbarTypeDisplay = (
-        <div
-          className={
-            navbar ? navStyles.navContainer : navStyles.navContainerHidden
-          }
-        >
-          <div className={navStyles.left}>
-            <Link href='/'>Charlotte Hillborg</Link>
-          </div>
-          <div className={navStyles.right}>
-            <Link href='/tavlor'>Tavlor</Link>
-            <Link href='/betong&mosaik'>Betong & Mosaik</Link>
-            <Link onClick={() => onMenuClick('about')}>About</Link>
-            <Link onClick={() => onMenuClick('about')}>Contact</Link>
-          </div>
+        <div className={navStyles.right}>
+          <a href='/tavlor'>Tavlor</a>
+          <a href='/betongmosaik'>Betong & Mosaik</a>
+          <a onClick={() => onMenuClick('about')}>About</a>
+          <a onClick={() => onMenuClick('about')}>Contact</a>
         </div>
-      );
-    }
+      </div>
+    );
+  } else if (router.pathname === '/admin') {
+    console.log('This is admin');
+  } else if (
+    router.pathname === '/tavlor' ||
+    router.pathname === '/betongmosaik'
+  ) {
+    navbarTypeDisplay = (
+      <div className={navStyles.navContainer}>
+        <div className={navStyles.left}>
+          <a href='/'>Charlotte Hillborg</a>
+        </div>
+        <div className={navStyles.right}>
+          <a href='/tavlor'>Tavlor</a>
+          <a href='/betongmosaik'>Betong & Mosaik</a>
+          <a onClick={() => onMenuClick('about')}>About</a>
+          <a onClick={() => onMenuClick('about')}>Contact</a>
+        </div>
+      </div>
+    );
   }
 
   return <nav className={navStyles.nav}>{navbarTypeDisplay} </nav>;
