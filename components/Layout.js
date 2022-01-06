@@ -3,9 +3,8 @@ import Nav from '../components/Nav';
 const Layout = ({ children }) => {
   return (
     <>
-     <Nav />
+      {/* <Nav /> */}
       <div>
-     
         <main>{children}</main>
       </div>
     </>
