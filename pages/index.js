@@ -24,7 +24,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
 
   return (
     <div className={styles.home}>
-      {/* <Head>
+      {/* {/* <Head>
         <Script
           src='https://kit.fontawesome.com/4eddce3a99.js'
           crossorigin='anonymous'
@@ -42,31 +42,37 @@ export default function Home({ maingallery, about, contact, initMessages }) {
       <h1>Se alla mina verk</h1>
       <div className={styles.container}>
         <div>
-          <div className={styles.previewT}>
-            <img className={styles.firstImg} />
+          <Link href="/tavlor">
+            <div className={styles.previewT}>
+              <img className={styles.firstImg} />
+              <div className={styles.caption}>
+                <h2>
+                  <br />
+                  <span> tavlor</span>
+                </h2>
+                <p>⟶</p>
+              </div>
+            </div>
+          </Link>
+        </div>
+        <Link href="/betongmosaik">
+          <div className={styles.previewM}>
+            <img className={styles.secondImg} />
             <div className={styles.caption}>
               <h2>
                 <br />
-                <span> tavlor</span>
+                <span>
+                  Betong <br /> &<br /> Mosaik
+                </span>
               </h2>
-              <p>⟶</p> <Link href="/tavlor"></Link>
+              <p>⟶</p>
+
+              <span></span>
             </div>
           </div>
-        </div>
-        <div className={styles.previewM}>
-          <img className={styles.secondImg} />
-          <div className={styles.caption}>
-            <h2>
-              <br />
-              <span>
-                Betong <br /> &<br /> Mosaik
-              </span>
-            </h2>
-            <p>⟶</p> <Link href="/betongmosaik"></Link>
-          </div>
-        </div>
+        </Link>
       </div>
-      <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
+      <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />{' '}
     </div>
   );
 }
