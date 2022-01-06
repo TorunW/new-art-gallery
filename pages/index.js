@@ -5,6 +5,7 @@ import About from '../components/About';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home({ maingallery, about, contact, initMessages }) {
   const [messages, setMessages] = useState(initMessages);
@@ -48,7 +49,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
                 <br />
                 <span> tavlor</span>
               </h2>
-              <p>⟶</p> <a href='/tavlor'></a>
+              <p>⟶</p> <Link href='/tavlor'></Link>
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
                 Betong <br /> &<br /> Mosaik
               </span>
             </h2>
-            <p>⟶</p> <a href='/betongmosaik'></a>
+            <p>⟶</p> <Link href='/betongmosaik'></Link>
           </div>
         </div>
       </div>
