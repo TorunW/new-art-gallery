@@ -72,7 +72,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
           </div>
         </Link>
       </div>
-      <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />{' '}
+      <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
     </div>
   );
 }

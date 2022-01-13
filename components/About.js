@@ -1,7 +1,8 @@
 import aboutStyles from '../styles/About.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-const About = ({ about, contact }) => {
+const About = ({ props, about, contact }) => {
   const [fullname, setFullname] = useState('');
   const [fullnameError, setFullnameError] = useState(false);
   const [email, setEmail] = useState('');
@@ -9,6 +10,17 @@ const About = ({ about, contact }) => {
   const [msg, setMsg] = useState('');
   const [messageError, setMessageError] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (messageSent === true) {
+      setTimeout(() => {
+        setMessageSent(false);
+        router.pathname.reload();
+      }, 1000);
+    }
+  }, [messageSent]);
 
   function onSubmit() {
     if (formValidation()) {
@@ -54,19 +66,21 @@ const About = ({ about, contact }) => {
   let fullnameErrorDisplay;
   if (fullnameError === true) {
     fullnameErrorDisplay = (
-      <p className={ContactStyles.error}>Name cannot be empty</p>
+      <p className={aboutStyles.error}>Namn måste vara ifyllt</p>
     );
   }
 
   let emailErrorDisplay;
   if (emailError === true) {
-    emailErrorDisplay = <p className={ContactStyles.error}>Email isnt valid</p>;
+    emailErrorDisplay = (
+      <p className={aboutStyles.error}>E-postadressen är inte giltig</p>
+    );
   }
 
   let messageErrorDisplay;
   if (messageError === true) {
     messageErrorDisplay = (
-      <p className={ContactStyles.error}>Message cannot be empty </p>
+      <p className={aboutStyles.error}>Meddelande kan inte vara tomt</p>
     );
   }
 
@@ -74,15 +88,16 @@ const About = ({ about, contact }) => {
   if (messageSent === true) {
     displaySuccessMessage = (
       <div>
-        <p className={ContactStyles.success}>
-          Thank you for your message, I will contact you as soon as possible!
+        <p className={aboutStyles.success}>
+          Tack för ditt meddelande, jag återkommer med svar så snart som
+          möjligt.
         </p>
       </div>
     );
   }
 
   return (
-    <about id='about' className={aboutStyles.about}>
+    <about id="about" className={aboutStyles.about}>
       <div className={aboutStyles.bgContainer}>
         <div className={aboutStyles.contentContainer}>
           <div className={aboutStyles.aboutContainer}>
@@ -101,17 +116,17 @@ const About = ({ about, contact }) => {
               <div>
                 <input
                   value={fullname}
-                  onChange={(e) => setFullname(e.target.value)}
-                  type='text'
-                  placeholder='Namn'
+                  onChange={e => setFullname(e.target.value)}
+                  type="text"
+                  placeholder="Namn"
                 />
                 {fullnameErrorDisplay}
               </div>
               <div>
                 <input
-                  type='email'
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder='Email'
+                  type="email"
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="Email"
                 />
 
                 {emailErrorDisplay}
@@ -119,15 +134,15 @@ const About = ({ about, contact }) => {
 
               <div>
                 <textarea
-                  type='text'
-                  onChange={(e) => setMsg(e.target.value)}
-                  placeholder='Meddelande'
+                  type="text"
+                  onChange={e => setMsg(e.target.value)}
+                  placeholder="Meddelande"
                 ></textarea>
                 {messageErrorDisplay}
               </div>
 
               <div>
-                <a onClick={onSubmit}>Send message</a>
+                <a onClick={onSubmit}>Skicka meddelande</a>
                 {displaySuccessMessage}
               </div>
             </form>

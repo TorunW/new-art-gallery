@@ -24,6 +24,10 @@ const Nav = () => {
     let element = document.getElementById(divId);
     if (element !== null) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      if (typeof window !== 'undefined') {
+        window.location.href = '/#about';
+      }
     }
   }
 
