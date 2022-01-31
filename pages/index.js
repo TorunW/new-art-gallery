@@ -44,7 +44,6 @@ export default function Home({ maingallery, about, contact, initMessages }) {
         <div>
           <Link href="/tavlor">
             <div className={styles.previewT}>
-              <img className={styles.firstImg} />
               <div className={styles.caption}>
                 <h2>
                   <br />

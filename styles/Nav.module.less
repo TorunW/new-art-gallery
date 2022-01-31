@@ -21,23 +21,23 @@
       font-weight: 500;
       z-index: 10;
       align-items: center;
- 
+
       .left {
         justify-content: left;
         position: absolute;
         left: 50px;
         font-size: 26px;
       }
- 
+
       .right {
         display: flex;
         position: absolute;
         right: 50px;
- 
+
         a {
           margin: 0 10px;
           font-size: 22px;
- 
+
           &:hover {
             transform: scale(1.1);
             color: #fff;
@@ -45,7 +45,7 @@
           }
         }
       }
- 
+
       a {
         text-decoration: none;
         color: var(--white);
@@ -53,13 +53,13 @@
     }
   }
 }
- 
+
 @media (max-width: 991px) {
   .nav {
     .navContainerHidden {
       opacity: 0.5;
     }
- 
+
     .navContainer {
       opacity: 1;
     }
@@ -77,23 +77,23 @@
       font-weight: 500;
       z-index: 10;
       align-items: center;
- 
+
       .left {
         justify-content: left;
         position: absolute;
         left: 30px;
         font-size: 24px;
       }
- 
+
       .right {
         display: flex;
         position: absolute;
         right: 30px;
- 
+
         a {
           margin: 0 10px;
           font-size: 20px;
- 
+
           &:hover {
             transform: scale(1.1);
             color: #fff;
@@ -101,7 +101,7 @@
           }
         }
       }
- 
+
       a {
         text-decoration: none;
         color: var(--white);
@@ -109,9 +109,10 @@
     }
   }
 }
- 
-@media (max-width: 480px) {
+
+@media (max-width: 700px) {
   .nav {
+    width: 100%;
     .navContainerHidden {
       top: -55px;
       position: fixed;
@@ -122,30 +123,24 @@
       grid-template-rows: repeat(2, 1fr);
       margin: 0;
       position: fixed;
-      height: 55px;
-      width: 100%;
+      height: 155px;
+      max-width: 100%;
       background-color: #202022f3;
       margin-top: 0;
       font-family: 'Raleway';
       padding: 15px 0px;
-      font-weight: 500;
       z-index: 10;
- 
+
       .left {
         font-size: 22px;
-        text-align: center;
-        margin-bottom: 7px;
       }
- 
+
       .right {
-        grid-row-start: 2;
-        width: 100%;
-        text-align: center;
         a {
           margin: 10px;
           padding: 0;
           font-size: 18px;
- 
+
           &:hover {
             transform: scale(1.1);
             color: #fff;
@@ -153,7 +148,7 @@
           }
         }
       }
- 
+
       a {
         text-decoration: none;
       }

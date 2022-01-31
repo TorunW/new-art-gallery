@@ -40,7 +40,14 @@ const Nav = () => {
           navbar ? navStyles.navContainer : navStyles.navContainerHidden
         }
       >
-        <div className={navStyles.left}>
+        <div
+          className={navStyles.left}
+          style={
+            router.pathname === '/'
+              ? { fontWeight: '600', opacity: '1' }
+              : { fontWeight: '100' }
+          }
+        >
           <Link href="/">Charlotte Hillborg</Link>
         </div>
         <div className={navStyles.right}>

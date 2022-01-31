@@ -2,21 +2,20 @@ import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
 
 export default function Tavlor({ subgallery }) {
-  console.log(subgallery, 'subgallery');
-
   let galleryImageDisplay = subgallery.map((image, index) => {
     if (image.type_of === 'tavlor') {
       return (
-        <div key={index} className={subgalleryStyles.container}>
-          <div className={subgalleryStyles.imageContainer}>
+        <div key={index}>
+          <figure className={subgalleryStyles.effect}>
             <img src={image.picture} />
-          </div>
-
-          <div>
-            <p>{image.title}</p>
-            <p>{image.price}</p>
-            <p>{image.size}</p>
-          </div>
+            <figcaption>
+              <h2>{image.title}</h2>
+              <div className={subgalleryStyles.description}>
+                <p>Pris: {image.price}kr</p>
+                <p>Storlek: {image.size}</p>
+              </div>
+            </figcaption>
+          </figure>
         </div>
       );
     }
@@ -25,9 +24,7 @@ export default function Tavlor({ subgallery }) {
   return (
     <tavlor>
       <div>gallery images</div>
-      {/* <div className={subgalleryStyles.galleryDisplay}> */}
-      {galleryImageDisplay}
-      {/* </div> */}
+      <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
     </tavlor>
   );
 }
