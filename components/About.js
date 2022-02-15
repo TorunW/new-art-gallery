@@ -141,7 +141,7 @@ const About = ({ props, about, contact }) => {
                 {messageErrorDisplay}
               </div>
 
-              <div>
+              <div className={aboutStyles.submit}>
                 <a onClick={onSubmit}>Skicka meddelande</a>
                 {displaySuccessMessage}
               </div>

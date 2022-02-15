@@ -1,153 +1,105 @@
+.about {
+  font-family: 'raleway';
+}
+.about .bgContainer {
+  background-image: url('../public/uploads/aboutbg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  opacity: 0.7;
+  padding: 20px;
+}
+.about .bgContainer .contentContainer {
+  margin: 0 auto;
+  display: grid;
+  height: auto;
+}
+.about .bgContainer .contentContainer .aboutContainer {
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 20px;
+}
+.about .bgContainer .contentContainer .formContainer {
+  background-color: #22232a80;
+  color: var(--white);
+}
+.about .bgContainer .contentContainer .formContainer input {
+  margin-top: 10px;
+  padding: 10px 0;
+}
+.about .bgContainer .contentContainer .formContainer input,
+.about .bgContainer .contentContainer .formContainer textarea {
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+  font-family: 'raleway';
+  color: var(--white);
+  font-weight: 500;
+}
+.about .bgContainer .contentContainer .formContainer input textarea::-webkit-scrollbar,
+.about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {
+  display: none;
+}
+.about .bgContainer .contentContainer .formContainer .error {
+  margin: 0 0 30px;
+}
+.about .bgContainer .contentContainer .formContainer .submit {
+  margin-top: 20px;
+}
+.about .bgContainer .contentContainer .formContainer .submit a {
+  background: #f5f5f740;
+  color: #fff;
+  border-radius: 7px;
+  padding: 8px 20px 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  margin-top: 16px !important;
+}
+.about .bgContainer .contentContainer .formContainer .submit a:hover {
+  cursor: pointer;
+  color: #afafaf;
+}
 @media (min-width: 992px) {
-  .about {
-    font-family: 'raleway';
-  }
-  .about .bgContainer {
-    background-image: url('../public/uploads/aboutbg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    opacity: 0.7;
-    padding: 20px;
-  }
   .about .bgContainer .contentContainer {
     width: 65%;
-    margin: 0 auto;
-    display: grid;
     grid-template-columns: 1fr 1fr;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
-  .about .bgContainer .contentContainer .aboutContainer {
-    background-color: var(--dark);
-    color: var(--white);
-    padding: 20px;
-  }
   .about .bgContainer .contentContainer .formContainer {
-    background-color: #22232a80;
-    color: var(--white);
     padding: 20px;
-  }
-  .about .bgContainer .contentContainer .formContainer input,
-  .about .bgContainer .contentContainer .formContainer textarea {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 18px;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-    font-family: 'raleway';
-    color: var(--white);
-    font-weight: 500;
-  }
-  .about .bgContainer .contentContainer .formContainer input textarea::-webkit-scrollbar,
-  .about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {
-    display: none;
   }
 }
 @media (max-width: 991px) {
-  .about {
-    font-family: 'raleway';
-  }
-  .about .bgContainer {
-    background-image: url('../public/uploads/aboutbg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    opacity: 0.7;
-    padding: 20px;
-  }
   .about .bgContainer .contentContainer {
     width: 85%;
-    margin: 0 auto;
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  }
-  .about .bgContainer .contentContainer .aboutContainer {
-    background-color: var(--dark);
-    color: var(--white);
-    padding: 20px 40px;
   }
   .about .bgContainer .contentContainer .formContainer {
-    background-color: #22232a80;
-    color: var(--white);
     padding: 20px 40px;
-  }
-  .about .bgContainer .contentContainer .formContainer input,
-  .about .bgContainer .contentContainer .formContainer textarea {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 18px;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-    font-family: 'raleway';
-    color: var(--white);
-    font-weight: 500;
-  }
-  .about .bgContainer .contentContainer .formContainer input textarea::-webkit-scrollbar,
-  .about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {
-    display: none;
   }
 }
 @media (max-width: 580px) {
-  .about {
-    font-family: 'raleway';
-  }
-  .about .bgContainer {
-    background-image: url('../public/uploads/aboutbg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    opacity: 0.7;
-    padding: 20px;
-  }
   .about .bgContainer .contentContainer {
     width: 95%;
-    margin: 0 auto;
-    display: grid;
     height: 100%;
     grid-template-rows: 1fr auto;
     grid-template-columns: 1fr;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
   .about .bgContainer .contentContainer .aboutContainer {
-    background-color: var(--dark);
-    color: var(--white);
-    padding: 20px;
     grid-row-start: 1;
     grid-row-end: 2;
   }
   .about .bgContainer .contentContainer .formContainer {
-    background-color: #22232a80;
-    color: var(--white);
     padding: 20px;
     grid-row-start: 2;
     grid-row-end: 3;
-  }
-  .about .bgContainer .contentContainer .formContainer input,
-  .about .bgContainer .contentContainer .formContainer textarea {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 18px;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-    font-family: 'raleway';
-    color: var(--white);
-    font-weight: 500;
-  }
-  .about .bgContainer .contentContainer .formContainer input textarea::-webkit-scrollbar,
-  .about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {
-    display: none;
   }
 }

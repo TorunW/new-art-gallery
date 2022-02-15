@@ -1,51 +1,91 @@
+.about {
+  font-family: 'raleway';
+
+  .bgContainer {
+    background-image: url('../public/uploads/aboutbg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    opacity: 0.7;
+    padding: 20px;
+
+    .contentContainer {
+      margin: 0 auto;
+      display: grid;
+      height: auto;
+
+      .aboutContainer {
+        background-color: var(--dark);
+        color: var(--white);
+        padding: 20px;
+      }
+
+      .formContainer {
+        background-color: #22232a80;
+        color: var(--white);
+
+        input {
+          margin-top: 10px;
+          padding: 10px 0;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          font-size: 18px;
+          margin-bottom: 10px;
+          border: none;
+          border-bottom: 1px solid #fff;
+          outline: none;
+          background: transparent;
+          font-family: 'raleway';
+          color: var(--white);
+          font-weight: 500;
+          textarea::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        .error {
+          margin: 0 0 30px;
+        }
+
+        .submit {
+          margin-top: 20px;
+          a {
+            background: #f5f5f740;
+            color: #fff;
+            border-radius: 7px;
+            padding: 8px 20px 5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+            letter-spacing: 0.1rem;
+            margin-top: 16px !important;
+
+            &:hover {
+              cursor: pointer;
+              color: rgb(175, 175, 175);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 992px) {
   .about {
-    font-family: 'raleway';
-
     .bgContainer {
-      background-image: url('../public/uploads/aboutbg.jpg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100%;
-      opacity: 0.7;
-      padding: 20px;
-
       .contentContainer {
         width: 65%;
-        margin: 0 auto;
-        display: grid;
         grid-template-columns: 1fr 1fr;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-        .aboutContainer {
-          background-color: var(--dark);
-          color: var(--white);
-          padding: 20px;
-        }
-
         .formContainer {
-          background-color: #22232a80;
-          color: var(--white);
           padding: 20px;
-
-          input,
-          textarea {
-            width: 100%;
-            padding: 10px 0;
-            font-size: 18px;
-            margin-bottom: 30px;
-            border: none;
-            border-bottom: 1px solid #fff;
-            outline: none;
-            background: transparent;
-            font-family: 'raleway';
-            color: var(--white);
-            font-weight: 500;
-            textarea::-webkit-scrollbar {
-              display: none;
-            }
-          }
         }
       }
     }
@@ -54,52 +94,13 @@
 
 @media (max-width: 991px) {
   .about {
-    font-family: 'raleway';
-
     .bgContainer {
-      background-image: url('../public/uploads/aboutbg.jpg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100%;
-      opacity: 0.7;
-      padding: 20px;
-
       .contentContainer {
         width: 85%;
-        margin: 0 auto;
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-
-        .aboutContainer {
-          background-color: var(--dark);
-          color: var(--white);
-          padding: 20px 40px;
-        }
 
         .formContainer {
-          background-color: #22232a80;
-          color: var(--white);
           padding: 20px 40px;
-
-          input,
-          textarea {
-            width: 100%;
-            padding: 10px 0;
-            font-size: 18px;
-            margin-bottom: 30px;
-            border: none;
-            border-bottom: 1px solid #fff;
-            outline: none;
-            background: transparent;
-            font-family: 'raleway';
-            color: var(--white);
-            font-weight: 500;
-            textarea::-webkit-scrollbar {
-              display: none;
-            }
-          }
         }
       }
     }
@@ -108,59 +109,22 @@
 
 @media (max-width: 580px) {
   .about {
-    font-family: 'raleway';
-
     .bgContainer {
-      background-image: url('../public/uploads/aboutbg.jpg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100%;
-      opacity: 0.7;
-      padding: 20px;
-
       .contentContainer {
         width: 95%;
-        margin: 0 auto;
-        display: grid;
         height: 100%;
         grid-template-rows: 1fr auto;
         grid-template-columns: 1fr;
 
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-
         .aboutContainer {
-          background-color: var(--dark);
-          color: var(--white);
-          padding: 20px;
           grid-row-start: 1;
           grid-row-end: 2;
         }
 
         .formContainer {
-          background-color: #22232a80;
-          color: var(--white);
           padding: 20px;
           grid-row-start: 2;
           grid-row-end: 3;
-
-          input,
-          textarea {
-            width: 100%;
-            padding: 10px 0;
-            font-size: 18px;
-            margin-bottom: 30px;
-            border: none;
-            border-bottom: 1px solid #fff;
-            outline: none;
-            background: transparent;
-            font-family: 'raleway';
-            color: var(--white);
-            font-weight: 500;
-            textarea::-webkit-scrollbar {
-              display: none;
-            }
-          }
         }
       }
     }
