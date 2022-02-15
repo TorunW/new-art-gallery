@@ -1,30 +1,29 @@
-// import { server } from '../config/server';
 import { importDb } from '../config/db';
-// import { useState } from 'react';
-import SecondGalleryStyles from '../styles/SecondGallery.module.css';
+import subgalleryStyles from '../styles/SecondGallery.module.css';
 
 export default function Betongmosaik({ subgallery }) {
-  let galleryImageDisplay = subgallery.map((image, index) => [
-    <div key={index} image={image}>
-      {image.type_of === 'skulpturer' ? (
-        <>
-          <img src={image.picture} />
-          <div>
-            <p>{image.title}</p>
-            <p>{image.price}</p>
-            <p>{image.size}</p>
-          </div>
-        </>
-      ) : (
-        ''
-      )}
-    </div>,
-  ]);
+  let galleryImageDisplay = subgallery.map((image, index) => {
+    if (image.type_of === 'skulpturer') {
+      return (
+        <div key={index}>
+          <figure className={subgalleryStyles.effect}>
+            <img src={image.picture} />
+            <figcaption>
+              <h2>{image.title}</h2>
+              <div className={subgalleryStyles.description}>
+                <p>{image.price}</p>
+                <p>{image.size}</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      );
+    }
+  });
 
   return (
-    <betongmosaik className={SecondGalleryStyles.mosaic}>
-      <div>gallery images</div>
-      {galleryImageDisplay}
+    <betongmosaik>
+      <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
     </betongmosaik>
   );
 }

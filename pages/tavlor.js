@@ -11,8 +11,8 @@ export default function Tavlor({ subgallery }) {
             <figcaption>
               <h2>{image.title}</h2>
               <div className={subgalleryStyles.description}>
-                <p>Pris: {image.price}kr</p>
-                <p>Storlek: {image.size}</p>
+                <p>{image.price}</p>
+                <p>{image.size}</p>
               </div>
             </figcaption>
           </figure>
@@ -23,7 +23,6 @@ export default function Tavlor({ subgallery }) {
 
   return (
     <tavlor>
-      <div>gallery images</div>
       <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
     </tavlor>
   );
