@@ -1,11 +1,22 @@
 import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
+import galleryStyles from '../styles/Gallery.module.css';
+import CloseIcon from '@material-ui/icons/Close';
+import { useState } from 'react';
 
 export default function Tavlor({ subgallery }) {
+  const [modal, setModal] = useState(false);
+  const [tempimgSrc, setTempimgSrc] = useState('');
+
+  function getImg(picture) {
+    setTempimgSrc(picture);
+    setModal(true);
+  }
+
   let galleryImageDisplay = subgallery.map((image, index) => {
     if (image.type_of === 'tavlor') {
       return (
-        <div key={index}>
+        <div key={index} onClick={() => getImg(image.picture)}>
           <figure className={subgalleryStyles.effect}>
             <img src={image.picture} />
             <figcaption>
@@ -23,7 +34,19 @@ export default function Tavlor({ subgallery }) {
 
   return (
     <tavlor>
-      <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
+      <div
+        className={modal ? subgalleryStyles.modalOpen : subgalleryStyles.modal}
+      >
+        <img src={tempimgSrc} />
+        <CloseIcon onClick={() => setModal(false)} />
+      </div>
+      <div
+        className={
+          modal ? subgalleryStyles.galleryBlur : subgalleryStyles.gallery
+        }
+      >
+        <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
+      </div>
     </tavlor>
   );
 }

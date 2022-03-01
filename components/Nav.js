@@ -53,8 +53,8 @@ const Nav = () => {
         <div className={navStyles.right}>
           <Link href="/tavlor">Tavlor</Link>
           <Link href="/betongmosaik">Betong & Mosaik</Link>
-          <a onClick={() => onMenuClick('about')}>About</a>
-          <a onClick={() => onMenuClick('about')}>Contact</a>
+          <a onClick={() => onMenuClick('about')}>Om mig</a>
+          <a onClick={() => onMenuClick('about')}>Kontakt</a>
         </div>
       </div>
     );
