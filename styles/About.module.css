@@ -1,6 +1,3 @@
-.about {
-  font-family: 'raleway';
-}
 .about .bgContainer {
   background-image: url('../public/uploads/aboutbg.jpg');
   background-position: center;
@@ -37,9 +34,9 @@
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
-  font-family: 'raleway';
   color: var(--white);
   font-weight: 500;
+  font-family: 'Dosis';
 }
 .about .bgContainer .contentContainer .formContainer input textarea::-webkit-scrollbar,
 .about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {

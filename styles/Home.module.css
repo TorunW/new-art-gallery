@@ -1,7 +1,6 @@
 .home h1 {
   padding-top: 30px;
   text-align: center;
-  font-family: 'Raleway';
   font-weight: 700;
   text-transform: uppercase;
   background-color: var(--white);
@@ -15,7 +14,6 @@
   grid-gap: 40px;
   padding: 20px 80px 40px;
   text-align: center;
-  font-family: 'Raleway';
   font-weight: 700;
   font-size: 30px;
   text-transform: uppercase;
@@ -29,7 +27,6 @@
     grid-gap: 40px;
     padding: 30px 20px;
     text-align: center;
-    font-family: 'Raleway';
     font-weight: 700;
     font-size: 30px;
     text-transform: uppercase;
@@ -45,7 +42,6 @@
     grid-gap: 40px;
     padding: 20px 40px 40px;
     text-align: center;
-    font-family: 'Raleway';
     font-weight: 700;
     font-size: 30px;
     text-transform: uppercase;
@@ -55,7 +51,6 @@
 
 .previewT {
   background: url('/uploads/thumbnail2.jpg');
-  font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -68,7 +63,6 @@
 }
 .previewM {
   background: url('/uploads/thumbnail1.JPG');
-  font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
   position: relative;
   overflow: hidden;

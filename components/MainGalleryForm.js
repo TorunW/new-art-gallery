@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
-import Link from 'next/link';
 
-const MainGalleryForm = (props) => {
+const MainGalleryForm = props => {
   const maingallery = props.maingallery;
-  const subgallery = props.subgallery;
   const [picture, setPicture] = useState(
     maingallery ? maingallery.picture : ''
   );
@@ -71,11 +69,11 @@ const MainGalleryForm = (props) => {
           <a onClick={() => setIsSubmitted(true)}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
-          {props.type === 'edit' ? (
+          {/* {props.type === 'edit' ? (
             <Link href='/admin'>Tillbaka till admin</Link>
           ) : (
             ''
-          )}
+          )} */}
         </div>
       </div>
     </maingalleryform>

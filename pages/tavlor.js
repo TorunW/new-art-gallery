@@ -1,6 +1,5 @@
 import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
-import galleryStyles from '../styles/Gallery.module.css';
 import CloseIcon from '@material-ui/icons/Close';
 import { useState } from 'react';
 
@@ -22,8 +21,16 @@ export default function Tavlor({ subgallery }) {
             <figcaption>
               <h2>{image.title}</h2>
               <div className={subgalleryStyles.description}>
-                <p>{image.price}</p>
-                <p>{image.size}</p>
+                <p>
+                  {image.price ? 'Pris: ' : ''}
+                  {image.price}
+                  {image.price ? ' kr' : ''}
+                </p>
+                <p>
+                  {image.size ? 'Storlek: ' : ''}
+                  {image.size}
+                  {image.size ? ' cm' : ''}
+                </p>
               </div>
             </figcaption>
           </figure>

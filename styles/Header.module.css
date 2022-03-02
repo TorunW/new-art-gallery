@@ -1,6 +1,3 @@
-.header {
-  font-family: 'raleway';
-}
 .header .bg {
   position: relative;
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%), url(../public/uploads/bg.jpg) no-repeat;

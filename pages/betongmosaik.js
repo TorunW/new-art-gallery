@@ -1,20 +1,11 @@
 import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
-import CloseIcon from '@material-ui/icons/Close';
-import galleryStyles from '../styles/Gallery.module.css';
 import { useState } from 'react';
+import EmblaCarousel from './EmblaCarousel';
 
 export default function Betongmosaik({ subgallery }) {
-  const [modal, setModal] = useState(false);
-  const [tempimgSrc, setTempimgSrc] = useState('');
-
-  function getImg(picture) {
-    setTempimgSrc(picture);
-    setModal(true);
-  }
-
   let galleryImageDisplay = subgallery.map((image, index) => {
-    if (image.type_of === 'skulpturer') {
+    if (image.type_of === 'betongmosaik') {
       return (
         <div key={index}>
           <figure className={subgalleryStyles.effect}>
@@ -22,8 +13,16 @@ export default function Betongmosaik({ subgallery }) {
             <figcaption>
               <h2>{image.title}</h2>
               <div className={subgalleryStyles.description}>
-                <p>{image.price}</p>
-                <p>{image.size}</p>
+                <p>
+                  {image.price ? 'Pris: ' : ''}
+                  {image.price}
+                  {image.price ? ' kr' : ''}
+                </p>
+                <p>
+                  {image.size ? 'Storlek:' : ''}
+                  {image.size}
+                  {image.size ? ' cm' : ''}
+                </p>
               </div>
             </figcaption>
           </figure>
@@ -34,22 +33,7 @@ export default function Betongmosaik({ subgallery }) {
 
   return (
     <betongmosaik>
-      <div
-        className={modal ? subgalleryStyles.modalOpen : subgalleryStyles.modal}
-      >
-        <img src={tempimgSrc} />
-        <CloseIcon onClick={() => setModal(false)} />
-      </div>
-
-      <div className={subgalleryStyles.grid}>
-        <div
-          className={
-            modal ? subgalleryStyles.galleryBlur : subgalleryStyles.gallery
-          }
-        >
-          {galleryImageDisplay}
-        </div>
-      </div>
+      <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
     </betongmosaik>
   );
 }

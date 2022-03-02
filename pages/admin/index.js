@@ -71,7 +71,7 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
   let sculptureGalleryDisplay = subgallerys.map((subgallery, index) => (
     <div key={index} subgallery={subgallery}>
       {subgallery.type_of === 'betongmosaik' ? (
-        <div>
+        <div className={AdminStyles.itemContainer}>
           <p>{subgallery.title}</p>
           <p>{subgallery.price}</p>
           <img src={subgallery.picture} />
@@ -116,7 +116,7 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
                     >
                       Radera
                     </a>
-                    <a href={`admin/maingallery/${maingallery.id}`}>Ändra</a>
+                    {/* <a href={`admin/maingallery/${maingallery.id}`}>Ändra</a> */}
                   </div>
                 </div>
               ))}
@@ -124,13 +124,13 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
           </div>
 
           <div className={AdminStyles.thirdRow}>
-            <div>tavlor</div>
+            <h2>tavlor</h2>
             <div className={AdminStyles.gallery}>{paintingsGalleryDisplay}</div>
           </div>
 
           <div className={AdminStyles.fourthRow}>
-            <div>Mosaik & Betong</div>
-            <div>{sculptureGalleryDisplay}</div>
+            <h2>Mosaik & Betong</h2>
+            <div className={AdminStyles.gallery}>{sculptureGalleryDisplay}</div>
           </div>
 
           <div className={AdminStyles.fifthRow}>
