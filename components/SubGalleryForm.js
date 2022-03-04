@@ -14,6 +14,8 @@ const SubGalleryForm = props => {
   const [update, setUpdate] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  console.log(update);
+
   useEffect(() => {
     if (isSubmitted === true) {
       onSubmit();
@@ -72,6 +74,7 @@ const SubGalleryForm = props => {
           image={picture}
           onSetImage={setPicture}
           isSubmitted={isSubmitted}
+          type={props.type === 'edit' ? 'edit' : 'add'}
         />
         <div className={FormStyles.inputContainer}>
           <div className={FormStyles.title}>namn</div>
@@ -100,7 +103,11 @@ const SubGalleryForm = props => {
           </select>
         </div>
         <div className={FormStyles.buttonContainer}>
-          <a onClick={() => setIsSubmitted(true)}>
+          <a
+            onClick={
+              props.type !== 'edit' ? () => setIsSubmitted(true) : onSubmit
+            }
+          >
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (

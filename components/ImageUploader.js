@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
+import SubGalleryForm from './SubGalleryForm';
 
 export default function ImageUploader(props) {
   const [image, setImage] = useState(props.image);
   const [createObjectURL, setCreatedObjectURL] = useState(null);
 
+  console.log(props.image);
+
   useEffect(() => {
-    if (props.isSubmitted === true) {
+    if (props.isSubmitted === true && props.type !== 'edit') {
       uploadToServer();
     }
   }, [props.isSubmitted]);
 
-  const uploadToClient = (event) => {
+  const uploadToClient = event => {
     if (event.target.files && event.target.files[0]) {
       const i = event.target.files[0];
       setImage(i);
@@ -20,7 +23,7 @@ export default function ImageUploader(props) {
     }
   };
 
-  const uploadToServer = async (event) => {
+  const uploadToServer = async event => {
     const body = new FormData();
     body.append('file', image);
     const response = await fetch('/api/file', {
@@ -48,7 +51,7 @@ export default function ImageUploader(props) {
       <div className={FormStyles.imageUploader}>
         {imageDisplay}
 
-        <input type='file' name='myImage' onChange={uploadToClient} />
+        <input type="file" name="myImage" onChange={uploadToClient} />
       </div>
       {/* <div className={FormStyles.buttonContainer}>
         <a type='submit' onClick={uploadToServer}>
