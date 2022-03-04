@@ -1,7 +1,6 @@
 import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
 import { useState } from 'react';
-import EmblaCarousel from './EmblaCarousel';
 
 export default function Betongmosaik({ subgallery }) {
   let galleryImageDisplay = subgallery.map((image, index) => {

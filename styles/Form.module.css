@@ -13,6 +13,45 @@
   padding: 20px;
   color: var(--middle-grey);
   border-radius: 5px;
+  height: auto;
+}
+.form .container .imageUploader {
+  background-color: rgba(122, 122, 122, 0.116);
+  border-radius: 5px;
+  border-style: none;
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+.form .container .imageUploader h4 {
+  z-index: 1;
+  position: absolute;
+  text-transform: uppercase;
+  color: #666;
+  top: 50%;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+.form .container .imageUploader input {
+  opacity: 0;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.form .container .imageUploader .img {
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 .form .container .inputContainer {
   display: grid;
@@ -53,7 +92,48 @@
 .form .container select:focus::-ms-value {
   background-color: transparent;
 }
-.form .container .imageUploader {
+.form .container .buttonContainer {
+  text-align: right;
+  margin-top: 25px;
+}
+.form .container .buttonContainer a {
+  background: #f5f5f740;
+  color: #fff;
+  border-radius: 7px;
+  padding: 8px 20px 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 10px;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+.form .container .buttonContainer a:hover {
+  transform: scale(1.1);
+  color: rgba(255, 255, 255, 0.534);
+}
+.edit {
+  padding: 40px 40px;
+  background-color: var(--admin-middle);
+}
+.edit .form {
+  color: var(--admin-white);
+  letter-spacing: 0.1rem;
+  margin: 0 auto;
+}
+.edit .form .h2 {
+  text-align: left;
+}
+.edit .form .container {
+  background: #283337;
+  background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
+  padding: 20px;
+  color: var(--middle-grey);
+  border-radius: 5px;
+  height: auto;
+}
+.edit .form .container .imageUploader {
   background-color: rgba(122, 122, 122, 0.116);
   border-radius: 5px;
   border-style: none;
@@ -61,7 +141,7 @@
   width: 100%;
   height: 200px;
 }
-.form .container .imageUploader h4 {
+.edit .form .container .imageUploader h4 {
   z-index: 1;
   position: absolute;
   text-transform: uppercase;
@@ -71,7 +151,7 @@
   width: 100%;
   text-align: center;
 }
-.form .container .imageUploader input {
+.edit .form .container .imageUploader input {
   opacity: 0;
   height: 100%;
   z-index: 2;
@@ -81,7 +161,7 @@
   top: 0;
   left: 0;
 }
-.form .container .imageUploader .img {
+.edit .form .container .imageUploader .img {
   height: 100%;
   z-index: 10;
   position: absolute;
@@ -91,7 +171,63 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
-.form .container .buttonContainer {
+.edit .form .container .inputContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 20px;
+  grid-gap: 15px;
+  margin-bottom: 25px;
+}
+.edit .form .container .inputContainer .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.edit .form .container .inputContainer .input,
+.edit .form .container .inputContainer select {
+  border-style: none;
+  height: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--admin-white);
+  background-color: #3d4045;
+  letter-spacing: 0.1rem;
+  padding-left: 5px;
+}
+.edit .form .container select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  -moz-padding-start: calc(10px - 3px);
+  cursor: pointer;
+}
+.edit .form .container select option {
+  color: #8b8b8b;
+}
+.edit .form .container select::-ms-expand {
+  display: none;
+}
+.edit .form .container select:focus::-ms-value {
+  background-color: transparent;
+}
+.edit .form .container .buttonContainer {
   text-align: right;
   margin-top: 25px;
+}
+.edit .form .container .buttonContainer a {
+  background: #f5f5f740;
+  color: #fff;
+  border-radius: 7px;
+  padding: 8px 20px 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 10px;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+.edit .form .container .buttonContainer a:hover {
+  transform: scale(1.1);
+  color: rgba(255, 255, 255, 0.534);
 }

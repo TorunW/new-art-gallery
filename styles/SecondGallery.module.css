@@ -1,9 +1,9 @@
 .grid {
   display: grid;
   position: relative;
-  margin: 0px 20px;
+  padding: 60px 20px;
   grid-gap: 20px;
-  padding-top: 60px;
+  background-color: #f8f8f8;
 }
 .grid figure {
   position: relative;

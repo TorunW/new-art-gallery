@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
-import Link from 'next/link';
 
-const SubGalleryForm = (props) => {
+const SubGalleryForm = props => {
   const subgallery = props.subgallery;
   const [title, setTitle] = useState(subgallery ? subgallery.title : '');
   const [price, setPrice] = useState(subgallery ? subgallery.price : '');
@@ -60,7 +59,12 @@ const SubGalleryForm = (props) => {
 
   return (
     <subgalleryform className={FormStyles.form}>
-      <h2 className={FormStyles.h2}>Lägg till bild i album:</h2>
+      {props.type === 'edit' ? (
+        ''
+      ) : (
+        <h2 className={FormStyles.h2}>Lägg till bild i album:</h2>
+      )}
+
       <div className={FormStyles.container}>
         <ImageUploader
           className={FormStyles.imageUploader}
@@ -73,25 +77,25 @@ const SubGalleryForm = (props) => {
           <input
             className={FormStyles.input}
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={e => setTitle(e.target.value)}
           />
           <div className={FormStyles.title}>pris</div>
           <input
             className={FormStyles.input}
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={e => setPrice(e.target.value)}
           />
           <div className={FormStyles.title}>storlek</div>
           <input
             className={FormStyles.input}
             value={size}
-            onChange={(e) => setSize(e.target.value)}
+            onChange={e => setSize(e.target.value)}
           />
           <div className={FormStyles.title}>Kategori</div>
-          <select value={type} onChange={(e) => setType(e.target.value)}>
+          <select value={type} onChange={e => setType(e.target.value)}>
             <option>Välj album</option>
-            <option value='tavlor'>Tavlor</option>
-            <option value='betongmosaik'>Betong & Mosaik</option>
+            <option value="tavlor">Tavlor</option>
+            <option value="betongmosaik">Betong & Mosaik</option>
           </select>
         </div>
         <div className={FormStyles.buttonContainer}>
@@ -99,7 +103,7 @@ const SubGalleryForm = (props) => {
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (
-            <Link href='/admin'>Tillbaka till admin</Link>
+            <a href="/admin">Tillbaka till admin</a>
           ) : (
             ''
           )}

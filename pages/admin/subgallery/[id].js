@@ -1,5 +1,6 @@
 import { importDb } from '../../../config/db';
 import SubGalleryForm from '../../../components/SubGalleryForm';
+import FormStyles from '../../../styles/Form.module.css';
 
 const subGalleryView = ({ subgallery }) => {
   async function onSave(res) {
@@ -7,7 +8,7 @@ const subGalleryView = ({ subgallery }) => {
   }
 
   return (
-    <div>
+    <div className={FormStyles.edit}>
       <div>
         <SubGalleryForm
           type={'edit'}
@@ -21,7 +22,7 @@ const subGalleryView = ({ subgallery }) => {
 
 export default subGalleryView;
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async context => {
   const db = await importDb();
   const subgallery = await db.get('select * from subgallery where id = ?', [
     context.params.id,
