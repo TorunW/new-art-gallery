@@ -1,7 +1,6 @@
 import galleryStyles from '../styles/Gallery.module.css';
 import Lightbox from './Lightbox';
 import { useState } from 'react';
-import { SRLWrapper } from 'simple-react-lightbox';
 
 const MainGallery = ({ maingallery }) => {
   // const [clickedImg, setClickedImg] = useState(null);
@@ -51,20 +50,19 @@ const MainGallery = ({ maingallery }) => {
 
   return (
     <div className={galleryStyles.gallery}>
-      <SRLWrapper>
-        <div className={galleryStyles.grid}>
-          {maingallery.map((item, index) => {
-            return (
-              <div className={galleryStyles.wrapper} key={index}>
-                <img
-                  src={item.picture}
-                  style={{ width: '100%' }}
-                  // onClick={() => handleClick(item, index)}
-                />
-              </div>
-            );
-          })}
-          {/* {clickedImg && (
+      <div className={galleryStyles.grid}>
+        {maingallery.map((item, index) => {
+          return (
+            <div className={galleryStyles.wrapper} key={index}>
+              <img
+                src={item.picture}
+                style={{ width: '100%' }}
+                // onClick={() => handleClick(item, index)}
+              />
+            </div>
+          );
+        })}
+        {/* {clickedImg && (
           <Lightbox
             clickedImg={clickedImg}
             handelRightClick={handelRightClick}
@@ -72,8 +70,7 @@ const MainGallery = ({ maingallery }) => {
             handelLeftClick={handelLeftClick}
           />
         )} */}
-        </div>
-      </SRLWrapper>
+      </div>
     </div>
   );
 };
