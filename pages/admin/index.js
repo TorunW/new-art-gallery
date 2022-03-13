@@ -12,8 +12,6 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
   //   const [about, setAbout] = useState(initAbout);
   const [update, setUpdate] = useState(false);
 
-  // console.log(initSubGallerys[1].title);
-
   useEffect(() => {
     if (update === true) {
       setTimeout(() => {
@@ -47,57 +45,43 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
     setUpdate(true);
   }
 
-  let paintingsGalleryDisplay = subgallerys.map((subgallery, index) => (
-    <div key={index} subgallery={subgallery}>
-      {subgallery.type_of === 'tavlor' ? (
-        <div className={AdminStyles.itemContainer}>
-          <p>{subgallery.title}</p>
-          <p>{subgallery.price}</p>
-          <img src={subgallery.picture} />
-          <p>{subgallery.size}</p>
+  let tavlorDisplay = subgallerys.map((item, index) => {
+    if (item.type_of === 'tavlor') {
+      return (
+        <div key={index} item={item} className={AdminStyles.itemContainer}>
+          <p>{item.title}</p>
+          <img src={item.picture} />
+          <p>{item.price}</p>
+          <p>{item.size}</p>
           <div>
-            <a onClick={() => onDeleteSubGalleryPicture(subgallery.id)}>
-              Ta bort
-            </a>
-            <a href={`admin/subgallery/${subgallery.id}`}>Ändra</a>
+            <a onClick={() => onDeleteSubGalleryPicture(item.id)}>Ta bort</a>
+            <a href={`admin/subgallery/${item.id}`}>Ändra</a>
           </div>
         </div>
-      ) : (
-        ''
-      )}
-    </div>
-  ));
+      );
+    }
+  });
 
-  let sculptureGalleryDisplay = subgallerys.map((subgallery, index) => (
-    <div key={index} subgallery={subgallery}>
-      {subgallery.type_of === 'betongmosaik' ? (
-        <div className={AdminStyles.itemContainer}>
-          <p>{subgallery.title}</p>
-          <p>{subgallery.price}</p>
-          <img src={subgallery.picture} />
-          <p>{subgallery.size}</p>
+  let betongmosaikDisplay = subgallerys.map((item, index) => {
+    if (item.type_of === 'betongmosaik') {
+      return (
+        <div key={index} item={item} className={AdminStyles.itemContainer}>
+          <p>{item.title}</p>
+          <img src={item.picture} />
+          <p>{item.price}</p>
+          <p>{item.size}</p>
           <div>
-            <a onClick={() => onDeleteSubGalleryPicture(subgallery.id)}>
-              Radera
-            </a>
-            <a href={`admin/subgallery/${subgallery.id}`}>Ändra</a>
+            <a onClick={() => onDeleteSubGalleryPicture(item.id)}>Ta bort</a>
+            <a href={`admin/subgallery/${item.id}`}>Ändra</a>
           </div>
         </div>
-      ) : (
-        ''
-      )}
-    </div>
-  ));
+      );
+    }
+  });
 
   return (
     <admin>
       <div className={AdminStyles.admin}>
-        {/* <Head>
-          <script
-            src='https://kit.fontawesome.com/4eddce3a99.js'
-            crossorigin='anonymous'
-          ></script>
-        </Head> */}
         <div className={AdminStyles.sectionContainer}>
           <div className={AdminStyles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
@@ -116,7 +100,6 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
                     >
                       Radera
                     </a>
-                    {/* <a href={`admin/maingallery/${maingallery.id}`}>Ändra</a> */}
                   </div>
                 </div>
               ))}
@@ -125,12 +108,11 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
 
           <div className={AdminStyles.thirdRow}>
             <h2>tavlor</h2>
-            <div className={AdminStyles.gallery}>{paintingsGalleryDisplay}</div>
+            <div className={AdminStyles.gallery}>{tavlorDisplay}</div>
           </div>
-
           <div className={AdminStyles.fourthRow}>
             <h2>Mosaik & Betong</h2>
-            <div className={AdminStyles.gallery}>{sculptureGalleryDisplay}</div>
+            <div className={AdminStyles.gallery}>{betongmosaikDisplay}</div>
           </div>
 
           <div className={AdminStyles.fifthRow}>

@@ -14,6 +14,7 @@ export default function Tavlor({ subgallery }) {
 
   let galleryImageDisplay = subgallery.map((image, index) => {
     if (image.type_of === 'tavlor') {
+      console.log(image.id);
       return (
         <div key={index} onClick={() => getImg(image.picture)}>
           <figure className={subgalleryStyles.effect}>

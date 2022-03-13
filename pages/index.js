@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
-import Gallery from '../components/Gallery';
+import MainGallery from '../components/MainGallery';
 import About from '../components/About';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
@@ -38,7 +38,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
         referrerPolicy="no-referrer"
       />
       <Header />
-      <Gallery maingallery={maingallery} />
+      <MainGallery maingallery={maingallery} />
       <h1>Se alla mina verk</h1>
       <div className={styles.container}>
         <div>

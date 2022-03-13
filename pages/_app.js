@@ -1,10 +1,13 @@
 import '../styles/globals.css';
 import Layout from '../components/Layout';
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
-      <Component {...pageProps} />
+      <SimpleReactLightbox>
+        <Component {...pageProps} />
+      </SimpleReactLightbox>
     </Layout>
   );
 }
