@@ -39,6 +39,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
       />
       <Header />
       <MainGallery maingallery={maingallery} />
+
       <h1>Se alla mina verk</h1>
       <div className={styles.container}>
         <div>

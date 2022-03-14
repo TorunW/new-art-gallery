@@ -1,55 +1,80 @@
 import galleryStyles from '../styles/Gallery.module.css';
-import Lightbox from './Lightbox';
+import lightboxStyles from '../styles/Lightbox.module.css';
 import { useState } from 'react';
+import {
+  AiOutlineClose,
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+} from 'react-icons/ai';
 
 const MainGallery = ({ maingallery }) => {
-  // const [clickedImg, setClickedImg] = useState(null);
-  // const [currentIndex, setCurrentIndex] = useState(null);
-  // console.log(currentIndex, 'click');
-  // const handleClick = (item, index) => {
-  //   setCurrentIndex(index);
-  //   setClickedImg(item.picture);
-  // };
+  const [imgSlider, setimgSlider] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // const handelRightClick = () => {
-  //   const totalLength = maingallery.length;
+  function imgDisplay(index) {
+    setCurrentIndex(index);
+    setimgSlider(true);
+  }
 
-  //   if (currentIndex + 1 >= totalLength) {
-  //     setCurrentIndex(0);
-  //     const newUrl = maingallery[0].link;
-  //     setClickedImg(newUrl);
-  //     return;
-  //   }
-  //   const newIndex = currentIndex + 1;
-  //   const newUrl = maingallery.filter(item => {
-  //     return maingallery.indexOf(item) === newIndex;
-  //   });
-  //   const newItem = newUrl[0].link;
-  //   setClickedImg(newItem);
-  //   setCurrentIndex(newIndex);
-  // };
+  function nextImg() {
+    const nextIndex = currentIndex + 1;
+    const maxIndex = maingallery.length - 1;
+    const minIndex = 0;
 
-  // console.log(maingallery.indexOf(maingallery.picture));
+    if (nextIndex > maxIndex) {
+      setCurrentIndex(minIndex);
+    } else {
+      const newIndex = nextIndex;
+      setCurrentIndex(newIndex);
+    }
+  }
 
-  // const handelLeftClick = () => {
-  //   const totalLength = maingallery.length;
-  //   if (currentIndex === 0) {
-  //     setCurrentIndex(totalLength - 1);
-  //     const newUrl = maingallery[totalLength - 1].link;
-  //     setClickedImg(newUrl);
-  //     return;
-  //   }
-  //   const newIndex = currentIndex - 1;
-  //   const newUrl = maingallery.filter(item => {
-  //     return maingallery.indexOf(item) === newIndex;
-  //   });
-  //   const newItem = newUrl[0].link;
-  //   setClickedImg(newItem);
-  //   setCurrentIndex(newIndex);
-  // };
+  function prevImg() {
+    const prevIndex = currentIndex - 1;
+    const minIndex = 0;
+    const maxIndex = maingallery.length - 1;
+
+    if (prevIndex < minIndex) {
+      setCurrentIndex(maxIndex);
+    } else {
+      setCurrentIndex(prevIndex);
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('keydown', function (e) {
+      if (e.keyCode === 37) {
+        console.log('left');
+        prevImg(e);
+      } else if (e.keyCode === 39) {
+        console.log('right');
+        nextImg(e);
+      }
+    });
+  }
 
   return (
     <div className={galleryStyles.gallery}>
+      <div
+        className={
+          imgSlider ? lightboxStyles.lightboxOpen : lightboxStyles.lightboxClose
+        }
+      >
+        <AiOutlineClose
+          className={lightboxStyles.closeBtn}
+          onClick={() => setimgSlider(false)}
+        />
+        <img src={maingallery[currentIndex].picture} />
+        <AiOutlineArrowLeft
+          className={lightboxStyles.leftBtn}
+          onClick={() => prevImg()}
+        />
+
+        <AiOutlineArrowRight
+          className={lightboxStyles.rightBtn}
+          onClick={() => nextImg()}
+        />
+      </div>
       <div className={galleryStyles.grid}>
         {maingallery.map((item, index) => {
           return (
@@ -57,19 +82,11 @@ const MainGallery = ({ maingallery }) => {
               <img
                 src={item.picture}
                 style={{ width: '100%' }}
-                // onClick={() => handleClick(item, index)}
+                onClick={() => imgDisplay(index)}
               />
             </div>
           );
         })}
-        {/* {clickedImg && (
-          <Lightbox
-            clickedImg={clickedImg}
-            handelRightClick={handelRightClick}
-            setClickedImg={setClickedImg}
-            handelLeftClick={handelLeftClick}
-          />
-        )} */}
       </div>
     </div>
   );
