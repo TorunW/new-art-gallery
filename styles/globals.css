@@ -91,11 +91,12 @@
 }
 
 html,
-body {
+body,
+#__next,
+main {
   padding: 0;
   margin: 0;
   font-family: 'Dosis';
   overflow-x: hidden;
   height: 100%;
-  background-color: var(--admin-middle);
 }

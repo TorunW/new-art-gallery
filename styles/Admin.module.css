@@ -9,7 +9,8 @@
   text-transform: uppercase;
   color: var(--admin-white);
   font-weight: 400;
-  margin: 0;
+  width: 100%;
+  text-align: center;
 }
 .admin img {
   width: 300px;
@@ -19,15 +20,16 @@
   border-radius: 10px;
   display: grid;
   grid-template-rows: repeat(6, auto);
-  margin: 0 auto;
   padding: 40px 40px;
 }
 .admin .sectionContainer .firstRow {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  text-align: left;
-  margin: 0 auto;
   grid-gap: 40px;
+}
+.admin .sectionContainer .firstRow h2 {
+  width: 100%;
+  text-align: center;
 }
 .admin .sectionContainer .secondRow {
   text-align: center;

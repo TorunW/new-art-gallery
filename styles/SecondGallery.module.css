@@ -12,10 +12,12 @@
   max-width: 580px;
   min-width: 330px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .grid figure img {
   position: relative;
-  display: block;
   height: 100%;
   max-width: 100%;
 }
@@ -35,7 +37,7 @@
 }
 .grid figure figcaption h2 {
   font-weight: 500;
-  margin: 0 20px 0 0;
+  margin: 0 20px;
   float: left;
   text-transform: uppercase;
 }
@@ -62,7 +64,7 @@ figure.effect:hover h2 {
     grid-template-columns: repeat(3, 1fr);
   }
   .grid figure {
-    max-height: 305px;
+    max-height: 265px;
   }
 }
 @media (max-width: 1500px) {
