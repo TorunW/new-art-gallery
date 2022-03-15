@@ -30,6 +30,9 @@
   height: 100%;
   cursor: pointer;
 }
+.gallery .grid .wrapper img:hover {
+  opacity: 0.8;
+}
 @media (max-width: 991px) {
   .gallery {
     padding: 2em 20px;

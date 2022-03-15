@@ -4,7 +4,7 @@ import MainGallery from '../components/MainGallery';
 import About from '../components/About';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Home({ maingallery, about, contact, initMessages }) {
