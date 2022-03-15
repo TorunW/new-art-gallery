@@ -2,11 +2,11 @@ import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
 import { useState } from 'react';
 import lightboxStyles from '../styles/Lightbox.module.css';
-// import {
-//   AiOutlineClose,
-//   AiOutlineArrowLeft,
-//   AiOutlineArrowRight,
-// } from 'react-icons/ai';
+import {
+  AiOutlineClose,
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+} from 'react-icons/ai';
 
 export default function Tavlor({ subgallery }) {
   const [imgSlider, setimgSlider] = useState(false);
@@ -92,20 +92,20 @@ export default function Tavlor({ subgallery }) {
               : lightboxStyles.lightboxClose
           }
         >
-          <button
+          <AiOutlineClose
             className={lightboxStyles.closeBtn}
             onClick={() => setimgSlider(false)}
-          >
-            X
-          </button>
-          <img src={maingallery[currentIndex].picture} />
-          <button className={lightboxStyles.leftBtn} onClick={() => prevImg()}>
-            left
-          </button>
+          />
+          <img src={subgallery[currentIndex].picture} />
+          <AiOutlineArrowLeft
+            className={lightboxStyles.leftBtn}
+            onClick={() => prevImg()}
+          />
 
-          <button className={lightboxStyles.rightBtn} onClick={() => nextImg()}>
-            right
-          </button>
+          <AiOutlineArrowRight
+            className={lightboxStyles.rightBtn}
+            onClick={() => nextImg()}
+          />
         </div>
         <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
       </div>
