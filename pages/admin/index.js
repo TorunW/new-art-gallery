@@ -2,7 +2,6 @@ import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState, useEffect } from 'react';
 import AdminStyles from '../../styles/Admin.module.css';
-import Head from 'next/head';
 import MainGalleryForm from '../../components/MainGalleryForm';
 import SubGalleryForm from '../../components/SubGalleryForm';
 

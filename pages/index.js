@@ -24,19 +24,6 @@ export default function Home({ maingallery, about, contact, initMessages }) {
 
   return (
     <div className={styles.home}>
-      {/* {/* <Head>
-        <Script
-          src='https://kit.fontawesome.com/4eddce3a99.js'
-          crossorigin='anonymous'
-        ></script>
-      </Head> */}
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
-      />
       <Header />
       <MainGallery maingallery={maingallery} />
 

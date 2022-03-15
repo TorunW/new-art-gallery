@@ -1,8 +1,6 @@
 import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState } from 'react';
-import Head from 'next/head';
-import Script from 'next/script';
 import Link from 'next/link';
 import InboxStyles from '../../styles/Inbox.module.css';
 
@@ -46,12 +44,6 @@ export default function Inbox({ initMessages }) {
 
   return (
     <div className={InboxStyles.inbox}>
-      {/* <Head>
-        <Script
-          src='https://kit.fontawesome.com/4eddce3a99.js'
-          crossorigin='anonymous'
-        ></Script>
-      </Head> */}
       <h2 className={InboxStyles.title}>Inbox</h2>
 
       <table className={InboxStyles.table}>
@@ -85,11 +77,11 @@ export default function Inbox({ initMessages }) {
                   className={InboxStyles.i}
                   onClick={() => onSubmit(message)}
                 >
-                  {message.seen === 1 ? (
-                    <i className='far fa-envelope'></i>
+                  {/* {message.seen === 1 ? (
+                    <i className="far fa-envelope"></i>
                   ) : (
-                    <i className='far fa-envelope-open'></i>
-                  )}
+                    <i className="far fa-envelope-open"></i>
+                  )} */}
                 </Link>
               </td>
               <td className={InboxStyles.td}>
@@ -97,7 +89,7 @@ export default function Inbox({ initMessages }) {
                   className={InboxStyles.i}
                   onClick={() => onDeleteMessage(message.id)}
                 >
-                  <i className='fas fa-trash'></i>
+                  {/* <i className="fas fa-trash"></i> */}
                 </a>
               </td>
             </tr>
@@ -105,7 +97,7 @@ export default function Inbox({ initMessages }) {
         </tbody>
       </table>
       <div className={InboxStyles.buttonContainer}>
-        <Link href='/admin' className={InboxStyles.button}>
+        <Link href="/admin" className={InboxStyles.button}>
           Back to admin panel
         </Link>
       </div>
