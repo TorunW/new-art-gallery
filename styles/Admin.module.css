@@ -1,5 +1,4 @@
 .admin {
-  height: 100%;
   background-color: var(--admin-middle);
   font-family: 'Dosis';
   padding: 40px 40px;
@@ -24,8 +23,8 @@
 }
 .admin .sectionContainer .firstRow {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
 }
 .admin .sectionContainer .firstRow h2 {
   width: 100%;
@@ -38,8 +37,8 @@
 .admin .sectionContainer .secondRow .galleryContainer {
   padding-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  grid-gap: 40px;
 }
 .admin .sectionContainer .secondRow .galleryContainer img {
   height: 250px;
@@ -72,29 +71,32 @@
 .admin .sectionContainer .fourthRow {
   text-align: center;
   margin-top: 40px;
+  width: 100%;
 }
 .admin .sectionContainer .thirdRow .gallery,
 .admin .sectionContainer .fourthRow .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   text-align: left;
   color: var(--admin-white);
   text-transform: uppercase;
-  column-gap: 60px;
-  margin-top: 20px;
-  row-gap: 20px;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  grid-gap: 40px;
 }
 .admin .sectionContainer .thirdRow .gallery .itemContainer,
 .admin .sectionContainer .fourthRow .gallery .itemContainer {
   background: #283337;
   background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
-  padding: 20px 20px 40px;
+  padding: 0px 20px 20px;
   border-radius: 5px;
+  margin: 0 auto;
+  object-fit: cover;
 }
 .admin .sectionContainer .thirdRow .gallery .itemContainer img,
 .admin .sectionContainer .fourthRow .gallery .itemContainer img {
   height: 300px;
   object-fit: cover;
+  margin: 0 auto;
 }
 .admin .sectionContainer .thirdRow .gallery .itemContainer div,
 .admin .sectionContainer .fourthRow .gallery .itemContainer div {

@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   height: 100%;
   opacity: 0.7;
-  padding: 20px;
+  padding: 30px;
 }
 .about .bgContainer .contentContainer {
   margin: 0 auto;
@@ -16,14 +16,23 @@
   background-color: var(--dark);
   color: var(--white);
   padding: 20px;
+  font-size: 18px;
 }
 .about .bgContainer .contentContainer .formContainer {
   background-color: #22232a80;
   color: var(--white);
+  padding: 20px 20px 30px !important;
 }
 .about .bgContainer .contentContainer .formContainer input {
   margin-top: 10px;
-  padding: 10px 0;
+  padding: 10px 0 5px 3px;
+}
+.about .bgContainer .contentContainer .formContainer input:-webkit-autofill,
+.about .bgContainer .contentContainer .formContainer input:-webkit-autofill:hover,
+.about .bgContainer .contentContainer .formContainer input:-webkit-autofill:focus,
+.about .bgContainer .contentContainer .formContainer input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--white);
 }
 .about .bgContainer .contentContainer .formContainer input,
 .about .bgContainer .contentContainer .formContainer textarea {
@@ -42,8 +51,16 @@
 .about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {
   display: none;
 }
+.about .bgContainer .contentContainer .formContainer textarea {
+  height: 25px;
+  margin-top: 15px;
+}
 .about .bgContainer .contentContainer .formContainer .error {
   margin: 0 0 30px;
+  font-size: 17px;
+}
+.about .bgContainer .contentContainer .formContainer .success {
+  font-size: 17px;
 }
 .about .bgContainer .contentContainer .formContainer .submit {
   margin-top: 20px;

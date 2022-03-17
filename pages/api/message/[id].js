@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { importDb } from '../../../config/db';
 
-export default async function getContactById(
+export default async function getMessageById(
   req = NextApiRequest,
   res = NextApiResponse
 ) {

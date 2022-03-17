@@ -5,10 +5,10 @@ import AdminStyles from '../../styles/Admin.module.css';
 import MainGalleryForm from '../../components/MainGalleryForm';
 import SubGalleryForm from '../../components/SubGalleryForm';
 
-export default function Admin({ initMainGallerys, initSubGallerys, props }) {
-  const [maingallerys, setMaingallerys] = useState(initMainGallerys);
-  const [subgallerys, setSubgallerys] = useState(initSubGallerys);
-  //   const [about, setAbout] = useState(initAbout);
+export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
+  const [maingallery, setMaingallery] = useState(initMainGallery);
+  const [subgallery, setSubgallery] = useState(initSubGallery);
+  const [about, setAbout] = useState(initAbout);
   const [update, setUpdate] = useState(false);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
     setUpdate(true);
   }
 
-  let tavlorDisplay = subgallerys.map((item, index) => {
+  let tavlorDisplay = subgallery.map((item, index) => {
     if (item.type_of === 'tavlor') {
       return (
         <div key={index} item={item} className={AdminStyles.itemContainer}>
@@ -61,7 +61,7 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
     }
   });
 
-  let betongmosaikDisplay = subgallerys.map((item, index) => {
+  let betongmosaikDisplay = subgallery.map((item, index) => {
     if (item.type_of === 'betongmosaik') {
       return (
         <div key={index} item={item} className={AdminStyles.itemContainer}>
@@ -81,6 +81,9 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
   return (
     <admin>
       <div className={AdminStyles.admin}>
+        <a className={AdminStyles.navButton} href="admin/inbox">
+          <div>Inbox</div>
+        </a>
         <div className={AdminStyles.sectionContainer}>
           <div className={AdminStyles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
@@ -90,7 +93,7 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
           <div className={AdminStyles.secondRow}>
             <h2>Bilder - Blandat</h2>
             <div className={AdminStyles.galleryContainer}>
-              {maingallerys.map((maingallery, index) => (
+              {maingallery.map((maingallery, index) => (
                 <div key={index} maingallery={maingallery}>
                   <img src={maingallery.picture} />
                   <div>
@@ -116,6 +119,24 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
 
           <div className={AdminStyles.fifthRow}>
             <h3>Om mig</h3>
+            {about.map((about, index) => (
+              <div
+                className={AdminStyles.aboutSection}
+                key={index}
+                aboutinfo={about}
+              >
+                <p className={AdminStyles.title}>{about.title}</p>
+                <p>{about.info_text}</p>
+                <div className={AdminStyles.buttonContainer}>
+                  <a
+                    className={AdminStyles.button}
+                    href={`admin/about/${about.id}`}
+                  >
+                    Edit About
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -125,41 +146,15 @@ export default function Admin({ initMainGallerys, initSubGallerys, props }) {
 
 export const getServerSideProps = async () => {
   const db = await importDb();
-  const maingallerys = await db.all('select * from maingallery');
-  const subgallerys = await db.all('select * from subgallery');
-  //   const infos = await db.all('select * from about');
+  const maingallery = await db.all('select * from maingallery');
+  const subgallery = await db.all('select * from subgallery');
+  const about = await db.all('select * from about');
 
   return {
-    props: { initMainGallerys: maingallerys, initSubGallerys: subgallerys },
+    props: {
+      initMainGallery: maingallery,
+      initSubGallery: subgallery,
+      initAbout: about,
+    },
   };
 };
-
-{
-  /* <div>
-          <h2>Admin Panel</h2>
-          <a href='admin/inbox'>
-            <i className='fas fa-envelope'></i>
-            <div>Inbox</div>
-          </a>
-        </div> */
-}
-{
-  /* {infos.map((aboutinfo, index) => (
-          <div
-            className={AdminStyles.aboutSection}
-            key={index}
-            aboutinfo={aboutinfo}
-          >
-            <p className={AdminStyles.title}>{aboutinfo.title}</p>
-            <p>{aboutinfo.info_text}</p>
-            <div className={AdminStyles.buttonContainer}>
-              <a
-                className={AdminStyles.button}
-                href={`admin/about/${aboutinfo.id}`}
-              >
-                Edit About
-              </a>
-            </div>
-          </div>
-        ))} */
-}

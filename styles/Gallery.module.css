@@ -43,15 +43,3 @@
     padding: 2em 20px;
   }
 }
-/* .wrapper:nth-child(4n + 1) {
-    width: 250px;
-  }
-  .wrapper:nth-child(4n + 1):nth-child(4n + 2) {
-    width: 325px;
-  }
-  .wrapper:nth-child(4n + 1):nth-child(4n + 3) {
-    width: 180px;
-  }
-  .wrapper:nth-child(4n + 1):nth-child(4n + 4) {
-    width: 380px;
-  } */

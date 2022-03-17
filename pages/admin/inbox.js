@@ -3,8 +3,14 @@ import { server } from '../../config/server';
 import { useState } from 'react';
 import Link from 'next/link';
 import InboxStyles from '../../styles/Inbox.module.css';
+import { IoMail, IoMailOpen, IoTrashSharp } from 'react-icons/io5';
+import {
+  AiOutlineClose,
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+} from 'react-icons/ai';
 
-export default function Inbox({ initMessages }) {
+const inbox = ({ initMessages }) => {
   const [messages, setMessages] = useState(initMessages);
 
   async function onSubmit(message) {
@@ -73,23 +79,16 @@ export default function Inbox({ initMessages }) {
                 <span className={InboxStyles.span}>{message.created_at}</span>
               </td>
               <td className={InboxStyles.td}>
-                <Link
-                  className={InboxStyles.i}
-                  onClick={() => onSubmit(message)}
-                >
-                  {/* {message.seen === 1 ? (
-                    <i className="far fa-envelope"></i>
-                  ) : (
-                    <i className="far fa-envelope-open"></i>
-                  )} */}
-                </Link>
+                <a className={InboxStyles.i} onClick={() => onSubmit(message)}>
+                  {message.seen === 1 ? <IoMail /> : <IoMailOpen />}
+                </a>
               </td>
               <td className={InboxStyles.td}>
                 <a
                   className={InboxStyles.i}
                   onClick={() => onDeleteMessage(message.id)}
                 >
-                  {/* <i className="fas fa-trash"></i> */}
+                  <IoTrashSharp />
                 </a>
               </td>
             </tr>
@@ -97,13 +96,15 @@ export default function Inbox({ initMessages }) {
         </tbody>
       </table>
       <div className={InboxStyles.buttonContainer}>
-        <Link href="/admin" className={InboxStyles.button}>
+        <a href="/admin" className={InboxStyles.button}>
           Back to admin panel
-        </Link>
+        </a>
       </div>
     </div>
   );
-}
+};
+
+export default inbox;
 
 export const getServerSideProps = async () => {
   const db = await importDb();

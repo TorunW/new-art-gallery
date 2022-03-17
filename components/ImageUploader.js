@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
-import SubGalleryForm from './SubGalleryForm';
 
 export default function ImageUploader(props) {
   const [image, setImage] = useState(props.image);

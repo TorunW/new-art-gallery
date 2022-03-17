@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
 import MainGallery from '../components/MainGallery';
-import About from '../components/About';
+import Contact from '../components/Contact';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState, useEffect } from 'react';
@@ -59,7 +59,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
           </div>
         </Link>
       </div>
-      <About about={about} contact={contact} onSubmit={onSubmitNewMessage} />
+      <Contact contact={contact} onSubmit={onSubmitNewMessage} />
     </div>
   );
 }

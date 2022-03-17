@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { importDb } from '../../config/db';
 
-export default async function getContact(
+export default async function getMessages(
   req = NextApiRequest,
   res = NextApiResponse
 ) {
@@ -16,6 +16,6 @@ export default async function getContact(
       req.body.seen
     );
   }
-  let contact = await db.all('select * from contact');
-  res.json(contact);
+  let messages = await db.all('select * from contact');
+  res.json(messages);
 }

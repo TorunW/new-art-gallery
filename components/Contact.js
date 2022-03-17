@@ -2,7 +2,7 @@ import aboutStyles from '../styles/About.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const About = ({ props, about, contact }) => {
+const Contact = (props, about, contact) => {
   const [fullname, setFullname] = useState('');
   const [fullnameError, setFullnameError] = useState(false);
   const [email, setEmail] = useState('');
@@ -11,16 +11,16 @@ const About = ({ props, about, contact }) => {
   const [messageError, setMessageError] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  useEffect(() => {
-    if (messageSent === true) {
-      setTimeout(() => {
-        setMessageSent(false);
-        router.pathname.reload();
-      }, 1000);
-    }
-  }, [messageSent]);
+  // useEffect(() => {
+  //   if (messageSent === true) {
+  //     setTimeout(() => {
+  //       setMessageSent(false);
+  //       router.pathname.reload();
+  //     }, 1000);
+  //   }
+  // }, [messageSent]);
 
   function onSubmit() {
     if (formValidation()) {
@@ -97,7 +97,7 @@ const About = ({ props, about, contact }) => {
   }
 
   return (
-    <about id="about" className={aboutStyles.about}>
+    <contact id="contact" className={aboutStyles.about}>
       <div className={aboutStyles.bgContainer}>
         <div className={aboutStyles.contentContainer}>
           <div className={aboutStyles.aboutContainer}>
@@ -122,13 +122,13 @@ const About = ({ props, about, contact }) => {
                 />
                 {fullnameErrorDisplay}
               </div>
+
               <div>
                 <input
                   type="email"
                   onChange={e => setEmail(e.target.value)}
                   placeholder="Email"
                 />
-
                 {emailErrorDisplay}
               </div>
 
@@ -142,15 +142,17 @@ const About = ({ props, about, contact }) => {
               </div>
 
               <div className={aboutStyles.submit}>
-                <a onClick={onSubmit}>Skicka meddelande</a>
+                <a className={aboutStyles.btn} onClick={onSubmit}>
+                  Skicka meddelande
+                </a>
                 {displaySuccessMessage}
               </div>
             </form>
           </div>
         </div>
       </div>
-    </about>
+    </contact>
   );
 };
 
-export default About;
+export default Contact;

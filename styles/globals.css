@@ -96,5 +96,23 @@ body {
   margin: 0;
   font-family: 'Dosis';
   overflow-x: hidden;
+}
+html {
+  min-height: 100%;
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+body > #__next {
+  height: auto;
+}
+
+body #__next > div {
+  height: 100%;
+}
+
+body #__next > div main {
   height: 100%;
 }

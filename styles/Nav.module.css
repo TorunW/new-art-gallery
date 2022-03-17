@@ -1,13 +1,5 @@
 .nav .navContainerHidden {
-  opacity: 0.4;
   transition: 1s;
-}
-.nav .navContainer {
-  opacity: 1;
-  transition: 1s;
-}
-.nav .navContainer,
-.nav .navContainerHidden {
   list-style: none;
   display: flex;
   margin: 0;
@@ -17,24 +9,38 @@
   font-weight: 500;
   z-index: 10;
   align-items: center;
-  background-color: #202022f3;
+  background-color: #20202200;
 }
-.nav .navContainer .left,
-.nav .navContainerHidden .left {
+.nav .navContainer {
+  transition: 1s;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  margin-top: 0;
+  font-weight: 500;
+  z-index: 10;
+  align-items: center;
+  background-color: #202022;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.nav .left {
   position: absolute;
 }
-.nav .navContainer .right,
-.nav .navContainerHidden .right {
+.nav .left a:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.nav .right {
   position: absolute;
 }
-.nav .navContainer .right a:hover,
-.nav .navContainerHidden .right a:hover {
+.nav .right a:hover {
   transform: scale(1.1);
   color: #fff;
   cursor: pointer;
 }
-.nav .navContainer a,
-.nav .navContainerHidden a {
+.nav a {
   text-decoration: none;
   color: var(--white);
 }
@@ -82,7 +88,33 @@
     font-size: 20px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 650px) {
+  .nav .navContainer,
+  .nav .navContainerHidden {
+    height: 74px;
+  }
+  .nav .navContainer .left,
+  .nav .navContainerHidden .left {
+    width: auto;
+    font-size: 24px;
+    top: 0;
+    left: 0;
+    margin: 5px 10px;
+  }
+  .nav .navContainer .right,
+  .nav .navContainerHidden .right {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin-left: 5px;
+  }
+  .nav .navContainer .right a,
+  .nav .navContainerHidden .right a {
+    margin: 0 5px 10px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
   .nav .navContainer,
   .nav .navContainerHidden {
     height: 70px;
