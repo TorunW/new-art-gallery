@@ -15,7 +15,6 @@ const MainGallery = ({ maingallery }) => {
     setCurrentIndex(index);
     setimgSlider(true);
   }
-
   function nextImg() {
     const nextIndex = currentIndex + 1;
     const maxIndex = maingallery.length - 1;
@@ -42,15 +41,19 @@ const MainGallery = ({ maingallery }) => {
   }
 
   if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', function (e) {
-      if (e.keyCode === 37) {
-        console.log('left');
-        prevImg(e);
-      } else if (e.keyCode === 39) {
-        console.log('right');
-        nextImg(e);
-      }
-    });
+    window.addEventListener(
+      'keydown',
+      function (e) {
+        if (e.keyCode === 37) {
+          console.log('left');
+          prevImg(e);
+        } else if (e.keyCode === 39) {
+          console.log('right');
+          nextImg(e);
+        }
+      },
+      { once: true }
+    );
   }
 
   return (
