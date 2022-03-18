@@ -9,7 +9,7 @@ import {
 
 const MainGallery = ({ maingallery }) => {
   const [imgSlider, setimgSlider] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2);
 
   function imgDisplay(index) {
     setCurrentIndex(index);

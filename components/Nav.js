@@ -58,7 +58,7 @@ const Nav = () => {
     navbarTypeDisplay = (
       <div>
         <h2>Admin</h2>
-        <a href="admin/inbox">Meddeladen</a>
+        <Link href="admin/inbox">Meddeladen</Link>
       </div>
     );
   } else if (
