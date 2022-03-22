@@ -84,10 +84,9 @@ export default function Betongmosaik({ subgallery }) {
   return (
     <betongmosaik>
       <div className={subgalleryStyles.gallery}>
-        {' '}
         <div
           className={
-            imgSlider
+            imgSlider === 
               ? lightboxStyles.lightboxOpen
               : lightboxStyles.lightboxClose
           }

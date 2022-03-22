@@ -1,21 +1,21 @@
 .title {
   text-align: center;
-  font-family: 'Montserrat';
 }
 .table {
   border-collapse: collapse;
   border-radius: 10px;
-  background: var(--darkest-grey);
+  background: #283337;
+  background: linear-gradient(20deg, var(--admin-grad) 40%, #292f53 85%, #2b4361 100%);
   width: 90%;
   margin: 0 auto;
-  color: var(--middle-grey);
+  color: var(--admin-white);
   position: relative;
 }
 .table .th,
 .table .td {
   padding: 10px 10px;
   font-size: 16px;
-  border-left: 1px solid var(--dark-grey);
+  border-left: 1px solid var(--admin-light);
 }
 .table .th .i,
 .table .td .i {
@@ -28,14 +28,14 @@
 }
 .table .thName,
 .table .th {
-  border-bottom: 1px solid var(--dark-grey);
+  border-bottom: 1px solid var(--admin-light);
 }
 .table .td,
 .table .tdName {
-  border-top: 1px solid var(--dark-grey);
+  border-top: 1px solid var(--admin-light);
 }
 .button {
-  background: var(--blue);
+  background: red;
   color: #fff;
   border-radius: 7px;
   padding: 5px 20px;

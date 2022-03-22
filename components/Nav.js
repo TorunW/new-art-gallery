@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import navStyles from '../styles/Nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { IoMail } from 'react-icons/io5';
 
 const Nav = () => {
   const [navbar, setNavbar] = useState(false);
@@ -56,9 +57,13 @@ const Nav = () => {
     );
   } else if (router.pathname === '/admin') {
     navbarTypeDisplay = (
-      <div>
-        <h2>Admin</h2>
-        <Link href="admin/inbox">Meddeladen</Link>
+      <div className={navStyles.navbar}>
+        <div className={navStyles.left}>Admin</div>
+        <div className={navStyles.inbox}>
+          <a href="admin/inbox">
+            <IoMail className={navStyles.icon} />
+          </a>
+        </div>
       </div>
     );
   } else if (

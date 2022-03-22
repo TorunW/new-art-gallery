@@ -44,6 +44,24 @@
   text-decoration: none;
   color: var(--white);
 }
+.nav .navbar {
+  background-color: #15151f;
+  color: var(--admin-white);
+  height: 30px;
+  font-size: 25px;
+  padding: 10px 20px;
+}
+.nav .navbar .left {
+  font-weight: 600;
+}
+.nav .navbar .inbox {
+  cursor: pointer;
+  float: right;
+  font-size: 25px;
+}
+.nav .navbar .inbox a:hover {
+  opacity: 0.8;
+}
 @media (min-width: 992px) {
   .nav .navContainer,
   .nav .navContainerHidden {

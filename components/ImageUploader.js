@@ -6,8 +6,6 @@ export default function ImageUploader(props) {
   const [image, setImage] = useState(props.image);
   const [createObjectURL, setCreatedObjectURL] = useState(null);
 
-  console.log(props.image);
-
   useEffect(() => {
     if (props.isSubmitted === true && props.type !== 'edit') {
       uploadToServer();
@@ -42,6 +40,10 @@ export default function ImageUploader(props) {
         src={createObjectURL !== null ? createObjectURL : server + '/' + image}
       />
     );
+  } else if (props.type === 'edit') {
+    imageDisplay = (
+      <img className={FormStyles.img} src={server + '/' + image} />
+    );
   } else {
     imageDisplay = <h4>Select Image</h4>;
   }
@@ -49,7 +51,6 @@ export default function ImageUploader(props) {
     <imageuploader>
       <div className={FormStyles.imageUploader}>
         {imageDisplay}
-
         <input type="file" name="myImage" onChange={uploadToClient} />
       </div>
       {/* <div className={FormStyles.buttonContainer}>
