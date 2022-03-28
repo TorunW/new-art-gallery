@@ -6,7 +6,6 @@ import {
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
 } from 'react-icons/ai';
-import Coloor from 'coloor';
 
 const MainGallery = ({ maingallery }) => {
   const [imgSlider, setimgSlider] = useState(false);
