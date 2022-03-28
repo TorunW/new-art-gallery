@@ -12,47 +12,6 @@ const MainGallery = ({ maingallery }) => {
   const [imgSlider, setimgSlider] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  function Coloor() {
-    let d = document;
-    let ce = 'createElement';
-    let ga = 'getAttribute';
-    function isCanvasSupported() {
-      let elem = d[ce]('canvas');
-      return !!(elem.getContext && elem.getContext('2d'));
-    }
-    function preload(image) {
-      let src, pi, li, w, h, size;
-      if (!isCanvasSupported()) {
-        image.src = src;
-        return;
-      }
-      src = image[ga]('data-coloor');
-      size = image[ga]('data-coloor-size').split('x');
-      w = parseInt(size[0]);
-      h = parseInt(size[1]);
-      pi = new Image();
-      li = new Image();
-      pi.onload = function () {
-        let canvas = d[ce]('canvas');
-        let ctx = canvas.getContext('2d');
-        canvas.width = w;
-        canvas.height = h;
-        ctx.drawImage(pi, 0, 0, w, h);
-        image.src = canvas.toDataURL('image/png');
-      };
-      pi.src = image[ga]('src');
-      li.onload = function () {
-        image.src = src;
-      };
-      li.src = src;
-    }
-    var images = d.querySelectorAll('img[data-coloor]');
-    for (var i = 0; i < images.length; i++) {
-      preload(images[i]);
-    }
-  }
-  Coloor();
-
   function imgDisplay(index) {
     setCurrentIndex(index);
     setimgSlider(true);
