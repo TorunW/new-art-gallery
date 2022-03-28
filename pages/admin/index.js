@@ -4,12 +4,32 @@ import { useState, useEffect } from 'react';
 import AdminStyles from '../../styles/Admin.module.css';
 import MainGalleryForm from '../../components/MainGalleryForm';
 import SubGalleryForm from '../../components/SubGalleryForm';
+import { AiOutlineArrowUp } from 'react-icons/ai';
 
 export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   const [maingallery, setMaingallery] = useState(initMainGallery);
   const [subgallery, setSubgallery] = useState(initSubGallery);
   const [about, setAbout] = useState(initAbout);
   const [update, setUpdate] = useState(false);
+  const [showUpButton, setShowUpButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        setShowUpButton(true);
+      } else {
+        setShowUpButton(false);
+      }
+    });
+  }, []);
+
+  // This function will scroll the window to the top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // for smoothly scrolling
+    });
+  };
 
   useEffect(() => {
     if (update === true) {
@@ -136,6 +156,12 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
             ))}
           </div>
         </div>
+        {showUpButton && (
+          <AiOutlineArrowUp
+            onClick={scrollToTop}
+            className={AdminStyles.backToTop}
+          />
+        )}
       </div>
     </admin>
   );

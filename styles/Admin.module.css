@@ -3,6 +3,20 @@
   font-family: 'Dosis';
   padding: 80px 40px;
 }
+.admin .backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 45px;
+  padding: 5px;
+  background-color: #202022bb;
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: 0 1px 10px rgba(204, 204, 204, 0.288);
+}
+.admin .backToTop:hover {
+  background: var(--black);
+}
 .admin h2 {
   text-transform: uppercase;
   color: var(--admin-white);

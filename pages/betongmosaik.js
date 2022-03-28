@@ -42,16 +42,16 @@ export default function Betongmosaik({ subgallery }) {
     }
   }
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', function (e) {
-      if (e.keyCode === 37) {
-        console.log('left');
-        prevImg(e);
-      } else if (e.keyCode === 39) {
-        console.log('right');
-        nextImg(e);
-      }
-    });
+  if (imgSlider === true) {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keyup', function (e) {
+        if (e.keyCode === 37) {
+          prevImg(e);
+        } else if (e.keyCode === 39) {
+          nextImg(e);
+        }
+      });
+    }
   }
 
   let galleryImageDisplay = subgallery.map((image, index) => {
@@ -86,7 +86,7 @@ export default function Betongmosaik({ subgallery }) {
       <div className={subgalleryStyles.gallery}>
         <div
           className={
-            imgSlider === 
+            imgSlider === true
               ? lightboxStyles.lightboxOpen
               : lightboxStyles.lightboxClose
           }

@@ -26,7 +26,6 @@ export default function Home({ maingallery, about, contact, initMessages }) {
     <div className={styles.home}>
       <Header />
       <MainGallery maingallery={maingallery} />
-
       <h1>Se alla mina verk</h1>
       <div className={styles.container}>
         <div>
