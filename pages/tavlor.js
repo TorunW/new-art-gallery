@@ -87,7 +87,7 @@ export default function Tavlor({ subgallery }) {
       <div className={subgalleryStyles.gallery}>
         <div
           className={
-            imgSlider
+            imgSlider === true
               ? lightboxStyles.lightboxOpen
               : lightboxStyles.lightboxClose
           }

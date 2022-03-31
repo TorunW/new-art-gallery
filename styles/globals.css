@@ -8,7 +8,7 @@
   --admin-dark: #171721;
   --admin-light: #33333b;
   --admin-white: #f5f5f7;
-  --admin-blue: #292f53;
+  --admin-blue: rgb(41, 47, 83);
   --admin-green: #2c4645;
   --admin-grad: #23232d;
 }
@@ -103,16 +103,5 @@ html {
 }
 body {
   min-height: 100%;
-}
-
-body > #__next {
-  height: auto;
-}
-
-body #__next > div {
-  height: 100%;
-}
-
-body #__next > div main {
-  height: 100%;
+  background-color: var(--admin-dark);
 }

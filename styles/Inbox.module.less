@@ -1,22 +1,27 @@
 .title {
   text-align: center;
-  font-family: 'Montserrat';
 }
 
 .table {
   border-collapse: collapse;
   border-radius: 10px;
-  background: var(--darkest-grey);
+  background: rgb(40, 51, 55);
+  background: linear-gradient(
+    20deg,
+    var(--admin-grad) 40%,
+    rgba(41, 47, 83, 1) 85%,
+    rgba(43, 67, 97, 1) 100%
+  );
   width: 90%;
   margin: 0 auto;
-  color: var(--middle-grey);
+  color: var(--admin-white);
   position: relative;
 
   .th,
   .td {
     padding: 10px 10px;
     font-size: 16px;
-    border-left: 1px solid var(--dark-grey);
+    border-left: 1px solid var(--admin-light);
 
     .i {
       cursor: pointer;
@@ -31,17 +36,17 @@
 
   .thName,
   .th {
-    border-bottom: 1px solid var(--dark-grey);
+    border-bottom: 1px solid var(--admin-light);
   }
 
   .td,
   .tdName {
-    border-top: 1px solid var(--dark-grey);
+    border-top: 1px solid var(--admin-light);
   }
 }
 
 .button {
-  background: var(--blue);
+  background: red;
   color: #fff;
   border-radius: 7px;
   padding: 5px 20px;

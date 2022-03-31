@@ -1,8 +1,21 @@
 .admin {
   background-color: var(--admin-middle);
   font-family: 'Dosis';
-  padding: 40px 40px;
-  margin: 0 auto;
+  padding: 80px 40px;
+}
+.admin .backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 45px;
+  padding: 5px;
+  background-color: #202022bb;
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: 0 1px 10px rgba(204, 204, 204, 0.288);
+}
+.admin .backToTop:hover {
+  background: var(--black);
 }
 .admin h2 {
   text-transform: uppercase;
@@ -19,12 +32,10 @@
   border-radius: 10px;
   display: grid;
   grid-template-rows: repeat(6, auto);
-  padding: 40px 40px;
 }
 .admin .sectionContainer .firstRow {
   display: grid;
   grid-gap: 40px;
-  grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
 }
 .admin .sectionContainer .firstRow h2 {
   width: 100%;
@@ -101,4 +112,25 @@
 .admin .sectionContainer .thirdRow .gallery .itemContainer div,
 .admin .sectionContainer .fourthRow .gallery .itemContainer div {
   float: right;
+}
+@media (min-width: 1000px) {
+  .sectionContainer {
+    padding: 40px;
+  }
+  .sectionContainer .firstRow {
+    grid-template-columns: repeat(auto-fill, minmax(40em, 1fr));
+  }
+}
+@media (max-width: 999px) {
+  .sectionContainer {
+    padding: 40px;
+  }
+  .sectionContainer .firstRow {
+    grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
+  }
+}
+@media (max-width: 651px) {
+  .sectionContainer {
+    padding: 20px;
+  }
 }

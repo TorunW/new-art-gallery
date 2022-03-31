@@ -1,6 +1,6 @@
 import galleryStyles from '../styles/Gallery.module.css';
 import lightboxStyles from '../styles/Lightbox.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   AiOutlineClose,
   AiOutlineArrowLeft,
@@ -14,6 +14,18 @@ const MainGallery = ({ maingallery }) => {
   function imgDisplay(index) {
     setCurrentIndex(index);
     setimgSlider(true);
+  }
+
+  if (imgSlider === true) {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keyup', function (e) {
+        if (e.keyCode === 37) {
+          prevImg(e);
+        } else if (e.keyCode === 39) {
+          nextImg(e);
+        }
+      });
+    }
   }
 
   function nextImg() {
@@ -41,23 +53,13 @@ const MainGallery = ({ maingallery }) => {
     }
   }
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', function (e) {
-      if (e.keyCode === 37) {
-        console.log('left');
-        prevImg(e);
-      } else if (e.keyCode === 39) {
-        console.log('right');
-        nextImg(e);
-      }
-    });
-  }
-
   return (
     <div className={galleryStyles.gallery}>
       <div
         className={
-          imgSlider ? lightboxStyles.lightboxOpen : lightboxStyles.lightboxClose
+          imgSlider === true
+            ? lightboxStyles.lightboxOpen
+            : lightboxStyles.lightboxClose
         }
       >
         <AiOutlineClose
@@ -84,6 +86,8 @@ const MainGallery = ({ maingallery }) => {
                 src={item.picture}
                 style={{ width: '100%' }}
                 onClick={() => imgDisplay(index)}
+                data-coloor="../photos/img.jpg"
+                data-coloor-size="640x480"
               />
             </div>
           );

@@ -1,8 +1,23 @@
 .admin {
   background-color: var(--admin-middle);
   font-family: 'Dosis';
-  padding: 40px 40px;
-  margin: 0 auto;
+  padding: 80px 40px;
+
+  .backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 45px;
+    padding: 5px;
+    background-color: #202022bb;
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 1px 10px rgba(204, 204, 204, 0.288);
+
+    &:hover {
+      background: var(--black);
+    }
+  }
 
   h2 {
     text-transform: uppercase;
@@ -20,11 +35,10 @@
     border-radius: 10px;
     display: grid;
     grid-template-rows: repeat(6, auto);
-    padding: 40px 40px;
     .firstRow {
       display: grid;
       grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
+
       h2 {
         width: 100%;
         text-align: center;
@@ -109,5 +123,28 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 1000px) {
+  .sectionContainer {
+    padding: 40px;
+    .firstRow {
+      grid-template-columns: repeat(auto-fill, minmax(40em, 1fr));
+    }
+  }
+}
+
+@media (max-width: 999px) {
+  .sectionContainer {
+    padding: 40px;
+    .firstRow {
+      grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
+    }
+  }
+}
+@media (max-width: 651px) {
+  .sectionContainer {
+    padding: 20px;
   }
 }

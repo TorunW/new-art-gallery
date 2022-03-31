@@ -2,7 +2,7 @@
   color: var(--admin-white);
   letter-spacing: 0.1rem;
 }
-.form .h2 {
+.form h2 {
   text-align: left;
 }
 .form .container {
@@ -12,8 +12,6 @@
   color: var(--middle-grey);
   border-radius: 5px;
   height: auto;
-  min-width: 400px;
-  max-width: 600px;
   margin: 0 auto;
 }
 .form .container .imageUploader {
@@ -115,9 +113,20 @@
   transform: scale(1.1);
   color: rgba(255, 255, 255, 0.534);
 }
+@media (min-width: 651px) {
+  .form .container {
+    min-width: 400px;
+    max-width: 600px;
+  }
+}
+@media (max-width: 650px) {
+  .form .container {
+    min-width: 220px;
+    max-width: 400px;
+  }
+}
 .edit {
-  background-color: var(--admin-middle);
-  min-height: 100%;
+  background-color: var(--admin-dark);
   padding: 0 40px;
 }
 .edit .container {

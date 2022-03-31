@@ -1,16 +1,11 @@
 import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState } from 'react';
-import Link from 'next/link';
 import InboxStyles from '../../styles/Inbox.module.css';
 import { IoMail, IoMailOpen, IoTrashSharp } from 'react-icons/io5';
-import {
-  AiOutlineClose,
-  AiOutlineArrowLeft,
-  AiOutlineArrowRight,
-} from 'react-icons/ai';
+import Link from 'next/link';
 
-const inbox = ({ initMessages }) => {
+const Inbox = ({ initMessages }) => {
   const [messages, setMessages] = useState(initMessages);
 
   async function onSubmit(message) {
@@ -96,15 +91,15 @@ const inbox = ({ initMessages }) => {
         </tbody>
       </table>
       <div className={InboxStyles.buttonContainer}>
-        <a href="/admin" className={InboxStyles.button}>
+        <Link href="/admin" className={InboxStyles.button}>
           Back to admin panel
-        </a>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default inbox;
+export default Inbox;
 
 export const getServerSideProps = async () => {
   const db = await importDb();
