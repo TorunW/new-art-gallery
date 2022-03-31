@@ -5,12 +5,14 @@ import AdminStyles from '../../styles/Admin.module.css';
 import MainGalleryForm from '../../components/MainGalleryForm';
 import SubGalleryForm from '../../components/SubGalleryForm';
 import { app } from '../../firebaseConfig';
+import { useRouter } from 'next/router';
 
 export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   const [maingallery, setMaingallery] = useState(initMainGallery);
   const [subgallery, setSubgallery] = useState(initSubGallery);
   const [about, setAbout] = useState(initAbout);
   const [update, setUpdate] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (update === true) {
@@ -20,6 +22,20 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
       }, 3000);
     }
   }, [update]);
+
+  useEffect(() => {
+    let token = sessionStorage.getItem('Token');
+    // push back to login if token doesnt exist, this should be in the admin index
+    if (!token) {
+      // should push to admin in real life project
+      router.push('/signup');
+    }
+  }, []);
+
+  const logout = () => {
+    sessionStorage.removeItem('Token');
+    router.push('/');
+  };
 
   async function onAddNewMainGalleryPicture(newPicture) {}
 
@@ -82,9 +98,10 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   return (
     <admin>
       <div className={AdminStyles.admin}>
-        <a className={AdminStyles.navButton} href="admin/inbox">
+        {/* <a className={AdminStyles.navButton} href="admin/inbox">
           <div>Inbox</div>
-        </a>
+        </a> */}
+        <button onClick={logout}>Logga ut</button>
         <div className={AdminStyles.sectionContainer}>
           <div className={AdminStyles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
