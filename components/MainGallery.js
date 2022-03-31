@@ -80,6 +80,7 @@ const MainGallery = ({ maingallery }) => {
           return (
             <div className={galleryStyles.wrapper} key={index}>
               <img
+                loading="lazy"
                 src={item.picture}
                 style={{ width: '100%' }}
                 onClick={() => imgDisplay(index)}

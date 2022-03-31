@@ -49,7 +49,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
       return (
         <div key={index} item={item} className={AdminStyles.itemContainer}>
           <p>{item.title}</p>
-          <img src={item.picture} />
+          <img loading="lazy" src={item.picture} />
           <p>{item.price}</p>
           <p>{item.size}</p>
           <div>
@@ -66,7 +66,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
       return (
         <div key={index} item={item} className={AdminStyles.itemContainer}>
           <p>{item.title}</p>
-          <img src={item.picture} />
+          <img loading="lazy" src={item.picture} />
           <p>{item.price}</p>
           <p>{item.size}</p>
           <div>
@@ -95,7 +95,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
             <div className={AdminStyles.galleryContainer}>
               {maingallery.map((maingallery, index) => (
                 <div key={index} maingallery={maingallery}>
-                  <img src={maingallery.picture} />
+                  <img loading="lazy" src={maingallery.picture} />
                   <div>
                     <a
                       onClick={() => onDeleteMainGalleryPicture(maingallery.id)}
