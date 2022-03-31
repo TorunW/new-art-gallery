@@ -8,6 +8,20 @@ const Nav = () => {
   const [navbar, setNavbar] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    let token = sessionStorage.getItem('Token');
+    // push back to login if token doesnt exist, this should be in the admin index
+    if (!token) {
+      // should push to admin in real life project
+      router.push('/signup');
+    }
+  }, []);
+
+  const logout = () => {
+    sessionStorage.removeItem('Token');
+    router.push('/');
+  };
+
   function handleScroll() {
     if (typeof window !== 'undefined') {
       if (window.scrollY >= 180) {
@@ -62,6 +76,7 @@ const Nav = () => {
         <div className={navStyles.inbox}>
           <a href="admin/inbox">
             <IoMail className={navStyles.icon} />
+            <button onClick={logout}>Logga ut</button>{' '}
           </a>
         </div>
       </div>
@@ -78,8 +93,8 @@ const Nav = () => {
         <div className={navStyles.right}>
           <Link href="/tavlor">Tavlor</Link>
           <Link href="/betongmosaik">Betong & Mosaik</Link>
-          <a onClick={() => onMenuClick('about')}>About</a>
-          <a onClick={() => onMenuClick('about')}>Contact</a>
+          <a onClick={() => onMenuClick('about')}>Om mig</a>
+          <a onClick={() => onMenuClick('about')}>Kontak</a>
         </div>
       </div>
     );
