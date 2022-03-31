@@ -49,7 +49,6 @@
         p {
           margin: 0;
           letter-spacing: 1px;
-          font-size: 16px;
         }
       }
     }
@@ -73,6 +72,11 @@ figure.effect:hover h2 {
 
     figure {
       max-height: 265px;
+      .description {
+        p {
+          font-size: 16px;
+        }
+      }
     }
   }
 }
@@ -83,6 +87,11 @@ figure.effect:hover h2 {
 
     figure {
       max-height: 305px;
+      .description {
+        p {
+          font-size: 16px;
+        }
+      }
     }
   }
 }
@@ -93,6 +102,32 @@ figure.effect:hover h2 {
 
     figure {
       max-height: 600px;
+      .description {
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: 80px;
+
+    figure {
+      max-height: 600px;
+
+      h2 {
+        font-size: 18px;
+      }
+
+      .description {
+        p {
+          font-size: 14px;
+        }
+      }
     }
   }
 }

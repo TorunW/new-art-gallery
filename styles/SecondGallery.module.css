@@ -48,7 +48,6 @@
 .grid figure figcaption .description p {
   margin: 0;
   letter-spacing: 1px;
-  font-size: 16px;
 }
 figure.effect:hover figcaption,
 figure.effect:hover h2 {
@@ -66,6 +65,9 @@ figure.effect:hover h2 {
   .grid figure {
     max-height: 265px;
   }
+  .grid figure .description p {
+    font-size: 16px;
+  }
 }
 @media (max-width: 1500px) {
   .grid {
@@ -74,6 +76,9 @@ figure.effect:hover h2 {
   .grid figure {
     max-height: 305px;
   }
+  .grid figure .description p {
+    font-size: 16px;
+  }
 }
 @media (max-width: 1000px) {
   .grid {
@@ -81,5 +86,23 @@ figure.effect:hover h2 {
   }
   .grid figure {
     max-height: 600px;
+  }
+  .grid figure .description p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: 80px;
+  }
+  .grid figure {
+    max-height: 600px;
+  }
+  .grid figure h2 {
+    font-size: 18px;
+  }
+  .grid figure .description p {
+    font-size: 14px;
   }
 }
