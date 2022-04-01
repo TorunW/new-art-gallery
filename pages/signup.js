@@ -20,11 +20,15 @@ export default function Signup() {
   }, []);
 
   const signUp = () => {
-    createUserWithEmailAndPassword(auth, email, password).then(res => {
-      console.log(res.user);
-      sessionStorage.setItem('Token', res.user.accessToken);
-      router.push('/admin');
-    });
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(res => {
+        console.log(res.user);
+        sessionStorage.setItem('Token', res.user.accessToken);
+        router.push('/admin');
+      })
+      .catch(err => {
+        alert('email already exists');
+      });
   };
 
   return (
@@ -39,7 +43,7 @@ export default function Signup() {
           type="email"
         />
         <input
-          placeholder="password"
+          placeholder="lösenord"
           className={styles.inputContainer}
           onChange={e => setPassword(e.target.value)}
           value={password}

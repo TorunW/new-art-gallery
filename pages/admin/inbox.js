@@ -1,12 +1,21 @@
 import { importDb } from '../../config/db';
 import { server } from '../../config/server';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import InboxStyles from '../../styles/Inbox.module.css';
 import { IoMail, IoMailOpen, IoTrashSharp } from 'react-icons/io5';
 import Link from 'next/link';
 
 const Inbox = ({ initMessages }) => {
   const [messages, setMessages] = useState(initMessages);
+
+  useEffect(() => {
+    let token = sessionStorage.getItem('Token');
+    // push back to login if token doesnt exist, this should be in the admin index
+    if (!token) {
+      // should push to admin in real life project
+      router.push('/signup');
+    }
+  }, []);
 
   async function onSubmit(message) {
     message.seen = message.seen === 1 ? 0 : 1;

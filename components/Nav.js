@@ -34,6 +34,11 @@ const Nav = () => {
     }
   }
 
+  const logout = () => {
+    sessionStorage.removeItem('Token');
+    router.push('/');
+  };
+
   let navbarTypeDisplay;
   if (router.pathname === '/') {
     navbarTypeDisplay = (
@@ -63,6 +68,7 @@ const Nav = () => {
           <a href="admin/inbox">
             <IoMail className={navStyles.icon} />
           </a>
+          <button onClick={logout}>Logga ut</button>
         </div>
       </div>
     );

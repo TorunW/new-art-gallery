@@ -28,14 +28,9 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
     // push back to login if token doesnt exist, this should be in the admin index
     if (!token) {
       // should push to admin in real life project
-      router.push('/signup');
+      router.push('/login');
     }
   }, []);
-
-  const logout = () => {
-    sessionStorage.removeItem('Token');
-    router.push('/');
-  };
 
   async function onAddNewMainGalleryPicture(newPicture) {}
 
@@ -98,10 +93,9 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   return (
     <admin>
       <div className={AdminStyles.admin}>
-        {/* <a className={AdminStyles.navButton} href="admin/inbox">
+        <a className={AdminStyles.navButton} href="admin/inbox">
           <div>Inbox</div>
-        </a> */}
-        <button onClick={logout}>Logga ut</button>
+        </a>
         <div className={AdminStyles.sectionContainer}>
           <div className={AdminStyles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
