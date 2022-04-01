@@ -25,42 +25,68 @@
   background-color: #202022;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
-.nav .left {
-  position: absolute;
-}
-.nav .left a:hover {
-  color: #fff;
-  cursor: pointer;
-}
-.nav .right {
-  position: absolute;
-}
-.nav .right a:hover {
-  transform: scale(1.1);
-  color: #fff;
-  cursor: pointer;
-}
-.nav a {
+.nav .navContainer a,
+.nav .navContainerHidden a {
   text-decoration: none;
   color: var(--white);
 }
-.nav .navbar {
+.nav .navContainer a:hover,
+.nav .navContainerHidden a:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.nav .navContainer .left,
+.nav .navContainerHidden .left {
+  position: absolute;
+}
+.nav .navContainer .right,
+.nav .navContainerHidden .right {
+  position: absolute;
+}
+.nav .navContainer .right a,
+.nav .navContainerHidden .right a {
+  text-decoration: none;
+  color: var(--white);
+}
+.nav .navContainer .right a:hover,
+.nav .navContainerHidden .right a:hover {
+  transform: scale(1.1);
+}
+.nav .navbarAdmin {
   background-color: #15151f;
   color: var(--admin-white);
   height: 30px;
   font-size: 25px;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
 }
-.nav .navbar .left {
+.nav .navbarAdmin .left {
   font-weight: 600;
 }
-.nav .navbar .inbox {
+.nav .navbarAdmin .inbox {
   cursor: pointer;
-  float: right;
-  font-size: 25px;
 }
-.nav .navbar .inbox a:hover {
-  opacity: 0.8;
+.nav .navbarAdmin .inbox svg {
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.788);
+}
+.nav .navbarAdmin .inbox svg:hover {
+  color: white;
+}
+.nav .navbarAdmin .inbox button {
+  color: rgba(255, 255, 255, 0.788);
+  cursor: pointer;
+  border-radius: 5px;
+  border-style: none;
+  background-color: rgba(100, 100, 100, 0);
+  font-family: 'Dosis';
+  font-size: 16px;
+}
+.nav .navbarAdmin .inbox button:hover {
+  color: white;
 }
 @media (min-width: 992px) {
   .nav .navContainer,

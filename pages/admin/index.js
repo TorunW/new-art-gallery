@@ -93,9 +93,6 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   return (
     <admin>
       <div className={AdminStyles.admin}>
-        <a className={AdminStyles.navButton} href="admin/inbox">
-          <div>Inbox</div>
-        </a>
         <div className={AdminStyles.sectionContainer}>
           <div className={AdminStyles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />

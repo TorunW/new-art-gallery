@@ -97,7 +97,7 @@ const Contact = (props, about, contact) => {
   }
 
   return (
-    <contact id="contact" className={aboutStyles.about}>
+    <contact id="about" className={aboutStyles.about}>
       <div className={aboutStyles.bgContainer}>
         <div className={aboutStyles.contentContainer}>
           <div className={aboutStyles.aboutContainer}>

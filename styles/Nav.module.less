@@ -26,40 +26,43 @@
     background-color: #202022;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   }
-
-  .left {
-    position: absolute;
+  .navContainer,
+  .navContainerHidden {
     a {
+      text-decoration: none;
+      color: var(--white);
       &:hover {
         color: #fff;
         cursor: pointer;
       }
     }
-  }
+    .left {
+      position: absolute;
+    }
 
-  .right {
-    position: absolute;
+    .right {
+      position: absolute;
 
-    a {
-      &:hover {
-        transform: scale(1.1);
-        color: #fff;
-        cursor: pointer;
+      a {
+        text-decoration: none;
+        color: var(--white);
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
 
-  a {
-    text-decoration: none;
-    color: var(--white);
-  }
-
-  .navbar {
+  .navbarAdmin {
     background-color: #15151f;
     color: var(--admin-white);
     height: 30px;
     font-size: 25px;
     padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 
     .left {
       font-weight: 600;
@@ -67,11 +70,25 @@
 
     .inbox {
       cursor: pointer;
-      float: right;
-      font-size: 25px;
-      a {
+      svg {
+        margin-right: 5px;
+        color: rgba(255, 255, 255, 0.788);
         &:hover {
-          opacity: 0.8;
+          color: white;
+        }
+      }
+
+      button {
+        color: rgba(255, 255, 255, 0.788);
+        cursor: pointer;
+        border-radius: 5px;
+        border-style: none;
+        background-color: rgba(100, 100, 100, 0);
+        font-family: 'Dosis';
+        font-size: 16px;
+
+        &:hover {
+          color: white;
         }
       }
     }
