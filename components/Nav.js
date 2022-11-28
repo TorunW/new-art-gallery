@@ -12,7 +12,6 @@ const Nav = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY >= 180) {
         setNavbar(true);
-        console.log(window.scrollY);
       } else {
         setNavbar(false);
       }

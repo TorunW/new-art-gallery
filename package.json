@@ -16,12 +16,15 @@
     "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "@tiptap/react": "^2.0.0-beta.108",
+    "@tiptap/starter-kit": "^2.0.0-beta.183",
     "coloor": "^0.4.6",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
     "filesystem": "^1.0.1",
     "formidable": "^2.0.1",
     "sqlite": "^4.0.23",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "tiptap": "^1.32.2"
   }
 }

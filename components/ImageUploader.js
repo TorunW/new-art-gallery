@@ -1,16 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { server } from '../config/server';
-import FormStyles from '../styles/Form.module.css';
+import styles from '../styles/Form.module.css';
 
 export default function ImageUploader(props) {
   const [image, setImage] = useState(props.image);
   const [createObjectURL, setCreatedObjectURL] = useState(null);
-
-  useEffect(() => {
-    if (props.isSubmitted === true && props.type !== 'edit') {
-      uploadToServer();
-    }
-  }, [props.isSubmitted]);
 
   const uploadToClient = event => {
     if (event.target.files && event.target.files[0]) {
@@ -19,7 +13,6 @@ export default function ImageUploader(props) {
       setCreatedObjectURL(URL.createObjectURL(i));
     }
   };
-
   const uploadToServer = async event => {
     const body = new FormData();
     body.append('file', image);
@@ -28,6 +21,7 @@ export default function ImageUploader(props) {
       body,
     });
     const res = await response.json();
+    console.log(res, 'res');
     setImage(res.pathname);
     props.onSetImage(res.pathname);
   };
@@ -36,28 +30,35 @@ export default function ImageUploader(props) {
   if (createObjectURL !== null) {
     imageDisplay = (
       <img
-        className={FormStyles.img}
+        className={styles.img}
         src={createObjectURL !== null ? createObjectURL : server + '/' + image}
       />
     );
-  } else if (props.type === 'edit') {
-    imageDisplay = (
-      <img className={FormStyles.img} src={server + '/' + image} />
-    );
   } else {
-    imageDisplay = <h4>Select Image</h4>;
+    imageDisplay = (
+      <h4>{props.type === 'edit' ? 'Change Image' : 'Select Image'}</h4>
+    );
   }
   return (
     <imageuploader>
-      <div className={FormStyles.imageUploader}>
+      <div className={styles.imageUploader}>
         {imageDisplay}
-        <input type="file" name="myImage" onChange={uploadToClient} />
+        <input
+          className={styles.button}
+          type="file"
+          name="myImage"
+          onChange={uploadToClient}
+        />
       </div>
-      {/* <div className={FormStyles.buttonContainer}>
-        <a type='submit' onClick={uploadToServer}>
-          Upload image
+      <div className={styles.buttonContainer}>
+        <a
+          className={createObjectURL === null ? styles.btn : styles.uploadbtn}
+          type="submit"
+          onClick={uploadToServer}
+        >
+          {props.type === 'edit' ? 'Upload new image' : 'Upload image'}
         </a>
-      </div> */}
+      </div>
     </imageuploader>
   );
 }

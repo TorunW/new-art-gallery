@@ -14,8 +14,6 @@ const SubGalleryForm = props => {
   const [update, setUpdate] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  console.log(update);
-
   useEffect(() => {
     if (isSubmitted === true) {
       onSubmit();
@@ -54,7 +52,7 @@ const SubGalleryForm = props => {
       body: JSON.stringify(newSubPicture),
     });
     const res = await response.json();
-
+    console.log(res);
     props.onSubmit(res);
     setUpdate(true);
     setIsSubmitted(false);
@@ -69,45 +67,71 @@ const SubGalleryForm = props => {
       )}
 
       <div className={FormStyles.container}>
-        <ImageUploader
-          className={FormStyles.imageUploader}
-          image={picture}
-          onSetImage={setPicture}
-          isSubmitted={isSubmitted}
-          type={props.type === 'edit' ? 'edit' : 'add'}
-        />
+        {props.type === 'edit' ? (
+          <div className={FormStyles.topContainer}>
+            <div className={FormStyles.imgContainer}>
+              <img src={server + '/' + picture} className={FormStyles.img} />
+            </div>
+            <ImageUploader
+              className={FormStyles.imageUploaderEdit}
+              image={picture}
+              onSetImage={setPicture}
+              isSubmitted={isSubmitted}
+              type={props.type === 'edit' ? 'edit' : 'add'}
+            />
+          </div>
+        ) : (
+          <div className={FormStyles.topContainer}>
+            <ImageUploader
+              className={FormStyles.imageUploader}
+              image={picture}
+              onSetImage={setPicture}
+              isSubmitted={isSubmitted}
+              type={props.type === 'edit' ? 'edit' : 'add'}
+            />
+          </div>
+        )}
+
         <div className={FormStyles.inputContainer}>
-          <div className={FormStyles.title}>namn</div>
-          <input
-            className={FormStyles.input}
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-          />
-          <div className={FormStyles.title}>pris</div>
-          <input
-            className={FormStyles.input}
-            value={price}
-            onChange={e => setPrice(e.target.value)}
-          />
-          <div className={FormStyles.title}>storlek</div>
-          <input
-            className={FormStyles.input}
-            value={size}
-            onChange={e => setSize(e.target.value)}
-          />
-          <div className={FormStyles.title}>Kategori</div>
-          <select value={type} onChange={e => setType(e.target.value)}>
-            <option>Välj album</option>
-            <option value="tavlor">Tavlor</option>
-            <option value="betongmosaik">Betong & Mosaik</option>
-          </select>
+          <div className={FormStyles.formRow}>
+            {' '}
+            <div className={FormStyles.title}>namn</div>
+            <input
+              className={FormStyles.input}
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
+          </div>
+          <div className={FormStyles.formRow}>
+            {' '}
+            <div className={FormStyles.title}>pris</div>
+            <input
+              className={FormStyles.input}
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+          </div>
+          <div className={FormStyles.formRow}>
+            <div className={FormStyles.title}>storlek</div>
+            <input
+              className={FormStyles.input}
+              value={size}
+              onChange={e => setSize(e.target.value)}
+            />
+          </div>
+          <div className={FormStyles.formRow}>
+            {' '}
+            <div className={FormStyles.title}>Kategori</div>
+            <select value={type} onChange={e => setType(e.target.value)}>
+              <option>Välj album</option>
+              <option value="tavlor">Tavlor</option>
+              <option value="betongmosaik">Betong & Mosaik</option>
+            </select>
+          </div>
         </div>
+
         <div className={FormStyles.buttonContainer}>
-          <a
-            onClick={
-              props.type !== 'edit' ? () => setIsSubmitted(true) : onSubmit
-            }
-          >
+          <a onClick={onSubmit}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
           {props.type === 'edit' ? (

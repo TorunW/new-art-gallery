@@ -8,22 +8,49 @@
 .form .container {
   background: #283337;
   background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
-  padding: 20px;
+  padding: 16px;
   color: var(--middle-grey);
   border-radius: 5px;
   height: auto;
   margin: 0 auto;
+  width: 400px;
 }
-.form .container .imageUploader {
+.form .container .topContainer {
+  display: flex;
+  flex-direction: row;
+}
+.form .container .topContainer .imgContainer {
+  height: 200px;
+  width: 300px;
+  overflow: hidden;
+  position: relative;
+}
+.form .container .topContainer .imgContainer .img {
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form .container .topContainer .imageUploaderEdit {
+  width: 200px;
+}
+.form .container .topContainer .imageUploader {
+  width: 400px;
+}
+.form .container .topContainer .imageUploader,
+.form .container .topContainer .imageUploaderEdit {
   background-color: rgba(122, 122, 122, 0.116);
   border-radius: 5px;
   border-style: none;
   position: relative;
-  width: 100%;
   height: 200px;
   overflow: hidden;
 }
-.form .container .imageUploader h4 {
+.form .container .topContainer .imageUploader h4,
+.form .container .topContainer .imageUploaderEdit h4 {
   z-index: 1;
   position: absolute;
   text-transform: uppercase;
@@ -33,7 +60,8 @@
   width: 100%;
   text-align: center;
 }
-.form .container .imageUploader input {
+.form .container .topContainer .imageUploader input,
+.form .container .topContainer .imageUploaderEdit input {
   opacity: 0;
   height: 100%;
   z-index: 2;
@@ -43,7 +71,8 @@
   top: 0;
   left: 0;
 }
-.form .container .imageUploader .img {
+.form .container .topContainer .imageUploader .img,
+.form .container .topContainer .imageUploaderEdit .img {
   height: 100%;
   z-index: 10;
   position: absolute;
@@ -54,18 +83,21 @@
   transform: translate(-50%, -50%);
 }
 .form .container .inputContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 20px;
-  grid-gap: 15px;
-  margin-bottom: 25px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.form .container .inputContainer .title {
+.form .container .inputContainer .formRow {
+  display: flex;
+}
+.form .container .inputContainer .formRow .title {
   text-transform: uppercase;
   font-weight: bold;
+  width: 40%;
 }
-.form .container .inputContainer .input,
-.form .container .inputContainer select {
+.form .container .inputContainer .formRow .input,
+.form .container .inputContainer .formRow select {
   border-style: none;
   height: 25px;
   font-size: 16px;
@@ -74,8 +106,9 @@
   background-color: #3d4045;
   letter-spacing: 0.1rem;
   padding-left: 5px;
+  width: 60%;
 }
-.form .container select {
+.form .container .inputContainer select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -83,13 +116,13 @@
   -moz-padding-start: calc(10px - 3px);
   cursor: pointer;
 }
-.form .container select option {
+.form .container .inputContainer select option {
   color: #8b8b8b;
 }
-.form .container select::-ms-expand {
+.form .container .inputContainer select::-ms-expand {
   display: none;
 }
-.form .container select:focus::-ms-value {
+.form .container .inputContainer select:focus::-ms-value {
   background-color: transparent;
 }
 .form .container .buttonContainer {

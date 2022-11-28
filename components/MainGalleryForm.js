@@ -49,7 +49,6 @@ const MainGalleryForm = props => {
       body: JSON.stringify(newPicture),
     });
     const res = await response.json();
-
     props.onSubmit(res);
     setUpdate(true);
     setIsSubmitted(false);
@@ -69,11 +68,6 @@ const MainGalleryForm = props => {
           <a onClick={() => setIsSubmitted(true)}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
-          {/* {props.type === 'edit' ? (
-            <Link href='/admin'>Tillbaka till admin</Link>
-          ) : (
-            ''
-          )} */}
         </div>
       </div>
     </maingalleryform>
