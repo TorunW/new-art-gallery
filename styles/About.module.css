@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   height: 100%;
   opacity: 0.7;
-  padding: 30px;
+  padding: 48px 0;
 }
 .about .bgContainer .contentContainer {
   margin: 0 auto;
@@ -15,13 +15,13 @@
 .about .bgContainer .contentContainer .aboutContainer {
   background-color: var(--dark);
   color: var(--white);
-  padding: 20px;
+  padding: 32px;
   font-size: 18px;
 }
 .about .bgContainer .contentContainer .formContainer {
   background-color: #22232a80;
   color: var(--white);
-  padding: 20px 20px 30px !important;
+  padding: 20px 32px 30px !important;
 }
 .about .bgContainer .contentContainer .formContainer input {
   margin-top: 10px;
@@ -84,6 +84,7 @@
 @media (min-width: 992px) {
   .about .bgContainer .contentContainer {
     width: 65%;
+    max-width: 1067px;
     grid-template-columns: 1fr 1fr;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }

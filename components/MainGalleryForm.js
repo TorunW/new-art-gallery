@@ -26,10 +26,6 @@ const MainGalleryForm = props => {
     }
   }, [update]);
 
-  //  on submit <change a state var to true, pass that state var as a prop in teh img uplooadde, in the img uploaderthat runs on props state var,test.
-  //  in the useffect run the uploadto server if its true, onsetimage in main gallery should be set to
-  // useeffect for picture, if the submit is true call function on submit, statevar false in the end of onsubmit
-
   async function onSubmit() {
     let newPicture = {
       picture,
@@ -65,7 +61,7 @@ const MainGalleryForm = props => {
           isSubmitted={isSubmitted}
         />
         <div className={FormStyles.buttonContainer}>
-          <a onClick={() => setIsSubmitted(true)}>
+          <a onClick={onSubmit}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>
         </div>

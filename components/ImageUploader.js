@@ -27,36 +27,65 @@ export default function ImageUploader(props) {
   };
 
   let imageDisplay;
-  if (createObjectURL !== null) {
+  if (props.type === 'edit') {
     imageDisplay = (
-      <img
-        className={styles.img}
-        src={createObjectURL !== null ? createObjectURL : server + '/' + image}
-      />
-    );
-  } else {
-    imageDisplay = (
-      <h4>{props.type === 'edit' ? 'Change Image' : 'Select Image'}</h4>
-    );
-  }
-  return (
-    <imageuploader>
-      <div className={styles.imageUploader}>
-        {imageDisplay}
+      <>
+        <img
+          className={styles.img}
+          src={
+            createObjectURL !== null ? createObjectURL : server + '/' + image
+          }
+        />
         <input
           className={styles.button}
           type="file"
           name="myImage"
           onChange={uploadToClient}
         />
-      </div>
+        <button>Change Image</button>
+      </>
+    );
+  } else if (createObjectURL === null) {
+    imageDisplay = (
+      <>
+        <h4>Select Image</h4>
+        <input
+          className={styles.button}
+          type="file"
+          name="myImage"
+          onChange={uploadToClient}
+        />
+      </>
+    );
+  } else {
+    imageDisplay = (
+      <>
+        <img
+          className={styles.img}
+          src={
+            createObjectURL !== null ? createObjectURL : server + '/' + image
+          }
+        />
+        <input
+          className={styles.button}
+          type="file"
+          name="myImage"
+          onChange={uploadToClient}
+        />
+        <button>Change Image</button>
+      </>
+    );
+  }
+  return (
+    <imageuploader>
+      <div className={styles.imageUploader}>{imageDisplay}</div>
       <div className={styles.buttonContainer}>
         <a
           className={createObjectURL === null ? styles.btn : styles.uploadbtn}
           type="submit"
           onClick={uploadToServer}
         >
-          {props.type === 'edit' ? 'Upload new image' : 'Upload image'}
+          Upload
         </a>
       </div>
     </imageuploader>

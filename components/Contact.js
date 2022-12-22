@@ -11,16 +11,16 @@ const Contact = (props, about, contact) => {
   const [messageError, setMessageError] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   if (messageSent === true) {
-  //     setTimeout(() => {
-  //       setMessageSent(false);
-  //       router.pathname.reload();
-  //     }, 1000);
-  //   }
-  // }, [messageSent]);
+  useEffect(() => {
+    if (messageSent === true) {
+      setTimeout(() => {
+        setMessageSent(false);
+        router.reload();
+      }, 5000);
+    }
+  }, [messageSent]);
 
   function onSubmit() {
     if (formValidation()) {
@@ -96,20 +96,20 @@ const Contact = (props, about, contact) => {
     );
   }
 
+  let aboutDisplay = props.about.map((about, index) => {
+    return (
+      <div key={index}>
+        <h2> {about.title} </h2>
+        <div dangerouslySetInnerHTML={{ __html: about.about_text }}></div>
+      </div>
+    );
+  });
+
   return (
     <contact id="about" className={aboutStyles.about}>
       <div className={aboutStyles.bgContainer}>
         <div className={aboutStyles.contentContainer}>
-          <div className={aboutStyles.aboutContainer}>
-            <h2>Om mig</h2>
-            <p>
-              Jag har malat och skapat i flera ar. <br />
-              Mina inpirationer kommer fran olika hall.
-              <br />
-              Om du är intresserad av att köpa nagot av min verk sa kontakta mig
-              i formuläret här brevid.
-            </p>
-          </div>
+          <div className={aboutStyles.aboutContainer}>{aboutDisplay}</div>
           <div className={aboutStyles.formContainer}>
             <form>
               <h2>Kontakt</h2>

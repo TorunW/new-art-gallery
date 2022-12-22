@@ -15,4 +15,5 @@ export default async function getAbout(
   }
   let about = await db.all('select * from about');
   res.json(about);
+  console.log(about);
 }

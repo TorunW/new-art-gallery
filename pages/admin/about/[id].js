@@ -4,7 +4,7 @@ import { server } from '../../../config/server';
 import TextEditor from '../../../components/textEditor';
 import textEditorStyles from '../../../styles/textEditor.module.css';
 
-const aboutView = ({ about }) => {
+const AboutView = ({ about }) => {
   const [title, setTitle] = useState(about.title);
   const [aboutText, setAboutText] = useState(about.about_text);
   const [id, setId] = useState(about.id);
@@ -54,16 +54,16 @@ const aboutView = ({ about }) => {
           >
             Save Changes
           </button>
-          <a className={textEditorStyles.button} href="/admin">
+          <Link className={textEditorStyles.button} href="/admin">
             Back to admin panel
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default aboutView;
+export default AboutView;
 
 export const getServerSideProps = async context => {
   const db = await importDb();

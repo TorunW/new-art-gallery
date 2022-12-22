@@ -25,40 +25,42 @@ export default function Home({ maingallery, about, contact, initMessages }) {
   return (
     <div className={styles.home}>
       <Header />
-      <MainGallery maingallery={maingallery} />
-      <h1>Se alla mina verk</h1>
-      <div className={styles.container}>
-        <div>
-          <Link href="/tavlor">
-            <div className={styles.previewT}>
+      <MainGallery maingallery={maingallery} />#
+      <div className={styles.redirectSection}>
+        <h1>Se alla mina verk</h1>
+        <div className={styles.container}>
+          <div>
+            <Link href="/tavlor">
+              <div className={styles.previewT}>
+                <div className={styles.caption}>
+                  <h2>
+                    <br />
+                    <span> tavlor</span>
+                  </h2>
+                  <p>⟶</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+          <Link href="/betongmosaik">
+            <div className={styles.previewM}>
+              <img className={styles.secondImg} />
               <div className={styles.caption}>
                 <h2>
                   <br />
-                  <span> tavlor</span>
+                  <span>
+                    Betong <br /> &<br /> Mosaik
+                  </span>
                 </h2>
                 <p>⟶</p>
+
+                <span></span>
               </div>
             </div>
           </Link>
         </div>
-        <Link href="/betongmosaik">
-          <div className={styles.previewM}>
-            <img className={styles.secondImg} />
-            <div className={styles.caption}>
-              <h2>
-                <br />
-                <span>
-                  Betong <br /> &<br /> Mosaik
-                </span>
-              </h2>
-              <p>⟶</p>
-
-              <span></span>
-            </div>
-          </div>
-        </Link>
       </div>
-      <Contact contact={contact} onSubmit={onSubmitNewMessage} />
+      <Contact contact={contact} about={about} onSubmit={onSubmitNewMessage} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import styles from '../styles/textEditor.module.css';
+// import { styles } from '../styles/textEditor.module.css';
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -9,78 +9,122 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className={styles.menuContainer}>
+    <>
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? styles.isActive : styles.notActive}
+        className={editor.isActive('bold') ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         bold
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={
-          editor.isActive('italic') ? styles.isActive : styles.notActive
-        }
+        className={editor.isActive('italic') ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         italic
       </button>
 
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
-        className={
-          editor.isActive('paragraph') ? styles.isActive : styles.notActive
-        }
+        className={editor.isActive('paragraph') ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         paragraph
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={
-          editor.isActive('heading', { level: 1 })
-            ? styles.isActive
-            : styles.notActive
-        }
+        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         h1
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={
-          editor.isActive('heading', { level: 2 })
-            ? styles.isActive
-            : styles.notActive
-        }
+        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         h2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={
-          editor.isActive('heading', { level: 3 })
-            ? styles.isActive
-            : styles.notActive
-        }
+        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         h3
       </button>
 
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={
-          editor.isActive('bulletList') ? styles.isActive : styles.notActive
-        }
+        className={editor.isActive('bulletList') ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         bullet list
       </button>
       <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={
-          editor.isActive('orderedList') ? styles.isActive : styles.notActive
-        }
+        className={editor.isActive('orderedList') ? 'is-active' : ''}
+        style={{
+          borderStyle: 'solid',
+          borderColor: 'grey',
+          color: 'white',
+          margin: '5px',
+          background: 'black',
+          borderRadius: '3px',
+        }}
       >
         ordered list
       </button>
-    </div>
+    </>
   );
 };
 
@@ -97,9 +141,9 @@ export default props => {
   });
 
   return (
-    <div className={styles.editorContainer}>
+    <div>
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} className={styles.editor} />
+      <EditorContent editor={editor} />
     </div>
   );
 };

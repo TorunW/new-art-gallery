@@ -1,12 +1,12 @@
 .gallery {
-  margin: 2em 0;
-  max-width: 100%;
-  padding: 0 80px;
+  margin: 48px auto 32px;
+  width: 100%;
+  max-width: 1067px;
 
   .grid {
     display: flex;
     flex-flow: row wrap;
-    margin-left: -8px; /* Adjustment for the gutter */
+    margin-left: 10px; /* Adjustment for the gutter */
     width: 100%;
     counter-reset: brick;
 
@@ -14,9 +14,8 @@
       flex: auto;
       height: 250px;
       min-width: 150px;
-      margin: 0 8px 8px 0; /* Some gutter */
+      margin: 0 16px 16px 0; /* Some gutter */
       overflow: hidden;
-      margin: 0 0 8px 8px;
       background-color: #333;
       color: white;
       position: relative;
@@ -33,17 +32,5 @@
         }
       }
     }
-  }
-}
-
-@media (max-width: 991px) {
-  .gallery {
-    padding: 2em 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .gallery {
-    padding: 2em 20px;
   }
 }
