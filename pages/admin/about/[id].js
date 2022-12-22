@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { server } from '../../../config/server';
 import TextEditor from '../../../components/textEditor';
 import textEditorStyles from '../../../styles/textEditor.module.css';
+import Link from 'next/link';
 
 const AboutView = ({ about }) => {
   const [title, setTitle] = useState(about.title);
