@@ -128,7 +128,7 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-export default props => {
+export default function Editor(props) {
   const editor = useEditor({
     extensions: [StarterKit],
     onUpdate: ({ editor }) => {
@@ -146,4 +146,4 @@ export default props => {
       <EditorContent editor={editor} />
     </div>
   );
-};
+}

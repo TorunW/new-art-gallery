@@ -67,7 +67,7 @@
 }
 .about .bgContainer .contentContainer .formContainer .submit a {
   background: #f5f5f740;
-  color: #fff;
+  color: #eeeeee;
   border-radius: 7px;
   padding: 8px 20px 5px;
   text-transform: uppercase;
@@ -79,7 +79,7 @@
 }
 .about .bgContainer .contentContainer .formContainer .submit a:hover {
   cursor: pointer;
-  color: #afafaf;
+  color: white;
 }
 @media (min-width: 992px) {
   .about .bgContainer .contentContainer {
