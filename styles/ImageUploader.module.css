@@ -18,6 +18,7 @@
 }
 .imageUploader {
   width: 400px;
+  margin-bottom: 16px;
 }
 .imageUploader,
 .imageUploaderEdit {

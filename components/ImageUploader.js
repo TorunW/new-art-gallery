@@ -77,17 +77,11 @@ export default function ImageUploader(props) {
     );
   }
   return (
-    <imageuploader>
+    <imageuploader className={styles.uploaderContainer}>
       <div className={styles.imageUploader}>{imageDisplay}</div>
-      <div className={styles.buttonContainer}>
-        <a
-          className={createObjectURL === null ? styles.btn : styles.uploadbtn}
-          type="submit"
-          onClick={uploadToServer}
-        >
-          Upload
-        </a>
-      </div>
+      <button type="submit" onClick={uploadToServer}>
+        Upload
+      </button>
     </imageuploader>
   );
 }

@@ -58,15 +58,15 @@
 .admin .sectionContainer .secondRow .galleryContainer div {
   float: right;
 }
-.admin .sectionContainer a {
+.admin .sectionContainer a,
+.admin .sectionContainer button {
+  border: none;
   background: #f5f5f740;
   color: #fff;
-  border-radius: 7px;
-  padding: 8px 20px 5px;
+  padding: 8px 16px 8px;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
-  margin-left: 10px;
   text-decoration: none;
   letter-spacing: 0.1rem;
   cursor: pointer;

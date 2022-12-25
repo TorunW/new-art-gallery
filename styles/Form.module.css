@@ -13,37 +13,31 @@
   border-radius: 5px;
   height: auto;
   margin: 0 auto;
-  width: 400px;
-}
-.form .container .topContainer {
-  display: flex;
-  flex-direction: row;
-}
-.form .container .inputContainer {
-  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+.form .container .inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .form .container .inputContainer .formRow {
   display: flex;
+  justify-content: space-between;
 }
 .form .container .inputContainer .formRow .title {
   text-transform: uppercase;
   font-weight: bold;
-  width: 40%;
 }
 .form .container .inputContainer .formRow .input,
 .form .container .inputContainer .formRow select {
   border-style: none;
-  height: 25px;
   font-size: 16px;
   font-weight: 500;
   color: var(--admin-white);
   background-color: #3d4045;
-  letter-spacing: 0.1rem;
   padding-left: 5px;
-  width: 60%;
 }
 .form .container .inputContainer select {
   -moz-appearance: none;
@@ -61,27 +55,6 @@
 }
 .form .container .inputContainer select:focus::-ms-value {
   background-color: transparent;
-}
-.form .container .buttonContainer {
-  text-align: right;
-  margin-top: 25px;
-}
-.form .container .buttonContainer a {
-  background: #f5f5f740;
-  color: #fff;
-  border-radius: 7px;
-  padding: 8px 20px 5px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
-  margin-left: 10px;
-  text-decoration: none;
-  letter-spacing: 0.1rem;
-  cursor: pointer;
-}
-.form .container .buttonContainer a:hover {
-  transform: scale(1.1);
-  color: rgba(255, 255, 255, 0.534);
 }
 @media (min-width: 651px) {
   .form .container {
