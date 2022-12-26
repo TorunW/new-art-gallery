@@ -65,7 +65,7 @@ export default function Home({ maingallery, about, contact, initMessages }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const db = await importDb();
   const maingallery = await db.all('select * from maingallery');
   const about = await db.all('select * from about');
