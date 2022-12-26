@@ -66,7 +66,7 @@ const AboutView = ({ about }) => {
 
 export default AboutView;
 
-export const getServerSideProps = async context => {
+export const getStaticProps = async context => {
   const db = await importDb();
   const about = await db.get('select * from about where id = ?', [
     context.params.id,

@@ -112,7 +112,7 @@ export default function Betongmosaik({ subgallery }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const db = await importDb();
   const subgallery = await db.all('select * from subgallery');
   return { props: { subgallery } };

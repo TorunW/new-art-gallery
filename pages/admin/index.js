@@ -153,7 +153,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const db = await importDb();
   const maingallery = await db.all('select * from maingallery');
   const subgallery = await db.all('select * from subgallery');

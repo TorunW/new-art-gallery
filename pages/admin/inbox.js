@@ -110,7 +110,7 @@ const Inbox = ({ initMessages }) => {
 
 export default Inbox;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const db = await importDb();
   const messages = await db.all('select * from contact');
 

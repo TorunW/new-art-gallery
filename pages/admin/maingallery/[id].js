@@ -1,5 +1,5 @@
-import { importDb } from '../../../config/db';
 import MainGalleryForm from '../../../components/MainGalleryForm';
+import { importDb } from '../../../config/db';
 
 const mainGalleryView = ({ maingallery }) => {
   async function onSave(res) {
@@ -21,7 +21,7 @@ const mainGalleryView = ({ maingallery }) => {
 
 export default mainGalleryView;
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async context => {
   const db = await importDb();
   const maingallery = await db.get('select * from maingallery where id = ?', [
     context.params.id,
