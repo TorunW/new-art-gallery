@@ -97,10 +97,4 @@ const MainGallery = ({ maingallery }) => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const db = await importDb();
-  const maingallery = await db.all('select * from maingallery');
-  return { props: { maingallery } };
-};
-
 export default MainGallery;
