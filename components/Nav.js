@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import navStyles from '../styles/Nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FaRegEnvelope } from 'react-icons/fa';
 
 const Nav = () => {
   const [navbar, setNavbar] = useState(false);
@@ -52,15 +51,10 @@ const Nav = () => {
             : navStyles.navContainerHidden
         }
       >
-        <div className={navStyles.left}>
-          <Link href="/">Charlotte Hillborg</Link>
-        </div>
-        <div className={navStyles.right}>
-          <Link href="/tavlor">Tavlor</Link>
-          <Link href="/betongmosaik">Betong & Mosaik</Link>
-          <a onClick={() => onMenuClick('about')}>Om mig</a>
-          <a onClick={() => onMenuClick('about')}>Kontakt</a>
-        </div>
+        <Link href="/tavlor">Tavlor</Link>
+        <Link href="/betongmosaik">Betong & Mosaik</Link>
+        <a onClick={() => onMenuClick('about')}>Om mig</a>
+        <a onClick={() => onMenuClick('about')}>Kontakt</a>
       </div>
     );
   } else if (router.pathname === '/admin') {

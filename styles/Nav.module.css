@@ -1,56 +1,36 @@
-.nav .navContainerHidden {
-  transition: 1s;
-  list-style: none;
-  display: flex;
-  margin: 0;
-  position: fixed;
+.nav {
   width: 100%;
-  margin-top: 0;
-  font-weight: 500;
-  z-index: 10;
-  align-items: center;
-  background-color: #20202200;
+  display: flex;
+  justify-content: center;
 }
 .nav .navContainer {
+  border-bottom: 0.5px solid var(--light);
+}
+.nav .navContainer,
+.nav .navContainerHidden {
+  z-index: 10;
+  position: fixed;
+  width: auto;
   transition: 1s;
   list-style: none;
   display: flex;
-  margin: 0;
-  position: fixed;
-  width: 100%;
-  margin-top: 0;
-  font-weight: 500;
-  z-index: 10;
+  justify-content: space-between;
   align-items: center;
-  background-color: black;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  font-family: 'Italiana';
+  background-color: var(--dark);
 }
 .nav .navContainer a,
 .nav .navContainerHidden a {
+  font-size: larger;
   text-decoration: none;
   color: var(--white);
+  margin: var(--space-grid-big) var(--space-grid-big);
 }
 .nav .navContainer a:hover,
 .nav .navContainerHidden a:hover {
   color: #fff;
   cursor: pointer;
-}
-.nav .navContainer .left,
-.nav .navContainerHidden .left {
-  position: absolute;
-}
-.nav .navContainer .right,
-.nav .navContainerHidden .right {
-  position: absolute;
-}
-.nav .navContainer .right a,
-.nav .navContainerHidden .right a {
-  text-decoration: none;
-  color: var(--white);
-}
-.nav .navContainer .right a:hover,
-.nav .navContainerHidden .right a:hover {
-  transform: scale(1.1);
+  text-decoration: underline;
 }
 .nav .navbarAdmin {
   background-color: #15151f;
@@ -87,100 +67,4 @@
 }
 .nav .navbarAdmin .inbox button:hover {
   color: white;
-}
-@media (min-width: 992px) {
-  .nav .navContainer,
-  .nav .navContainerHidden {
-    height: 55px;
-  }
-  .nav .navContainer .left,
-  .nav .navContainerHidden .left {
-    justify-content: left;
-    left: 50px;
-    font-size: 26px;
-  }
-  .nav .navContainer .right,
-  .nav .navContainerHidden .right {
-    display: flex;
-    right: 50px;
-  }
-  .nav .navContainer .right a,
-  .nav .navContainerHidden .right a {
-    margin: 0 10px;
-    font-size: 22px;
-  }
-}
-@media (max-width: 991px) {
-  .nav .navContainer,
-  .nav .navContainerHidden {
-    height: 55px;
-  }
-  .nav .navContainer .left,
-  .nav .navContainerHidden .left {
-    justify-content: left;
-    left: 30px;
-    font-size: 24px;
-  }
-  .nav .navContainer .right,
-  .nav .navContainerHidden .right {
-    display: flex;
-    right: 30px;
-  }
-  .nav .navContainer .right a,
-  .nav .navContainerHidden .right a {
-    margin: 0 10px;
-    font-size: 20px;
-  }
-}
-@media (max-width: 650px) {
-  .nav .navContainer,
-  .nav .navContainerHidden {
-    height: 74px;
-  }
-  .nav .navContainer .left,
-  .nav .navContainerHidden .left {
-    width: auto;
-    font-size: 24px;
-    top: 0;
-    left: 0;
-    margin: 5px 10px;
-  }
-  .nav .navContainer .right,
-  .nav .navContainerHidden .right {
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    margin-left: 5px;
-  }
-  .nav .navContainer .right a,
-  .nav .navContainerHidden .right a {
-    margin: 0 5px 10px;
-    font-size: 20px;
-  }
-}
-@media (max-width: 400px) {
-  .nav .navContainer,
-  .nav .navContainerHidden {
-    height: 70px;
-  }
-  .nav .navContainer .left,
-  .nav .navContainerHidden .left {
-    width: auto;
-    font-size: 20px;
-    top: 0;
-    left: 0;
-    margin: 10px;
-  }
-  .nav .navContainer .right,
-  .nav .navContainerHidden .right {
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    margin-left: 5px;
-  }
-  .nav .navContainer .right a,
-  .nav .navContainerHidden .right a {
-    margin: 0 5px 10px;
-    font-size: 16px;
-  }
 }
