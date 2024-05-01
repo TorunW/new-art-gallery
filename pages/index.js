@@ -4,7 +4,7 @@ import { server } from '../config/server';
 import { importDb } from '../config/db';
 import { useState } from 'react';
 import Card from '../components/Card';
-import { styles } from '../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 
 export default function Home({ about, contact, initMessages }) {
   const [messages, setMessages] = useState(initMessages);
