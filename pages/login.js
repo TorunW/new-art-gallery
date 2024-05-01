@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { app } from '../firebaseConfig';
 import { useState, useEffect } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import LoginStyles from '../styles/Login.module.css';
+import LoginStyles from '../styles/adminStyles/Login.module.css';
 
 export default function Signup() {
   const auth = getAuth();

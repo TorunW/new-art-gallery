@@ -1,17 +1,16 @@
 import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState, useEffect } from 'react';
-import AdminStyles from '../../styles/Admin.module.css';
-import MainGalleryForm from '../../components/MainGalleryForm';
+import styles from '../../styles/adminStyles/Admin.module.css';
 import SubGalleryForm from '../../components/SubGalleryForm';
 import { app } from '../../firebaseConfig';
 import { useRouter } from 'next/router';
 
-export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
-  const [maingallery, setMaingallery] = useState(initMainGallery);
+export default function Admin({ initSubGallery, initAbout }) {
   const [subgallery, setSubgallery] = useState(initSubGallery);
   const [about, setAbout] = useState(initAbout);
   const [update, setUpdate] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -19,6 +18,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
       setTimeout(() => {
         setUpdate(false);
         window.location.reload();
+        setIsLoading(false);
       }, 3000);
     }
   }, [update]);
@@ -32,21 +32,10 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
     }
   }, []);
 
-  async function onAddNewMainGalleryPicture(newPicture) {}
-
-  async function onDeleteMainGalleryPicture(id) {
-    await fetch(`${server}/api/maingallery/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    setUpdate(true);
-  }
-
   async function onAddNewSubGalleryPicture(newSubPicture) {}
 
   async function onDeleteSubGalleryPicture(id) {
+    setIsLoading(true);
     await fetch(`${server}/api/subgallery/${id}`, {
       method: 'DELETE',
       headers: {
@@ -59,7 +48,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   let tavlorDisplay = subgallery.map((item, index) => {
     if (item.type_of === 'tavlor') {
       return (
-        <div key={index} item={item} className={AdminStyles.itemContainer}>
+        <div key={index} item={item} className={styles.itemContainer}>
           <p>{item.title}</p>
           <img loading="lazy" src={item.picture} />
           <p>{item.price}</p>
@@ -76,7 +65,7 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
   let betongmosaikDisplay = subgallery.map((item, index) => {
     if (item.type_of === 'betongmosaik') {
       return (
-        <div key={index} item={item} className={AdminStyles.itemContainer}>
+        <div key={index} item={item} className={styles.itemContainer}>
           <p>{item.title}</p>
           <img loading="lazy" src={item.picture} />
           <p>{item.price}</p>
@@ -92,55 +81,38 @@ export default function Admin({ initMainGallery, initSubGallery, initAbout }) {
 
   return (
     <admin>
-      <div className={AdminStyles.admin}>
-        <div className={AdminStyles.sectionContainer}>
-          <div className={AdminStyles.firstRow}>
+      <div
+        className={isLoading === true ? styles.overlay : styles.overlayHidden}
+      >
+        <div className={styles.loader}></div>
+      </div>
+      <div className={styles.admin}>
+        <div className={styles.sectionContainer}>
+          <div className={styles.firstRow}>
             <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
-            <MainGalleryForm onSubmit={onAddNewMainGalleryPicture} />
           </div>
 
-          <div className={AdminStyles.secondRow}>
-            <h2>Bilder - Blandat</h2>
-            <div className={AdminStyles.galleryContainer}>
-              {maingallery.map((maingallery, index) => (
-                <div key={index} maingallery={maingallery}>
-                  <img loading="lazy" src={maingallery.picture} />
-                  <div>
-                    <a
-                      onClick={() => onDeleteMainGalleryPicture(maingallery.id)}
-                    >
-                      Radera
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={AdminStyles.thirdRow}>
+          <div className={styles.thirdRow}>
             <h2>tavlor</h2>
-            <div className={AdminStyles.gallery}>{tavlorDisplay}</div>
+            <div className={styles.gallery}>{tavlorDisplay}</div>
           </div>
-          <div className={AdminStyles.fourthRow}>
+          <div className={styles.fourthRow}>
             <h2>Mosaik & Betong</h2>
-            <div className={AdminStyles.gallery}>{betongmosaikDisplay}</div>
+            <div className={styles.gallery}>{betongmosaikDisplay}</div>
           </div>
 
-          <div className={AdminStyles.fifthRow}>
+          <div className={styles.fifthRow}>
             <h3>Om mig</h3>
             {about.map((about, index) => (
               <div
-                className={AdminStyles.aboutSection}
+                className={styles.aboutSection}
                 key={index}
                 aboutinfo={about}
               >
-                <p className={AdminStyles.title}>{about.title}</p>
+                <p className={styles.title}>{about.title}</p>
                 <p>{about.info_text}</p>
-                <div className={AdminStyles.buttonContainer}>
-                  <a
-                    className={AdminStyles.button}
-                    href={`admin/about/${about.id}`}
-                  >
+                <div className={styles.buttonContainer}>
+                  <a className={styles.button} href={`admin/about/${about.id}`}>
                     Edit About
                   </a>
                 </div>
