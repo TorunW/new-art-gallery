@@ -2,17 +2,18 @@ import { useState } from 'react';
 import navStyles from '../styles/Nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { route } from 'next/dist/server/router';
 
 const Nav = () => {
-  const [navbar, setNavbar] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
 
   function handleScroll() {
     if (typeof window !== 'undefined') {
       if (window.scrollY >= 180) {
-        setNavbar(true);
+        setIsScrolled(true);
       } else {
-        setNavbar(false);
+        setIsScrolled(false);
       }
     }
   }
@@ -44,18 +45,12 @@ const Nav = () => {
   let navbarTypeDisplay;
   if (router.pathname === '/') {
     navbarTypeDisplay = (
-      <div
-        className={
-          navbar === true
-            ? navStyles.navContainer
-            : navStyles.navContainerHidden
-        }
-      >
+      <>
         <Link href="/tavlor">Tavlor</Link>
         <Link href="/betongmosaik">Betong & Mosaik</Link>
         <a onClick={() => onMenuClick('about')}>Om mig</a>
         <a onClick={() => onMenuClick('about')}>Kontakt</a>
-      </div>
+      </>
     );
   } else if (router.pathname === '/admin') {
     navbarTypeDisplay = (
@@ -98,7 +93,17 @@ const Nav = () => {
     );
   }
 
-  return <nav className={navStyles.nav}>{navbarTypeDisplay}</nav>;
+  return (
+    <nav
+      className={
+        route.pathname !== '/admin' && isScrolled === true
+          ? navStyles.navbarScrolled
+          : navStyles.navbar
+      }
+    >
+      {navbarTypeDisplay}
+    </nav>
+  );
 };
 
 export default Nav;

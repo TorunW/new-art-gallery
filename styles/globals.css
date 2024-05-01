@@ -2,7 +2,8 @@
   --white: #eeeeee;
   --dark: #0c1016;
   --mid: #0f131a;
-  --light: #2e539a;
+  --light: #1e3157;
+  --light-transparent: #1e31578a;
 
   --space-grid-small: 8px;
   --space-grid-big: 16px;
@@ -41,6 +42,25 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+h1,
+h2,
+h3 {
+  font-family: 'Italiana';
+  margin: var(--space-grid-big);
+  padding: 0;
+  font-weight: lighter;
+}
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 24px;
+}
+p {
+  font-size: 24px;
+  font-family: 'Montserrat';
+}
 html,
 body {
   padding: 0;
@@ -54,4 +74,5 @@ html {
 body {
   min-height: 100%;
   background-color: var(--dark);
+  color: var(--white);
 }

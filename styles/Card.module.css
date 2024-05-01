@@ -1,0 +1,43 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  margin: var(--space-section-small) 0;
+}
+.pageContainer .topContainer {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+.pageContainer .topContainer .banner {
+  height: 200px;
+  width: 100%;
+  border-top: solid 1px var(--light);
+  border-bottom: solid 1px var(--light);
+  background-color: var(--mid);
+  position: absolute;
+  z-index: 0;
+}
+.pageContainer .topContainer .content {
+  max-width: var(--desktop-max);
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+.pageContainer .leftContainer {
+  width: 100%;
+  height: 100%;
+}
+.pageContainer .leftContainer .bannerBottom {
+  height: 200px;
+  width: 100%;
+  border-top: solid 1px var(--light);
+  border-bottom: solid 1px var(--light);
+  background-color: var(--mid);
+  display: flex;
+}
+.pageContainer .leftContainer .content {
+  max-width: var(--desktop-max);
+  height: 100%;
+}

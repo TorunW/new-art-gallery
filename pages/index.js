@@ -1,13 +1,11 @@
-import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
-import MainGallery from '../components/MainGallery';
 import Contact from '../components/Contact';
 import { server } from '../config/server';
 import { importDb } from '../config/db';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
+import Card from '../components/Card';
 
-export default function Home({ maingallery, about, contact, initMessages }) {
+export default function Home({ about, contact, initMessages }) {
   const [messages, setMessages] = useState(initMessages);
 
   async function onSubmitNewMessage(newMessage) {
@@ -23,52 +21,17 @@ export default function Home({ maingallery, about, contact, initMessages }) {
   }
 
   return (
-    <div className={styles.home}>
+    <>
       <Header />
-      <MainGallery maingallery={maingallery} />
-      <div className={styles.redirectSection}>
-        <h1>Se alla mina verk</h1>
-        <div className={styles.container}>
-          <div>
-            <Link href="/tavlor">
-              <div className={styles.previewT}>
-                <div className={styles.caption}>
-                  <h2>
-                    <br />
-                    <span> tavlor</span>
-                  </h2>
-                  <p>⟶</p>
-                </div>
-              </div>
-            </Link>
-          </div>
-          <Link href="/betongmosaik">
-            <div className={styles.previewM}>
-              <img className={styles.secondImg} />
-              <div className={styles.caption}>
-                <h2>
-                  <br />
-                  <span>
-                    Betong <br /> &<br /> Mosaik
-                  </span>
-                </h2>
-                <p>⟶</p>
-
-                <span></span>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
+      <Card />
       <Contact contact={contact} about={about} onSubmit={onSubmitNewMessage} />
-    </div>
+    </>
   );
 }
 
 export const getStaticProps = async () => {
   const db = await importDb();
-  const maingallery = await db.all('select * from maingallery');
   const about = await db.all('select * from about');
   const contact = await db.all('select * from contact');
-  return { props: { maingallery, about, initMessages: contact } };
+  return { props: { about, initMessages: contact } };
 };
