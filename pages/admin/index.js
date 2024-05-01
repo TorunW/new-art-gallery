@@ -32,7 +32,14 @@ export default function Admin({ initSubGallery, initAbout }) {
     }
   }, []);
 
-  async function onAddNewSubGalleryPicture(newSubPicture) {}
+  async function onAddNewSubGalleryPicture(newSubPicture) {
+    await fetch(`${server}/api/subgallery/${id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
 
   async function onDeleteSubGalleryPicture(id) {
     setIsLoading(true);
