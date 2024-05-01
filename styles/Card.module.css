@@ -1,14 +1,21 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  margin: var(--space-section-small) 0;
+  margin: var(--space-section-big) 0;
+  gap: var(--space-section-small);
 }
-.pageContainer .topContainer {
-  margin-bottom: 100px;
+.pageContainer .topContainer,
+.pageContainer .bottomContainer {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
+}
+.pageContainer .content {
+  max-width: var(--desktop-max);
+  display: flex;
+  align-items: center;
+  z-index: 5;
+  gap: var(--space-grid-big);
 }
 .pageContainer .topContainer .banner {
   height: 200px;
@@ -19,25 +26,15 @@
   position: absolute;
   z-index: 0;
 }
-.pageContainer .topContainer .content {
-  max-width: var(--desktop-max);
-  display: flex;
-  align-items: center;
-  z-index: 5;
-}
-.pageContainer .leftContainer {
-  width: 100%;
-  height: 100%;
-}
-.pageContainer .leftContainer .bannerBottom {
+.pageContainer .bottomContainer .bannerBottom {
   height: 200px;
   width: 100%;
   border-top: solid 1px var(--light);
   border-bottom: solid 1px var(--light);
   background-color: var(--mid);
-  display: flex;
+  position: absolute;
+  z-index: 0;
 }
-.pageContainer .leftContainer .content {
-  max-width: var(--desktop-max);
-  height: 100%;
+.pageContainer .bottomContainer .content {
+  flex-direction: row-reverse;
 }

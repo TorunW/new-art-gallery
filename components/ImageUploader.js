@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { server } from '../config/server';
-import styles from '../styles/ImageUploader.module.css';
+import styles from '../styles/adminStyles/ImageUploader.module.css';
 
 export default function ImageUploader(props) {
   const [image, setImage] = useState(props.image);

@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 
   a {
     font-family: 'Italiana';
@@ -71,4 +72,10 @@
 .navbarScrolled {
   background-color: var(--dark);
   border-bottom: 0.5px solid var(--light);
+}
+
+.navbarAdmin {
+  &button:hover {
+    cursor: pointer;
+  }
 }

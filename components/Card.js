@@ -30,12 +30,13 @@ const Card = () => {
         <div className={cardStyles.content}>
           <Image
             src={ThumbnailMosaic}
-            width={500}
-            height={500}
+            objectFit="fill"
+            fill={true}
+            loading="lazy"
             alt="Picture of the author"
           />
           <Link href={'/tavlor'}>
-            <h2>Klicka här för att se mina tavlor</h2>
+            <h2>Klicka här för att se min mosaik</h2>
           </Link>
         </div>
       </div>
