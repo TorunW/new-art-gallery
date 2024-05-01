@@ -21,11 +21,11 @@ export default function Home({ about, contact, initMessages }) {
   }
 
   return (
-    <>
+    <div className={styles.homeContainer}>
       <Header />
       <Card />
       <Contact contact={contact} about={about} onSubmit={onSubmitNewMessage} />
-    </>
+    </div>
   );
 }
 
