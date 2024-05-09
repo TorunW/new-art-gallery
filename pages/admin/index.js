@@ -32,7 +32,8 @@ export default function Admin({ initSubGallery, initAbout }) {
     }
   }, []);
 
-  async function onAddNewSubGalleryPicture(newSubPicture) {
+  async function onAddNewSubGalleryPicture({ id }) {
+    console.log(id, 'id');
     await fetch(`${server}/api/subgallery/${id}`, {
       method: 'POST',
       headers: {

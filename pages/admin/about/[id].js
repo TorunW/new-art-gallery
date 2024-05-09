@@ -2,7 +2,7 @@ import { importDb } from '../../../config/db';
 import { useState, useEffect } from 'react';
 import { server } from '../../../config/server';
 import TextEditor from '../../../components/textEditor';
-import textEditorStyles from '../../../styles/textEditor.module.css';
+import textEditorStyles from '../../../styles/adminStyles/textEditor.module.css';
 import Link from 'next/link';
 
 const AboutView = ({ about }) => {
@@ -33,7 +33,7 @@ const AboutView = ({ about }) => {
       },
       body: JSON.stringify(newabout),
     });
-
+    console.log(response);
     setUpdate(true);
   }
 

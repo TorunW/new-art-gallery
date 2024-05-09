@@ -59,7 +59,7 @@
 .header .content .leftContainer .circleTwoOuter .circleTwoMiddle .circleTwoInner {
   width: 144px;
   height: 144px;
-  background-image: url('../public/uploads/badanka.jpg');
+  background-image: url('../public/uploads/bg2.jpg');
   background-position: center;
   /* Center the image */
   background-size: cover;
@@ -80,7 +80,7 @@
 .header .content .leftContainer .circleThreeOuter .circleThreeMiddle .circleThreeInner {
   width: 200px;
   height: 200px;
-  background-image: url('../public/uploads/flubbgubbe.jpg');
+  background-image: url('../public/uploads/bg1.jpg');
   background-position: center;
   /* Center the image */
   background-size: cover;

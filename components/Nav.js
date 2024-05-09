@@ -36,7 +36,6 @@ const Nav = () => {
   function logout() {
     sessionStorage.removeItem('Token');
     router.push('/');
-    console.log('first');
   }
 
   function goToInbox() {
