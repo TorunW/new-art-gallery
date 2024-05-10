@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
 import FormStyles from '../styles/Form.module.css';
+import Image from 'next/image';
 
-const SubGalleryForm = props => {
+const ImageUploadForm = props => {
   const subgallery = props.subgallery;
   const [title, setTitle] = useState(subgallery ? subgallery.title : '');
   const [price, setPrice] = useState(subgallery ? subgallery.price : '');
@@ -55,17 +56,48 @@ const SubGalleryForm = props => {
     setUpdate(true);
   };
 
+  const onUpdate = async () => {
+    let newPicture = {
+      picture: props.subgallery.picture,
+      title,
+      price,
+      size,
+      type_of: type,
+    };
+
+    let url = `${server}/api/subgallery/${subgallery.id}`;
+
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newPicture),
+    });
+    const res = await response.json();
+    props.onSubmit(res);
+    setUpdate(true);
+  };
+
   return (
-    <subgalleryform className={FormStyles.form}>
+    <imageuploadform className={FormStyles.form}>
       <h2 className={FormStyles.h2}>Lägg till bild i album:</h2>
       <div className={FormStyles.container}>
         <div className={FormStyles.topContainer}>
-          <ImageUploader
-            className={FormStyles.imageUploader}
-            image={picture}
-            onSetImage={setPicture}
-            type={'add'}
-          />
+          {props.type !== 'edit' ? (
+            <ImageUploader
+              className={FormStyles.imageUploader}
+              image={picture}
+              onSetImage={setPicture}
+            />
+          ) : (
+            <Image
+              src={`/${props.subgallery.picture}`}
+              width={300}
+              height={400}
+              objectFit="cover"
+            />
+          )}
         </div>
         <div className={FormStyles.inputContainer}>
           <div className={FormStyles.formRow}>
@@ -102,11 +134,15 @@ const SubGalleryForm = props => {
           </div>
         </div>
         <div className={FormStyles.buttonContainer}>
-          <a onClick={onSubmit}>{'Lägg till'}</a>
+          {props.type !== 'edit' ? (
+            <a onClick={onSubmit}>{'Lägg till'}</a>
+          ) : (
+            <a onClick={onUpdate}>{'Uppdatera'}</a>
+          )}
         </div>
       </div>
-    </subgalleryform>
+    </imageuploadform>
   );
 };
 
-export default SubGalleryForm;
+export default ImageUploadForm;

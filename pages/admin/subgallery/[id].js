@@ -1,5 +1,5 @@
 import { importDb } from '../../../config/db';
-import SubGalleryForm from '../../../components/SubGalleryForm';
+import ImageUploadForm from '../../../components/ImageUploadForm';
 import FormStyles from '../../../styles/Form.module.css';
 
 const subGalleryView = ({ subgallery }) => {
@@ -10,7 +10,7 @@ const subGalleryView = ({ subgallery }) => {
   return (
     <div className={FormStyles.edit}>
       <div>
-        <SubGalleryForm
+        <ImageUploadForm
           type={'edit'}
           subgallery={subgallery}
           onSubmit={onSave}

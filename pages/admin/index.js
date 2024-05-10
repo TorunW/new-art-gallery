@@ -2,15 +2,18 @@ import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState, useEffect } from 'react';
 import styles from '../../styles/adminStyles/Admin.module.css';
-import SubGalleryForm from '../../components/SubGalleryForm';
+import ImageUploadForm from '../../components/ImageUploadForm';
 import { app } from '../../firebaseConfig';
 import { useRouter } from 'next/router';
+import DeleteImage from '../../components/DeleteImage';
 
 export default function Admin({ initSubGallery, initAbout }) {
   const [subgallery, setSubgallery] = useState(initSubGallery);
   const [about, setAbout] = useState(initAbout);
   const [update, setUpdate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [currentImageId, setCurrentImageId] = useState();
   const router = useRouter();
 
   useEffect(() => {
@@ -25,15 +28,12 @@ export default function Admin({ initSubGallery, initAbout }) {
 
   useEffect(() => {
     let token = sessionStorage.getItem('Token');
-    // push back to login if token doesnt exist, this should be in the admin index
     if (!token) {
-      // should push to admin in real life project
       router.push('/login');
     }
   }, []);
 
   async function onAddNewSubGalleryPicture({ id }) {
-    console.log(id, 'id');
     await fetch(`${server}/api/subgallery/${id}`, {
       method: 'POST',
       headers: {
@@ -42,50 +42,10 @@ export default function Admin({ initSubGallery, initAbout }) {
     });
   }
 
-  async function onDeleteSubGalleryPicture(id) {
-    setIsLoading(true);
-    await fetch(`${server}/api/subgallery/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    setUpdate(true);
-  }
-
-  let tavlorDisplay = subgallery.map((item, index) => {
-    if (item.type_of === 'tavlor') {
-      return (
-        <div key={index} item={item} className={styles.itemContainer}>
-          <p>{item.title}</p>
-          <img loading="lazy" src={item.picture} />
-          <p>{item.price}</p>
-          <p>{item.size}</p>
-          <div>
-            <a onClick={() => onDeleteSubGalleryPicture(item.id)}>Ta bort</a>
-            <a href={`admin/subgallery/${item.id}`}>Ändra</a>
-          </div>
-        </div>
-      );
-    }
-  });
-
-  let betongmosaikDisplay = subgallery.map((item, index) => {
-    if (item.type_of === 'betongmosaik') {
-      return (
-        <div key={index} item={item} className={styles.itemContainer}>
-          <p>{item.title}</p>
-          <img loading="lazy" src={item.picture} />
-          <p>{item.price}</p>
-          <p>{item.size}</p>
-          <div>
-            <a onClick={() => onDeleteSubGalleryPicture(item.id)}>Ta bort</a>
-            <a href={`admin/subgallery/${item.id}`}>Ändra</a>
-          </div>
-        </div>
-      );
-    }
-  });
+  const onDeleteImage = id => {
+    setIsOverlayVisible(true);
+    setCurrentImageId(id);
+  };
 
   return (
     <admin>
@@ -94,19 +54,73 @@ export default function Admin({ initSubGallery, initAbout }) {
       >
         <div className={styles.loader}></div>
       </div>
+      {isOverlayVisible === true ? (
+        <DeleteImage
+          id={currentImageId}
+          setId={setCurrentImageId}
+          isOverlayVisible={isOverlayVisible}
+          setIsOverlayVisible={setIsOverlayVisible}
+          setIsLoading={setIsLoading}
+          setUpdate={setUpdate}
+        />
+      ) : (
+        ''
+      )}
       <div className={styles.admin}>
         <div className={styles.sectionContainer}>
           <div className={styles.firstRow}>
-            <SubGalleryForm onSubmit={onAddNewSubGalleryPicture} />
+            <ImageUploadForm onSubmit={onAddNewSubGalleryPicture} />
           </div>
 
           <div className={styles.thirdRow}>
             <h2>tavlor</h2>
-            <div className={styles.gallery}>{tavlorDisplay}</div>
+            <div className={styles.gallery}>
+              {subgallery.map((item, index) => {
+                if (item.type_of === 'tavlor') {
+                  return (
+                    <div
+                      key={index}
+                      item={item}
+                      className={styles.itemContainer}
+                    >
+                      <p>{item.title}</p>
+                      <img loading="lazy" src={item.picture} />
+                      <p>{item.price}</p>
+                      <p>{item.size}</p>
+                      <div>
+                        <a onClick={() => onDeleteImage(item.id)}>Ta bort</a>
+                        <a href={`admin/subgallery/${item.id}`}>Ändra</a>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
           <div className={styles.fourthRow}>
             <h2>Mosaik & Betong</h2>
-            <div className={styles.gallery}>{betongmosaikDisplay}</div>
+            <div className={styles.gallery}>
+              {subgallery.map((item, index) => {
+                if (item.type_of === 'betongmosaik') {
+                  return (
+                    <div
+                      key={index}
+                      item={item}
+                      className={styles.itemContainer}
+                    >
+                      <p>{item.title}</p>
+                      <img loading="lazy" src={item.picture} />
+                      <p>{item.price}</p>
+                      <p>{item.size}</p>
+                      <div>
+                        <a onClick={() => onDeleteImage(item.id)}>Ta bort</a>
+                        <a href={`admin/subgallery/${item.id}`}>Ändra</a>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
           </div>
 
           <div className={styles.fifthRow}>
