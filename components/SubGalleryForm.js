@@ -11,11 +11,15 @@ const SubGalleryForm = props => {
   const [size, setSize] = useState(subgallery ? subgallery.size : '');
   const [type, setType] = useState(subgallery ? subgallery.type_of : '');
   const [update, setUpdate] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  console.log(picture, 'hihi');
-
-  const uploadToServer = async event => {};
+  useEffect(() => {
+    if (update === true) {
+      setTimeout(() => {
+        setUpdate(false);
+        window.location.reload();
+      }, 1000);
+    }
+  }, [update]);
 
   const onSubmit = async () => {
     const body = new FormData();
@@ -48,8 +52,7 @@ const SubGalleryForm = props => {
     const res = await response.json();
     console.log(res, 'response database');
     props.onSubmit(res);
-    //setUpdate(true);
-    // setIsSubmitted(false);
+    setUpdate(true);
   };
 
   return (
@@ -61,7 +64,6 @@ const SubGalleryForm = props => {
             className={FormStyles.imageUploader}
             image={picture}
             onSetImage={setPicture}
-            isSubmitted={isSubmitted}
             type={'add'}
           />
         </div>

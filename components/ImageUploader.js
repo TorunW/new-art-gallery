@@ -3,7 +3,6 @@ import { server } from '../config/server';
 import styles from '../styles/adminStyles/ImageUploader.module.css';
 
 export default function ImageUploader(props) {
-  const [imgObj, setImgObj] = useState();
   const [createObjectURL, setCreatedObjectURL] = useState(null);
 
   const uploadToClient = event => {
@@ -47,9 +46,6 @@ export default function ImageUploader(props) {
           </>
         )}
       </div>
-      {/*      <button type="submit" onClick={uploadToServer}>
-        Upload
-      </button> */}
     </imageuploader>
   );
 }
