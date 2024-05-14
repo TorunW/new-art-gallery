@@ -73,7 +73,7 @@ export default function Admin({ initSubGallery, initAbout }) {
           </div>
 
           <div className={styles.thirdRow}>
-            <h2>tavlor</h2>
+            <h3>Tavlor</h3>
             <div className={styles.gallery}>
               {subgallery.map((item, index) => {
                 if (item.type_of === 'tavlor') {
@@ -83,11 +83,11 @@ export default function Admin({ initSubGallery, initAbout }) {
                       item={item}
                       className={styles.itemContainer}
                     >
-                      <p>{item.title}</p>
+                      <h4>{item.title}</h4>
                       <img loading="lazy" src={item.picture} />
                       <p>{item.price}</p>
                       <p>{item.size}</p>
-                      <div>
+                      <div className={styles.buttonContainer}>
                         <a onClick={() => onDeleteImage(item.id)}>Ta bort</a>
                         <a href={`admin/subgallery/${item.id}`}>Ändra</a>
                       </div>
@@ -98,7 +98,7 @@ export default function Admin({ initSubGallery, initAbout }) {
             </div>
           </div>
           <div className={styles.fourthRow}>
-            <h2>Mosaik & Betong</h2>
+            <h3>Mosaik & Betong</h3>
             <div className={styles.gallery}>
               {subgallery.map((item, index) => {
                 if (item.type_of === 'betongmosaik') {
@@ -108,11 +108,11 @@ export default function Admin({ initSubGallery, initAbout }) {
                       item={item}
                       className={styles.itemContainer}
                     >
-                      <p>{item.title}</p>
+                      <h4>{item.title}</h4>
                       <img loading="lazy" src={item.picture} />
                       <p>{item.price}</p>
                       <p>{item.size}</p>
-                      <div>
+                      <div className={styles.buttonContainer}>
                         <a onClick={() => onDeleteImage(item.id)}>Ta bort</a>
                         <a href={`admin/subgallery/${item.id}`}>Ändra</a>
                       </div>
@@ -126,16 +126,16 @@ export default function Admin({ initSubGallery, initAbout }) {
           <div className={styles.fifthRow}>
             <h3>Om mig</h3>
             {about.map((about, index) => (
-              <div
-                className={styles.aboutSection}
-                key={index}
-                aboutinfo={about}
-              >
-                <p className={styles.title}>{about.title}</p>
-                <p>{about.info_text}</p>
+              <div key={index} aboutinfo={about}>
+                <div className={styles.aboutSection}>
+                  <h4 className={styles.title}>{about.title}</h4>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: about.about_text }}
+                  ></div>
+                </div>
                 <div className={styles.buttonContainer}>
                   <a className={styles.button} href={`admin/about/${about.id}`}>
-                    Edit About
+                    Ändra
                   </a>
                 </div>
               </div>

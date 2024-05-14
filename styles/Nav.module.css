@@ -27,51 +27,32 @@
 }
 .navbar .navbarAdmin,
 .navbarScrolled .navbarAdmin {
-  background-color: #15151f;
-  color: var(--admin-white);
-  height: 30px;
-  font-size: 25px;
-  padding: 10px 20px;
+  background: none;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  font-family: 'Montserrat';
+  padding: 16px;
+  width: 100%;
 }
-.navbar .navbarAdmin .left,
-.navbarScrolled .navbarAdmin .left {
-  font-weight: 600;
+.navbar .navbarAdmin div,
+.navbarScrolled .navbarAdmin div {
+  font-size: 20px;
 }
-.navbar .navbarAdmin .inbox,
-.navbarScrolled .navbarAdmin .inbox {
+.navbar .navbarAdmin button,
+.navbarScrolled .navbarAdmin button {
+  background: none;
+  color: var(--white);
+  font-family: 'Montserrat';
+  padding: 8px;
+  border: solid 0.5px var(--white);
+}
+.navbar .navbarAdmin button:hover,
+.navbarScrolled .navbarAdmin button:hover {
+  color: #ffffff85;
   cursor: pointer;
-}
-.navbar .navbarAdmin .inbox svg,
-.navbarScrolled .navbarAdmin .inbox svg {
-  margin-right: 5px;
-  color: rgba(255, 255, 255, 0.788);
-}
-.navbar .navbarAdmin .inbox svg:hover,
-.navbarScrolled .navbarAdmin .inbox svg:hover {
-  color: white;
-}
-.navbar .navbarAdmin .inbox button,
-.navbarScrolled .navbarAdmin .inbox button {
-  color: rgba(255, 255, 255, 0.788);
-  cursor: pointer;
-  border-radius: 5px;
-  border-style: none;
-  background-color: rgba(100, 100, 100, 0);
-  font-family: 'Dosis';
-  font-size: 18px;
-}
-.navbar .navbarAdmin .inbox button:hover,
-.navbarScrolled .navbarAdmin .inbox button:hover {
-  color: white;
 }
 .navbarScrolled {
   background-color: var(--dark);
   border-bottom: 0.5px solid var(--light);
-}
-.navbarAdminbutton:hover {
-  cursor: pointer;
 }

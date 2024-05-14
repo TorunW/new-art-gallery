@@ -1,45 +1,43 @@
-.form {
-  color: var(--admin-white);
-  letter-spacing: 0.1rem;
-}
-.form h2 {
-  text-align: left;
+.form h4 {
+  margin-bottom: 16px;
 }
 .form .container {
-  background: #283337;
-  background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
-  padding: 16px;
   color: var(--middle-grey);
-  border-radius: 5px;
   height: auto;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
+  background: #283337;
+  background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
 }
 .form .container .inputContainer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 .form .container .inputContainer .formRow {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
-.form .container .inputContainer .formRow .title {
-  text-transform: uppercase;
-  font-weight: bold;
+.form .container .inputContainer .formRow p {
+  text-transform: capitalize;
 }
 .form .container .inputContainer .formRow .input,
 .form .container .inputContainer .formRow select {
   border-style: none;
   font-size: 16px;
-  font-weight: 500;
   color: var(--admin-white);
-  background-color: #3d4045;
-  padding-left: 5px;
+  background-color: rgba(255, 255, 255, 0.173);
+  padding: 4px;
+  margin-left: 16px;
+}
+.form .container .inputContainer .input {
+  width: 150px;
 }
 .form .container .inputContainer select {
+  width: 158px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -48,7 +46,7 @@
   cursor: pointer;
 }
 .form .container .inputContainer select option {
-  color: #8b8b8b;
+  background-color: rgba(255, 255, 255, 0.173);
 }
 .form .container .inputContainer select::-ms-expand {
   display: none;
@@ -56,17 +54,12 @@
 .form .container .inputContainer select:focus::-ms-value {
   background-color: transparent;
 }
-@media (min-width: 651px) {
-  .form .container {
-    min-width: 400px;
-    max-width: 600px;
-  }
-}
-@media (max-width: 650px) {
-  .form .container {
-    min-width: 220px;
-    max-width: 400px;
-  }
+.form .buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
 }
 .edit {
   background-color: var(--admin-dark);

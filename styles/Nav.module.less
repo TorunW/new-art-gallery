@@ -28,42 +28,26 @@
   }
 
   .navbarAdmin {
-    background-color: #15151f;
-    color: var(--admin-white);
-    height: 30px;
-    font-size: 25px;
-    padding: 10px 20px;
+    background: none;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    font-family: 'Montserrat';
+    padding: 16px;
+    width: 100%;
 
-    .left {
-      font-weight: 600;
+    div {
+      font-size: 20px;
     }
-
-    .inbox {
-      cursor: pointer;
-      svg {
-        margin-right: 5px;
-        color: rgba(255, 255, 255, 0.788);
-        &:hover {
-          color: white;
-        }
-      }
-
-      button {
-        color: rgba(255, 255, 255, 0.788);
+    button {
+      background: none;
+      color: var(--white);
+      font-family: 'Montserrat';
+      padding: 8px;
+      border: solid 0.5px var(--white);
+      &:hover {
+        color: #ffffff85;
         cursor: pointer;
-        border-radius: 5px;
-        border-style: none;
-        background-color: rgba(100, 100, 100, 0);
-        font-family: 'Dosis';
-        font-size: 18px;
-
-        &:hover {
-          color: white;
-        }
       }
     }
   }
@@ -72,10 +56,4 @@
 .navbarScrolled {
   background-color: var(--dark);
   border-bottom: 0.5px solid var(--light);
-}
-
-.navbarAdmin {
-  &button:hover {
-    cursor: pointer;
-  }
 }

@@ -1,74 +1,45 @@
-.editAbout {
-  background: rgb(40, 51, 55);
-  background: linear-gradient(
-    20deg,
-    var(--admin-grad) 40%,
-    rgba(40, 51, 55, 1) 85%,
-    rgba(42, 71, 69, 1) 100%
-  );
-  width: 600px;
-  margin: 40px auto;
-  border-radius: 5px;
-  padding: 20px 0;
-
-  .title {
-    color: var(--admin-white);
-    margin: 0px 40px 10px;
-    font-size: 20px;
-  }
-  .input {
-    background-color: #0d0d0d;
-    border: none;
-    color: white;
-    margin: 0 40px;
-    height: 30px;
-    font-family: 'dosis';
-    font-size: 18px;
-  }
-  .editorContainer {
-    margin: 0 40px 20px;
-    padding: 20px 0;
-
-    .menuContainer {
-      display: flex;
-      justify-content: center;
-
-      .notActive,
-      .isActive {
-        border-style: solid;
-        margin: 5px;
-        background-color: #0d0d0d;
-        border-radius: 3px;
-        font-family: 'Dosis';
-        font-size: 15px;
-      }
-
-      .notActive {
-        border-color: grey;
-        color: grey;
-      }
-
-      .isActive {
-        border-color: var(--admin-white);
-        color: var(--admin-white);
-      }
-    }
-
-    .editor {
-      color: var(--admin-white);
-      background-color: #0d0d0d;
-      border-radius: 3px;
-      margin: 10px auto;
-      width: 500px;
-      padding: 10px;
-      min-height: 200px;
-      height: auto;
-    }
-  }
-
-  .buttonConatiner {
+.editPage {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+  .textEditorContainer {
+    width: 600px;
     display: flex;
-    .button {
+    flex-direction: column;
+    gap: 16px;
+
+    .input {
+      background: none;
+      border: solid 0.5px var(--white);
+      padding: 8px;
+      color: var(--white);
+      font-family: 'Montserrat';
+      margin-bottom: 16px;
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+
+      a,
+      .button {
+        font-size: 14px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        border: none;
+        background: #f5f5f740;
+        color: #fff;
+        padding: 8px 16px 8px;
+        text-decoration: none;
+        cursor: pointer;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
+        &:hover {
+          color: #ffffff85;
+        }
+      }
     }
   }
 }

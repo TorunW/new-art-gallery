@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { app } from '../firebaseConfig';
 import { useState, useEffect } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import LoginStyles from '../styles/Login.module.css';
+import styles from '../styles/Login.module.css';
 
 export default function Signup() {
   const auth = getAuth();
@@ -30,11 +30,11 @@ export default function Signup() {
   };
 
   return (
-    <signup className={LoginStyles.loginForm}>
+    <signup className={styles.loginForm}>
       <div>
         <input
           placeholder="email"
-          className={LoginStyles.inputContainer}
+          className={styles.inputContainer}
           onChange={e => setEmail(e.target.value)}
           value={email}
           type="email"
@@ -42,13 +42,13 @@ export default function Signup() {
         <br />
         <input
           placeholder="lösenord"
-          className={LoginStyles.inputContainer}
+          className={styles.inputContainer}
           onChange={e => setPassword(e.target.value)}
           value={password}
           type="password"
         />
         <br />
-        <button className={LoginStyles.button} onClick={signUp}>
+        <button className={styles.button} onClick={signUp}>
           Registera användare
         </button>
       </div>

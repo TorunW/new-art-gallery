@@ -1,4 +1,4 @@
-import aboutStyles from '../styles/About.module.css';
+import styles from '../styles/About.module.css';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -66,21 +66,21 @@ const Contact = (props, about, contact) => {
   let fullnameErrorDisplay;
   if (fullnameError === true) {
     fullnameErrorDisplay = (
-      <p className={aboutStyles.error}>Namn måste vara ifyllt</p>
+      <p className={styles.error}>Namn måste vara ifyllt</p>
     );
   }
 
   let emailErrorDisplay;
   if (emailError === true) {
     emailErrorDisplay = (
-      <p className={aboutStyles.error}>E-postadressen är inte giltig</p>
+      <p className={styles.error}>E-postadressen är inte giltig</p>
     );
   }
 
   let messageErrorDisplay;
   if (messageError === true) {
     messageErrorDisplay = (
-      <p className={aboutStyles.error}>Meddelande kan inte vara tomt</p>
+      <p className={styles.error}>Meddelande kan inte vara tomt</p>
     );
   }
 
@@ -88,7 +88,7 @@ const Contact = (props, about, contact) => {
   if (messageSent === true) {
     displaySuccessMessage = (
       <div>
-        <p className={aboutStyles.success}>
+        <p className={styles.success}>
           Tack för ditt meddelande, jag återkommer med svar så snart som
           möjligt.
         </p>
@@ -106,11 +106,11 @@ const Contact = (props, about, contact) => {
   });
 
   return (
-    <contact id="about" className={aboutStyles.about}>
-      <div className={aboutStyles.bgContainer}>
-        <div className={aboutStyles.contentContainer}>
-          <div className={aboutStyles.aboutContainer}>{aboutDisplay}</div>
-          <div className={aboutStyles.formContainer}>
+    <contact id="about" className={styles.about}>
+      <div className={styles.bgContainer}>
+        <div className={styles.contentContainer}>
+          <div className={styles.aboutContainer}>{aboutDisplay}</div>
+          <div className={styles.formContainer}>
             <form>
               <h2>Kontakt</h2>
               <div>
@@ -141,8 +141,8 @@ const Contact = (props, about, contact) => {
                 {messageErrorDisplay}
               </div>
 
-              <div className={aboutStyles.submit}>
-                <a className={aboutStyles.btn} onClick={onSubmit}>
+              <div className={styles.submit}>
+                <a className={styles.btn} onClick={onSubmit}>
                   Skicka meddelande
                 </a>
                 {displaySuccessMessage}

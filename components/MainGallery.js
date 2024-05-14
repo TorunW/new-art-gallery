@@ -1,6 +1,6 @@
 import galleryStyles from '../styles/Gallery.module.css';
 import lightboxStyles from '../styles/Lightbox.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   AiOutlineClose,
   AiOutlineArrowLeft,

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
-import FormStyles from '../styles/Form.module.css';
+import styles from '../styles/adminStyles/Form.module.css';
 import Image from 'next/image';
 
 const ImageUploadForm = props => {
@@ -80,13 +80,13 @@ const ImageUploadForm = props => {
   };
 
   return (
-    <imageuploadform className={FormStyles.form}>
-      <h2 className={FormStyles.h2}>Lägg till bild i album:</h2>
-      <div className={FormStyles.container}>
-        <div className={FormStyles.topContainer}>
+    <imageuploadform className={styles.form}>
+      <h4>Lägg till bild i album:</h4>
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
           {props.type !== 'edit' ? (
             <ImageUploader
-              className={FormStyles.imageUploader}
+              className={styles.imageUploader}
               image={picture}
               onSetImage={setPicture}
             />
@@ -99,46 +99,46 @@ const ImageUploadForm = props => {
             />
           )}
         </div>
-        <div className={FormStyles.inputContainer}>
-          <div className={FormStyles.formRow}>
-            <div className={FormStyles.title}>namn</div>
+        <div className={styles.inputContainer}>
+          <div className={styles.formRow}>
+            <p className={styles.title}>namn</p>
             <input
-              className={FormStyles.input}
+              className={styles.input}
               value={title}
               onChange={e => setTitle(e.target.value)}
             />
           </div>
-          <div className={FormStyles.formRow}>
-            <div className={FormStyles.title}>pris</div>
+          <div className={styles.formRow}>
+            <p className={styles.title}>pris</p>
             <input
-              className={FormStyles.input}
+              className={styles.input}
               value={price}
               onChange={e => setPrice(e.target.value)}
             />
           </div>
-          <div className={FormStyles.formRow}>
-            <div className={FormStyles.title}>storlek</div>
+          <div className={styles.formRow}>
+            <p className={styles.title}>storlek</p>
             <input
-              className={FormStyles.input}
+              className={styles.input}
               value={size}
               onChange={e => setSize(e.target.value)}
             />
           </div>
-          <div className={FormStyles.formRow}>
-            <div className={FormStyles.title}>Kategori</div>
+          <div className={styles.formRow}>
+            <p className={styles.title}>Kategori</p>
             <select value={type} onChange={e => setType(e.target.value)}>
               <option>Välj album</option>
               <option value="tavlor">Tavlor</option>
               <option value="betongmosaik">Betong & Mosaik</option>
             </select>
           </div>
-        </div>
-        <div className={FormStyles.buttonContainer}>
-          {props.type !== 'edit' ? (
-            <a onClick={onSubmit}>{'Lägg till'}</a>
-          ) : (
-            <a onClick={onUpdate}>{'Uppdatera'}</a>
-          )}
+          <div className={styles.buttonContainer}>
+            {props.type !== 'edit' ? (
+              <a onClick={onSubmit}>{'Lägg till'}</a>
+            ) : (
+              <a onClick={onUpdate}>{'Uppdatera'}</a>
+            )}
+          </div>
         </div>
       </div>
     </imageuploadform>

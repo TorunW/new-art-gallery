@@ -18,7 +18,7 @@ export default function ImageUploader(props) {
       <div className={styles.imageUploader}>
         {createObjectURL === null ? (
           <>
-            <h4>Select Image</h4>
+            <p>Select Image</p>
             <input
               className={styles.button}
               type="file"
@@ -37,12 +37,12 @@ export default function ImageUploader(props) {
               }
             />
             <input
-              className={styles.button}
+              className={styles.changeImgInput}
               type="file"
               name="myImage"
               onChange={uploadToClient}
             />
-            <button>Change Image</button>
+            <button className={styles.uploadButton}>Change Image</button>
           </>
         )}
       </div>

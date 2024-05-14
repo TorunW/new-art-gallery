@@ -1,60 +1,43 @@
-.editAbout {
-  background: #283337;
-  background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
-  width: 600px;
-  margin: 40px auto;
-  border-radius: 5px;
-  padding: 20px 0;
-}
-.editAbout .title {
-  color: var(--admin-white);
-  margin: 0px 40px 10px;
-  font-size: 20px;
-}
-.editAbout .input {
-  background-color: #0d0d0d;
-  border: none;
-  color: white;
-  margin: 0 40px;
-  height: 30px;
-  font-family: 'dosis';
-  font-size: 18px;
-}
-.editAbout .editorContainer {
-  margin: 0 40px 20px;
-  padding: 20px 0;
-}
-.editAbout .editorContainer .menuContainer {
+.editPage {
   display: flex;
   justify-content: center;
+  padding: 48px;
 }
-.editAbout .editorContainer .menuContainer .notActive,
-.editAbout .editorContainer .menuContainer .isActive {
-  border-style: solid;
-  margin: 5px;
-  background-color: #0d0d0d;
-  border-radius: 3px;
-  font-family: 'Dosis';
-  font-size: 15px;
-}
-.editAbout .editorContainer .menuContainer .notActive {
-  border-color: grey;
-  color: grey;
-}
-.editAbout .editorContainer .menuContainer .isActive {
-  border-color: var(--admin-white);
-  color: var(--admin-white);
-}
-.editAbout .editorContainer .editor {
-  color: var(--admin-white);
-  background-color: #0d0d0d;
-  border-radius: 3px;
-  margin: 10px auto;
-  width: 500px;
-  padding: 10px;
-  min-height: 200px;
-  height: auto;
-}
-.editAbout .buttonConatiner {
+.editPage .textEditorContainer {
+  width: 600px;
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.editPage .textEditorContainer .input {
+  background: none;
+  border: solid 0.5px var(--white);
+  padding: 8px;
+  color: var(--white);
+  font-family: 'Montserrat';
+  margin-bottom: 16px;
+}
+.editPage .textEditorContainer .buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.editPage .textEditorContainer .buttonContainer a,
+.editPage .textEditorContainer .buttonContainer .button {
+  font-size: 14px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  border: none;
+  background: #f5f5f740;
+  color: #fff;
+  padding: 8px 16px 8px;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  text-transform: capitalize;
+}
+.editPage .textEditorContainer .buttonContainer a:hover,
+.editPage .textEditorContainer .buttonContainer .button:hover {
+  color: #ffffff85;
 }

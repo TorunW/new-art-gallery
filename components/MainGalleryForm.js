@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
-import FormStyles from '../styles/Form.module.css';
+import styles from '../styles/adminStyles/Form.module.css';
 
 const MainGalleryForm = props => {
   const maingallery = props.maingallery;
@@ -51,16 +51,16 @@ const MainGalleryForm = props => {
   }
 
   return (
-    <maingalleryform className={FormStyles.form}>
-      <h2 className={FormStyles.h2}>Lägg till bild:</h2>
-      <div className={FormStyles.container}>
+    <maingalleryform className={styles.form}>
+      <h2 className={styles.h2}>Lägg till bild:</h2>
+      <div className={styles.container}>
         <ImageUploader
-          className={FormStyles.imageUploader}
+          className={styles.imageUploader}
           image={picture}
           onSetImage={setPicture}
           isSubmitted={isSubmitted}
         />
-        <div className={FormStyles.buttonContainer}>
+        <div className={styles.buttonContainer}>
           <a onClick={onSubmit}>
             {props.type === 'edit' ? 'Uppdatera' : 'Lägg till'}
           </a>

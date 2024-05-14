@@ -1,7 +1,6 @@
 .imgContainer {
   height: 200px;
   width: 300px;
-  overflow: hidden;
   position: relative;
   .img {
     height: 100%;
@@ -28,12 +27,11 @@
   border-style: none;
   position: relative;
   height: 200px;
-  overflow: hidden;
 
-  h4 {
+  p {
     z-index: 1;
     position: absolute;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #666;
     top: 50%;
     margin: 0;
@@ -62,4 +60,19 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
   }
+}
+.uploadButton {
+  position: absolute;
+  bottom: -40px;
+}
+
+.changeImgInput {
+  top: 40px !important;
+  opacity: 0;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  left: 0;
 }

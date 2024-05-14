@@ -2,7 +2,7 @@ import { importDb } from '../../../config/db';
 import { useState, useEffect } from 'react';
 import { server } from '../../../config/server';
 import TextEditor from '../../../components/textEditor';
-import textEditorStyles from '../../../styles/adminStyles/textEditor.module.css';
+import styles from '../../../styles/adminStyles/textEditor.module.css';
 import Link from 'next/link';
 
 const AboutView = ({ about }) => {
@@ -38,25 +38,27 @@ const AboutView = ({ about }) => {
   }
 
   return (
-    <div>
-      <div className={textEditorStyles.editAbout}>
-        <div className={textEditorStyles.title}>Title</div>
+    <div className={styles.editPage}>
+      <div className={styles.textEditorContainer}>
+        <h4 className={styles.title}>Title:</h4>
         <input
-          className={textEditorStyles.input}
+          className={styles.input}
           value={title}
           onChange={e => setTitle(e.target.value)}
         />
+        <h4 className={styles.title}>Text:</h4>
 
-        <TextEditor content={aboutText} onUpdate={setAboutText} />
-        <div className={textEditorStyles.buttonContainer}>
-          <button
-            className={textEditorStyles.button}
-            onClick={() => onSave(id)}
-          >
-            Save Changes
+        <TextEditor
+          className={styles.editorInput}
+          content={aboutText}
+          onUpdate={setAboutText}
+        />
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => onSave(id)}>
+            Spara ändringar
           </button>
-          <Link className={textEditorStyles.button} href="/admin">
-            Back to admin panel
+          <Link className={styles.button} href="/admin">
+            Tillbaka
           </Link>
         </div>
       </div>

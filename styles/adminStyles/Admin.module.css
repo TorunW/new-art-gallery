@@ -1,3 +1,100 @@
+.admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 72px 48px;
+}
+.admin .buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.admin img {
+  width: 300px;
+}
+.admin .sectionContainer {
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.admin .sectionContainer a,
+.admin .sectionContainer button {
+  font-size: 14px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  border: none;
+  background: #f5f5f740;
+  color: #fff;
+  padding: 8px 16px 8px;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  text-transform: capitalize;
+}
+.admin .sectionContainer a:hover,
+.admin .sectionContainer button:hover {
+  color: #ffffff85;
+}
+.admin .sectionContainer .thirdRow,
+.admin .sectionContainer .fourthRow {
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+}
+.admin .sectionContainer .thirdRow .gallery,
+.admin .sectionContainer .fourthRow .gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+  text-transform: capitalize;
+  margin-top: 32px;
+}
+.admin .sectionContainer .thirdRow .gallery .itemContainer,
+.admin .sectionContainer .fourthRow .gallery .itemContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.admin .sectionContainer .thirdRow .gallery .itemContainer h4,
+.admin .sectionContainer .fourthRow .gallery .itemContainer h4 {
+  text-align: left;
+}
+.admin .sectionContainer .thirdRow .gallery .itemContainer img,
+.admin .sectionContainer .fourthRow .gallery .itemContainer img {
+  height: 300px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.admin .sectionContainer .fifthRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.admin .sectionContainer .fifthRow .aboutSection {
+  background-color: #80c5fa40;
+  width: 600px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+.admin .sectionContainer .fifthRow .aboutSection h4 {
+  margin-bottom: 16px;
+}
+@media (min-width: 1069px) {
+  .sectionContainer {
+    max-width: 1069px;
+    padding: 32px;
+  }
+  .sectionContainer .firstRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
 .overlay {
   height: 100%;
   width: 100%;
@@ -24,130 +121,5 @@
 @keyframes l3 {
   to {
     transform: rotate(1turn);
-  }
-}
-.admin {
-  background-color: var(--admin-middle);
-  font-family: 'Dosis';
-  padding: 80px 40px;
-  z-index: 10;
-  position: relative;
-}
-.admin .backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 45px;
-  padding: 5px;
-  background-color: #202022bb;
-  color: var(--white);
-  cursor: pointer;
-  box-shadow: 0 1px 10px rgba(204, 204, 204, 0.288);
-}
-.admin .backToTop:hover {
-  background: var(--black);
-}
-.admin h2 {
-  text-transform: uppercase;
-  color: var(--admin-white);
-  font-weight: 400;
-  width: 100%;
-  text-align: center;
-}
-.admin img {
-  width: 300px;
-}
-.admin .sectionContainer {
-  background-color: var(--admin-dark);
-  border-radius: 10px;
-  display: grid;
-  grid-template-rows: repeat(6, auto);
-  margin: 0 auto;
-}
-.admin .sectionContainer .firstRow h2 {
-  width: 100%;
-  text-align: center;
-}
-.admin .sectionContainer .secondRow {
-  text-align: center;
-  margin-top: 40px;
-}
-.admin .sectionContainer .secondRow .galleryContainer {
-  padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  grid-gap: 40px;
-}
-.admin .sectionContainer .secondRow .galleryContainer img {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  margin-top: 20px;
-}
-.admin .sectionContainer .secondRow .galleryContainer div {
-  float: right;
-}
-.admin .sectionContainer a,
-.admin .sectionContainer button {
-  border: none;
-  background: #f5f5f740;
-  color: #fff;
-  padding: 8px 16px 8px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  letter-spacing: 0.1rem;
-  cursor: pointer;
-}
-.admin .sectionContainer a:hover {
-  transform: scale(1.1);
-  color: rgba(255, 255, 255, 0.534);
-}
-.admin .sectionContainer .thirdRow,
-.admin .sectionContainer .fourthRow {
-  text-align: center;
-  margin-top: 40px;
-  width: 100%;
-}
-.admin .sectionContainer .thirdRow .gallery,
-.admin .sectionContainer .fourthRow .gallery {
-  text-align: left;
-  color: var(--admin-white);
-  text-transform: uppercase;
-  padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  grid-gap: 40px;
-}
-.admin .sectionContainer .thirdRow .gallery .itemContainer,
-.admin .sectionContainer .fourthRow .gallery .itemContainer {
-  background: #283337;
-  background: linear-gradient(20deg, var(--admin-grad) 40%, #283337 85%, #2a4745 100%);
-  padding: 0px 20px 20px;
-  border-radius: 5px;
-  margin: 0 auto;
-  object-fit: cover;
-}
-.admin .sectionContainer .thirdRow .gallery .itemContainer img,
-.admin .sectionContainer .fourthRow .gallery .itemContainer img {
-  height: 300px;
-  object-fit: cover;
-  margin: 0 auto;
-}
-.admin .sectionContainer .thirdRow .gallery .itemContainer div,
-.admin .sectionContainer .fourthRow .gallery .itemContainer div {
-  float: right;
-}
-@media (min-width: 1069px) {
-  .sectionContainer {
-    max-width: 1069px;
-    padding: 32px;
-  }
-  .sectionContainer .firstRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
   }
 }

@@ -32,10 +32,10 @@
 
 @font-face {
   font-family: 'Montserrat';
-  font-style: italic;
+  font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUQjIg1_i6t8kCHKm459WxRyS7m0dR9pA.woff2)
+  src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2)
     format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
@@ -55,12 +55,51 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 48px;
 }
-p {
+
+h3 {
+  font-size: 34px;
+}
+
+.ProseMirror {
+  min-height: 300px;
+  padding: 16px;
+  border: solid 0.5px #ffffff99;
+  margin-top: 8px;
+}
+
+.is-active,
+.non-active {
+  text-decoration: none;
+  border: solid 0.5px var(--white);
+  color: var(--white);
+  padding: 8px;
+  font-family: 'Montserrat';
+  cursor: pointer;
+}
+
+.is-active {
+  background-color: #2e5095;
+}
+
+.non-active {
+  background: none;
+}
+
+h4 {
   font-size: 24px;
   font-family: 'Montserrat';
+  font-weight: normal;
+  margin: 0;
 }
+p {
+  font-size: 16px;
+  font-family: 'Montserrat';
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
 html,
 body {
   padding: 0;

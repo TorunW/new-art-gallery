@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { app } from '../firebaseConfig';
 import { useState, useEffect } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import LoginStyles from '../styles/adminStyles/Login.module.css';
+import styles from '../styles/adminStyles/Login.module.css';
 
 export default function Signup() {
   const auth = getAuth();
@@ -30,11 +30,11 @@ export default function Signup() {
   };
 
   return (
-    <login className={LoginStyles.loginForm}>
+    <login className={styles.loginForm}>
       <div>
         <input
           placeholder="email"
-          className={LoginStyles.inputContainer}
+          className={styles.inputContainer}
           onChange={e => setEmail(e.target.value)}
           value={email}
           type="email"
@@ -42,13 +42,13 @@ export default function Signup() {
         <br />
         <input
           placeholder="lösenord"
-          className={LoginStyles.inputContainer}
+          className={styles.inputContainer}
           onChange={e => setPassword(e.target.value)}
           value={password}
           type="password"
         />
         <br />
-        <button className={LoginStyles.button} onClick={signIn}>
+        <button className={styles.button} onClick={signIn}>
           Logga in
         </button>
       </div>

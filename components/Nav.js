@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import navStyles from '../styles/Nav.module.css';
+import styles from '../styles/Nav.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { route } from 'next/dist/server/router';
@@ -54,8 +54,8 @@ const Nav = () => {
     );
   } else if (router.pathname === '/admin') {
     navbarTypeDisplay = (
-      <div className={navStyles.navbarAdmin}>
-        <div className={navStyles.left}>Admin</div>
+      <div className={styles.navbarAdmin}>
+        <div>Admin</div>
 
         <button onClick={logout}>Logga ut</button>
       </div>
@@ -65,11 +65,11 @@ const Nav = () => {
     router.pathname === '/betongmosaik'
   ) {
     navbarTypeDisplay = (
-      <div className={navStyles.navContainer}>
-        <div className={navStyles.left}>
+      <div className={styles.navContainer}>
+        <div className={styles.left}>
           <Link href="/">Charlotte Hillborg</Link>
         </div>
-        <div className={navStyles.right}>
+        <div className={styles.right}>
           <Link href="/tavlor">Tavlor</Link>
           <Link href="/betongmosaik">Betong & Mosaik</Link>
           <a onClick={() => onMenuClick('about')}>Om mig</a>
@@ -83,8 +83,8 @@ const Nav = () => {
     <nav
       className={
         route.pathname !== '/admin' && isScrolled === true
-          ? navStyles.navbarScrolled
-          : navStyles.navbar
+          ? styles.navbarScrolled
+          : styles.navbar
       }
     >
       {navbarTypeDisplay}

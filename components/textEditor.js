@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-// import { styles } from '../styles/textEditor.module.css';
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -12,115 +11,42 @@ const MenuBar = ({ editor }) => {
     <>
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
+        className={editor.isActive('bold') ? 'is-active' : 'non-active'}
       >
         bold
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
+        className={editor.isActive('italic') ? 'is-active' : 'non-active'}
       >
         italic
       </button>
 
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive('paragraph') ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
+        className={editor.isActive('paragraph') ? 'is-active' : 'non-active'}
       >
         paragraph
       </button>
+
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
+        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
+        className={
+          editor.isActive('heading', { level: 3 }) ? 'is-active' : 'non-active'
+        }
       >
-        h1
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
-      >
-        h2
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
-      >
-        h3
+        h4
       </button>
 
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
+        className={editor.isActive('bulletList') ? 'is-active' : 'non-active'}
       >
         bullet list
       </button>
       <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}
-        style={{
-          borderStyle: 'solid',
-          borderColor: 'grey',
-          color: 'white',
-          margin: '5px',
-          background: 'black',
-          borderRadius: '3px',
-        }}
+        className={editor.isActive('orderedList') ? 'is-active' : 'non-active'}
       >
         ordered list
       </button>

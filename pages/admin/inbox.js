@@ -1,7 +1,7 @@
 import { importDb } from '../../config/db';
 import { server } from '../../config/server';
 import { useState, useEffect } from 'react';
-import InboxStyles from '../../styles/Inbox.module.css';
+import styles from '../../styles/Inbox.module.css';
 import { IoMail, IoMailOpen, IoTrashSharp } from 'react-icons/io5';
 import Link from 'next/link';
 
@@ -53,43 +53,43 @@ const Inbox = ({ initMessages }) => {
   }
 
   return (
-    <div className={InboxStyles.inbox}>
-      <h2 className={InboxStyles.title}>Inbox</h2>
+    <div className={styles.inbox}>
+      <h2 className={styles.title}>Inbox</h2>
 
-      <table className={InboxStyles.table}>
-        <thead className={InboxStyles.thead}>
-          <tr className={InboxStyles.tr}>
-            <th className={InboxStyles.thName}>Name</th>
-            <th className={InboxStyles.th}>Email</th>
-            <th className={InboxStyles.th}>Message</th>
-            <th className={InboxStyles.th}>Sent</th>
-            <th className={InboxStyles.th}>Read</th>
-            <th className={InboxStyles.th}>Delete</th>
+      <table className={styles.table}>
+        <thead className={styles.thead}>
+          <tr className={styles.tr}>
+            <th className={styles.thName}>Name</th>
+            <th className={styles.th}>Email</th>
+            <th className={styles.th}>Message</th>
+            <th className={styles.th}>Sent</th>
+            <th className={styles.th}>Read</th>
+            <th className={styles.th}>Delete</th>
           </tr>
         </thead>
-        <tbody className={InboxStyles.body}>
+        <tbody className={styles.body}>
           {messages.map((message, index) => (
-            <tr className={InboxStyles.tr} key={index} message={message}>
-              <td className={InboxStyles.tdName}>
-                <span className={InboxStyles.span}>{message.fullname}</span>
+            <tr className={styles.tr} key={index} message={message}>
+              <td className={styles.tdName}>
+                <span className={styles.span}>{message.fullname}</span>
               </td>
-              <td className={InboxStyles.td}>
-                <span className={InboxStyles.span}>{message.email}</span>
+              <td className={styles.td}>
+                <span className={styles.span}>{message.email}</span>
               </td>
-              <td className={InboxStyles.td}>
-                <span className={InboxStyles.span}>{message.msg}</span>
+              <td className={styles.td}>
+                <span className={styles.span}>{message.msg}</span>
               </td>
-              <td className={InboxStyles.td}>
-                <span className={InboxStyles.span}>{message.created_at}</span>
+              <td className={styles.td}>
+                <span className={styles.span}>{message.created_at}</span>
               </td>
-              <td className={InboxStyles.td}>
-                <a className={InboxStyles.i} onClick={() => onSubmit(message)}>
+              <td className={styles.td}>
+                <a className={styles.i} onClick={() => onSubmit(message)}>
                   {message.seen === 1 ? <IoMail /> : <IoMailOpen />}
                 </a>
               </td>
-              <td className={InboxStyles.td}>
+              <td className={styles.td}>
                 <a
-                  className={InboxStyles.i}
+                  className={styles.i}
                   onClick={() => onDeleteMessage(message.id)}
                 >
                   <IoTrashSharp />
@@ -99,8 +99,8 @@ const Inbox = ({ initMessages }) => {
           ))}
         </tbody>
       </table>
-      <div className={InboxStyles.buttonContainer}>
-        <Link href="/admin" className={InboxStyles.button}>
+      <div className={styles.buttonContainer}>
+        <Link href="/admin" className={styles.button}>
           Back to admin panel
         </Link>
       </div>

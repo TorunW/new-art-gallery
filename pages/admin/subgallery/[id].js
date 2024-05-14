@@ -1,6 +1,6 @@
 import { importDb } from '../../../config/db';
 import ImageUploadForm from '../../../components/ImageUploadForm';
-import FormStyles from '../../../styles/Form.module.css';
+import styles from '../../../styles/adminStyles/Form.module.css';
 
 const subGalleryView = ({ subgallery }) => {
   async function onSave(res) {
@@ -8,7 +8,7 @@ const subGalleryView = ({ subgallery }) => {
   }
 
   return (
-    <div className={FormStyles.edit}>
+    <div className={styles.edit}>
       <div>
         <ImageUploadForm
           type={'edit'}
