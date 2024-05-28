@@ -1,14 +1,13 @@
 .grid {
   display: grid;
   position: relative;
-  padding: 60px 20px;
-  grid-gap: 20px;
-  background-color: #f8f8f8;
+  padding: 64px 16px;
+  grid-gap: 16px;
 
   figure {
     position: relative;
     overflow: hidden;
-    margin: 10px auto;
+    margin: 8px auto;
     max-width: 580px;
     min-width: 330px;
     cursor: pointer;
@@ -27,29 +26,17 @@
       width: 100%;
       top: auto;
       bottom: 0;
-      padding: 1em;
-      height: 1.75em;
       background: rgba(0, 0, 0, 0.397);
       color: #f8f8f8;
       -webkit-transition: -webkit-transform 0.35s;
       transition: transform 0.35s;
       -webkit-transform: translate3d(0, 100%, 0);
       transform: translate3d(0, 100%, 0);
+      padding: var(--space-grid-big);
+      gap: var(--space-grid-small);
 
-      h2 {
-        font-weight: 500;
-        margin: 0 20px;
-        float: left;
-        text-transform: uppercase;
-      }
-
-      .description {
-        float: right;
-        width: 180px;
-        p {
-          margin: 0;
-          letter-spacing: 1px;
-        }
+      h3 {
+        margin: 0;
       }
     }
   }
@@ -96,6 +83,9 @@ figure.effect:hover h2 {
   }
 }
 
+.gallery {
+  min-height: 100vh;
+}
 @media (max-width: 1000px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);

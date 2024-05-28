@@ -65,7 +65,7 @@ const Nav = () => {
         <div className={styles.left}>
           <Link href="/">Charlotte Hillborg</Link>
         </div>
-        <div className={styles.right}>
+        <div className={styles.mid}>
           <Link href="/tavlor">Tavlor</Link>
           <Link href="/betongmosaik">Betong & Mosaik</Link>
           <a onClick={() => onMenuClick('about')}>Om mig</a>

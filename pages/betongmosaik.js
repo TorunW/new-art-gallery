@@ -1,6 +1,7 @@
+import ImageDisplay from '../components/ImageDisplay';
 import Lightbox from '../components/Lightbox';
 import { importDb } from '../config/db';
-import subgalleryStyles from '../styles/SecondGallery.module.css';
+import styles from '../styles/SecondGallery.module.css';
 import { useState, useEffect } from 'react';
 
 export default function Betongmosaik({ subgallery }) {
@@ -15,13 +16,8 @@ export default function Betongmosaik({ subgallery }) {
     setFilteredImages(filterImages);
   }, []);
 
-  function imgDisplay(index) {
-    setCurrentIndex(index);
-    setImgSlider(true);
-  }
-
   return (
-    <betongmosaik className={subgalleryStyles.gallery}>
+    <betongmosaik className={styles.gallery}>
       {imgSlider === true && filteredImages[currentIndex] !== undefined ? (
         <Lightbox
           currentIndex={currentIndex}
@@ -32,28 +28,14 @@ export default function Betongmosaik({ subgallery }) {
           setImgSlider={setImgSlider}
         />
       ) : (
-        <div className={subgalleryStyles.grid}>
+        <div className={styles.grid}>
           {filteredImages.map((image, index) => (
-            <div key={index}>
-              <figure className={subgalleryStyles.effect}>
-                <img src={image.picture} onClick={() => imgDisplay(index)} />
-                <figcaption>
-                  <h2>{image.title}</h2>
-                  <div className={subgalleryStyles.description}>
-                    <p>
-                      {image.price ? 'Pris: ' : ''}
-                      {image.price}
-                      {image.price ? ' kr' : ''}
-                    </p>
-                    <p>
-                      {image.size ? 'Storlek: ' : ''}
-                      {image.size}
-                      {image.size ? ' cm' : ''}
-                    </p>
-                  </div>
-                </figcaption>
-              </figure>
-            </div>
+            <ImageDisplay
+              index={index}
+              image={image}
+              setCurrentIndex={setCurrentIndex}
+              setImgSlider={setImgSlider}
+            />
           ))}
         </div>
       )}

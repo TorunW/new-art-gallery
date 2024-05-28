@@ -3,6 +3,8 @@ import ImageUploader from './ImageUploader';
 import { server } from '../config/server';
 import styles from '../styles/adminStyles/Form.module.css';
 import Image from 'next/image';
+import LoaderOverlay from './LoaderOverlay';
+import Link from 'next/link';
 
 const ImageUploadForm = props => {
   const subgallery = props.subgallery;
@@ -12,10 +14,12 @@ const ImageUploadForm = props => {
   const [size, setSize] = useState(subgallery ? subgallery.size : '');
   const [type, setType] = useState(subgallery ? subgallery.type_of : '');
   const [update, setUpdate] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
     if (update === true) {
       setTimeout(() => {
+        setIsloading(false);
         setUpdate(false);
         window.location.reload();
       }, 1000);
@@ -23,6 +27,7 @@ const ImageUploadForm = props => {
   }, [update]);
 
   const onSubmit = async () => {
+    setIsloading(true);
     const body = new FormData();
     body.append('file', picture);
     const fileUploadResponse = await fetch('/api/file', {
@@ -57,6 +62,7 @@ const ImageUploadForm = props => {
   };
 
   const onUpdate = async () => {
+    setIsloading(true);
     let newPicture = {
       picture: props.subgallery.picture,
       title,
@@ -81,6 +87,7 @@ const ImageUploadForm = props => {
 
   return (
     <imageuploadform className={styles.form}>
+      <LoaderOverlay isLoading={isLoading} />
       <h4>Lägg till bild i album:</h4>
       <div className={styles.container}>
         <div className={styles.topContainer}>
@@ -136,7 +143,10 @@ const ImageUploadForm = props => {
             {props.type !== 'edit' ? (
               <a onClick={onSubmit}>{'Lägg till'}</a>
             ) : (
-              <a onClick={onUpdate}>{'Uppdatera'}</a>
+              <>
+                <a href="/admin">{'Tillbaka till Admin'}</a>
+                <a onClick={onUpdate}>{'Uppdatera'}</a>
+              </>
             )}
           </div>
         </div>

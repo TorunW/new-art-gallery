@@ -2,6 +2,7 @@ import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
 import { useEffect, useState } from 'react';
 import Lightbox from '../components/Lightbox';
+import ImageDisplay from '../components/ImageDisplay';
 
 export default function Tavlor({ subgallery }) {
   const [imgSlider, setImgSlider] = useState(false);
@@ -12,11 +13,6 @@ export default function Tavlor({ subgallery }) {
     let filterImages = subgallery.filter(item => item.type_of === 'tavlor');
     setFilteredImages(filterImages);
   }, []);
-
-  function imgDisplay(index) {
-    setCurrentIndex(index);
-    setImgSlider(true);
-  }
 
   return (
     <tavlor className={subgalleryStyles.gallery}>
@@ -32,26 +28,12 @@ export default function Tavlor({ subgallery }) {
       ) : (
         <div className={subgalleryStyles.grid}>
           {filteredImages.map((image, index) => (
-            <div key={index}>
-              <figure className={subgalleryStyles.effect}>
-                <img src={image.picture} onClick={() => imgDisplay(index)} />
-                <figcaption>
-                  <h2>{image.title}</h2>
-                  <div className={subgalleryStyles.description}>
-                    <p>
-                      {image.price ? 'Pris: ' : ''}
-                      {image.price}
-                      {image.price ? ' kr' : ''}
-                    </p>
-                    <p>
-                      {image.size ? 'Storlek: ' : ''}
-                      {image.size}
-                      {image.size ? ' cm' : ''}
-                    </p>
-                  </div>
-                </figcaption>
-              </figure>
-            </div>
+            <ImageDisplay
+              index={index}
+              image={image}
+              setCurrentIndex={setCurrentIndex}
+              setImgSlider={setImgSlider}
+            />
           ))}
         </div>
       )}

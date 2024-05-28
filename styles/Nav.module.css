@@ -49,10 +49,17 @@
 }
 .navbar .navbarAdmin button:hover,
 .navbarScrolled .navbarAdmin button:hover {
-  color: #ffffff85;
+  background-color: rgba(240, 248, 255, 0.177);
   cursor: pointer;
 }
-.navbarScrolled {
+.navbarScrolled,
+.navContainer {
   background-color: var(--dark);
   border-bottom: 0.5px solid var(--light);
+}
+.navContainer {
+  width: 100%;
+  display: flex;
+  padding: var(--space-grid-big);
+  justify-content: space-between;
 }

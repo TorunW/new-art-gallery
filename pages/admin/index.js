@@ -6,6 +6,7 @@ import ImageUploadForm from '../../components/ImageUploadForm';
 import { app } from '../../firebaseConfig';
 import { useRouter } from 'next/router';
 import DeleteImage from '../../components/DeleteImage';
+import LoaderOverlay from '../../components/LoaderOverlay';
 
 export default function Admin({ initSubGallery, initAbout }) {
   const [subgallery, setSubgallery] = useState(initSubGallery);
@@ -49,11 +50,7 @@ export default function Admin({ initSubGallery, initAbout }) {
 
   return (
     <admin>
-      <div
-        className={isLoading === true ? styles.overlay : styles.overlayHidden}
-      >
-        <div className={styles.loader}></div>
-      </div>
+      <LoaderOverlay isLoading={isLoading} />
       {isOverlayVisible === true ? (
         <DeleteImage
           id={currentImageId}
