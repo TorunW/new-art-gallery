@@ -1,4 +1,5 @@
 import styles from '../styles/Header.module.css';
+import { ArrowDown } from './Icons';
 
 const Header = () => {
   return (
@@ -30,6 +31,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <ArrowDown />
     </header>
   );
 };
