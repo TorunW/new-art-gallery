@@ -38,10 +38,6 @@ const Nav = () => {
     router.push('/');
   }
 
-  function goToInbox() {
-    router.push('/admin/inbox');
-  }
-
   let navbarTypeDisplay;
   if (router.pathname === '/') {
     navbarTypeDisplay = (

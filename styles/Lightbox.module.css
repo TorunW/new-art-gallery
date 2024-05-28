@@ -1,71 +1,166 @@
-.lightboxClose,
-.lightboxOpen {
-  overflow: hidden;
+.lightbox {
+  position: absolute;
   z-index: 999;
-  width: 100%;
+  background-image: url('../public/uploads/AbovetheFold.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
   height: 100vh;
-  position: fixed;
+  padding: 0 32px;
+}
+.lightbox .galleryContent {
+  height: 100%;
+  max-width: 1440px;
+  min-width: 800px;
+}
+.lightbox .galleryContent .focusedImage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.842);
-  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.5s ease-in-out;
+  flex-direction: column;
 }
-.lightboxClose img,
-.lightboxOpen img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  display: block;
-  line-height: 0;
-  box-sizing: border-box;
-  padding: 20px 0;
-  margin: 0 auto;
+.lightbox .galleryContent .focusedImage .currentImg {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.lightboxClose .closeBtn,
-.lightboxOpen .closeBtn,
-.lightboxClose .rightBtn,
-.lightboxOpen .rightBtn,
-.lightboxClose .leftBtn,
-.lightboxOpen .leftBtn {
-  position: fixed;
-  color: white;
+.lightbox .galleryContent .focusedImage .currentImg img {
+  height: 75%;
+  max-width: 700px;
+}
+.lightbox .galleryContent .nonFocusedImages {
+  height: 100%;
+  width: 80%;
+  max-width: 850px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.lightbox .galleryContent .nonFocusedImages img {
+  height: 50%;
+  filter: brightness(40%);
+}
+.lightbox .galleryContent .placeholder {
+  width: 100%;
+  height: 50%;
+}
+.lightbox .galleryContent .rightBtn,
+.lightbox .galleryContent .leftBtn {
+  position: relative;
+  z-index: 100;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
-  padding: 5px;
+  border: none;
+  background: none;
 }
-.lightboxClose .closeBtn:hover,
-.lightboxOpen .closeBtn:hover,
-.lightboxClose .rightBtn:hover,
-.lightboxOpen .rightBtn:hover,
-.lightboxClose .leftBtn:hover,
-.lightboxOpen .leftBtn:hover {
-  opacity: 0.8;
+.lightbox .galleryContent .rightBtn {
+  float: right;
+  top: 50%;
 }
-.lightboxClose .closeBtn,
-.lightboxOpen .closeBtn {
-  top: 10px;
-  right: 10px;
+.lightbox .galleryContent .leftBtn {
+  float: left;
+  top: 50%;
 }
-.lightboxClose .rightBtn,
-.lightboxOpen .rightBtn {
-  right: 10px;
+.lightbox .closeBtn {
+  position: absolute;
+  right: 16px;
+  font-size: 28px;
+  margin-top: 16px;
+  cursor: pointer;
+  z-index: 99;
 }
-.lightboxClose .leftBtn,
-.lightboxOpen .leftBtn {
-  left: 10px;
-}
-.lightboxOpen {
-  visibility: visible;
-  opacity: 1;
-  transform: scale(1);
-}
-.lightboxClose {
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0);
+/* media under 850px smaller slide */
+@media (max-width: 850px) {
+  .lightbox {
+    /*     position: absolute;
+    z-index: 999;
+    background-image: url('../public/uploads/AbovetheFold.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh; */
+    padding: 0 32px;
+  }
+  .lightbox .galleryContent {
+    /*       height: 100%;
+ */
+    max-width: 850px;
+    /*       min-width: 800px;
+ */
+  }
+  .lightbox .galleryContent .focusedImage {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .lightbox .galleryContent .focusedImage .currentImg {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox .galleryContent .focusedImage .currentImg img {
+    height: 75%;
+    max-width: 700px;
+  }
+  .lightbox .galleryContent .nonFocusedImages {
+    height: 100%;
+    width: 80%;
+    max-width: 850px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  .lightbox .galleryContent .nonFocusedImages img {
+    height: 50%;
+    filter: brightness(40%);
+  }
+  .lightbox .galleryContent .placeholder {
+    width: 100%;
+    height: 50%;
+  }
+  .lightbox .galleryContent .rightBtn,
+  .lightbox .galleryContent .leftBtn,
+  .lightbox .galleryContent .closeBtn {
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  .lightbox .galleryContent .rightBtn {
+    float: right;
+    top: 50%;
+  }
+  .lightbox .galleryContent .leftBtn {
+    float: left;
+    top: 50%;
+  }
+  .lightbox .galleryContent .closeBtn {
+    float: right;
+    font-size: large;
+  }
 }

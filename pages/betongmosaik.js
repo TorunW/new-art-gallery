@@ -1,113 +1,62 @@
+import Lightbox from '../components/Lightbox';
 import { importDb } from '../config/db';
 import subgalleryStyles from '../styles/SecondGallery.module.css';
-import { useState } from 'react';
-import lightboxStyles from '../styles/Lightbox.module.css';
-import {
-  AiOutlineClose,
-  AiOutlineArrowLeft,
-  AiOutlineArrowRight,
-} from 'react-icons/ai';
+import { useState, useEffect } from 'react';
 
 export default function Betongmosaik({ subgallery }) {
-  const [imgSlider, setimgSlider] = useState(false);
+  const [imgSlider, setImgSlider] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [filteredImages, setFilteredImages] = useState([]);
+
+  useEffect(() => {
+    let filterImages = subgallery.filter(
+      item => item.type_of === 'betongmosaik'
+    );
+    setFilteredImages(filterImages);
+  }, []);
 
   function imgDisplay(index) {
     setCurrentIndex(index);
-    setimgSlider(true);
+    setImgSlider(true);
   }
-
-  function nextImg() {
-    const nextIndex = currentIndex + 1;
-    const maxIndex = subgallery.length - 1;
-    const minIndex = 0;
-
-    if (nextIndex > maxIndex) {
-      setCurrentIndex(minIndex);
-    } else {
-      const newIndex = nextIndex;
-      setCurrentIndex(newIndex);
-    }
-  }
-
-  function prevImg() {
-    const prevIndex = currentIndex - 1;
-    const minIndex = 0;
-    const maxIndex = subgallery.length - 1;
-
-    if (prevIndex < minIndex) {
-      setCurrentIndex(maxIndex);
-    } else {
-      setCurrentIndex(prevIndex);
-    }
-  }
-
-  if (imgSlider === true) {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('keyup', function (e) {
-        if (e.keyCode === 37) {
-          prevImg(e);
-        } else if (e.keyCode === 39) {
-          nextImg(e);
-        }
-      });
-    }
-  }
-
-  let galleryImageDisplay = subgallery.map((image, index) => {
-    if (image.type_of === 'betongmosaik') {
-      return (
-        <div key={index}>
-          <figure className={subgalleryStyles.effect}>
-            <img src={image.picture} onClick={() => imgDisplay(index)} />
-            <figcaption>
-              <h2>{image.title}</h2>
-              <div className={subgalleryStyles.description}>
-                <p>
-                  {image.price ? 'Pris: ' : ''}
-                  {image.price}
-                  {image.price ? ' kr' : ''}
-                </p>
-                <p>
-                  {image.size ? 'Storlek:' : ''}
-                  {image.size}
-                  {image.size ? ' cm' : ''}
-                </p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      );
-    }
-  });
 
   return (
-    <betongmosaik>
-      <div className={subgalleryStyles.gallery}>
-        <div
-          className={
-            imgSlider === true
-              ? lightboxStyles.lightboxOpen
-              : lightboxStyles.lightboxClose
-          }
-        >
-          <AiOutlineClose
-            className={lightboxStyles.closeBtn}
-            onClick={() => setimgSlider(false)}
-          />
-          <img src={subgallery[currentIndex].picture} />
-          <AiOutlineArrowLeft
-            className={lightboxStyles.leftBtn}
-            onClick={() => prevImg()}
-          />
-
-          <AiOutlineArrowRight
-            className={lightboxStyles.rightBtn}
-            onClick={() => nextImg()}
-          />
+    <betongmosaik className={subgalleryStyles.gallery}>
+      {imgSlider === true && filteredImages[currentIndex] !== undefined ? (
+        <Lightbox
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          filteredImages={filteredImages}
+          setFilteredImages={setFilteredImages}
+          imgSlider={imgSlider}
+          setImgSlider={setImgSlider}
+        />
+      ) : (
+        <div className={subgalleryStyles.grid}>
+          {filteredImages.map((image, index) => (
+            <div key={index}>
+              <figure className={subgalleryStyles.effect}>
+                <img src={image.picture} onClick={() => imgDisplay(index)} />
+                <figcaption>
+                  <h2>{image.title}</h2>
+                  <div className={subgalleryStyles.description}>
+                    <p>
+                      {image.price ? 'Pris: ' : ''}
+                      {image.price}
+                      {image.price ? ' kr' : ''}
+                    </p>
+                    <p>
+                      {image.size ? 'Storlek: ' : ''}
+                      {image.size}
+                      {image.size ? ' cm' : ''}
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          ))}
         </div>
-        <div className={subgalleryStyles.grid}>{galleryImageDisplay}</div>
-      </div>
+      )}
     </betongmosaik>
   );
 }
