@@ -1,7 +1,24 @@
 import styles from '../styles/Header.module.css';
 import { ArrowDown } from './Icons';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', handleScroll);
+  }
+
+  function handleScroll() {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY >= 2) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.content}>
@@ -25,13 +42,13 @@ const Header = () => {
           </span>
           <div className={styles.textContainer}>
             <span>
-              <h1>Charlotte Hillborg</h1>
-              <h2>Upptäck min konstnärliga värld</h2>
+              <h2>Charlotte Hillborg</h2>
+              <h3>Upptäck min konstnärliga värld</h3>
             </span>
           </div>
         </div>
       </div>
-      <ArrowDown />
+      {isScrolled === true ? '' : <ArrowDown />}
     </header>
   );
 };

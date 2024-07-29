@@ -1,25 +1,25 @@
 .about .bgContainer {
-  /* background-image: url('../public/uploads/aboutbg.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
   height: 100%;
-  opacity: 0.7;
   padding: 48px 0;
+  margin-bottom: 48px;
 }
 .about .bgContainer .contentContainer {
+  background-image: url('../public/uploads/aboutbg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0 auto;
   display: grid;
   height: auto;
 }
 .about .bgContainer .contentContainer .aboutContainer {
-  background-color: var(--dark);
+  background-color: var(--mid);
   color: var(--white);
   padding: 32px;
   font-size: 18px;
 }
 .about .bgContainer .contentContainer .formContainer {
-  background-color: #22232a80;
+  background-color: var(--dark-transparent);
   color: var(--white);
   padding: 20px 32px 30px !important;
 }
@@ -45,19 +45,21 @@
   background: transparent;
   color: var(--white);
   font-weight: 500;
-  font-family: 'Dosis';
+  font-family: 'Montserrat';
 }
 .about .bgContainer .contentContainer .formContainer input textarea::-webkit-scrollbar,
 .about .bgContainer .contentContainer .formContainer textarea textarea::-webkit-scrollbar {
   display: none;
 }
 .about .bgContainer .contentContainer .formContainer textarea {
-  height: 25px;
+  height: 40px;
   margin-top: 15px;
+  padding: 10px 0 5px 3px !important;
 }
 .about .bgContainer .contentContainer .formContainer .error {
   margin: 0 0 30px;
   font-size: 17px;
+  color: #fa5454;
 }
 .about .bgContainer .contentContainer .formContainer .success {
   font-size: 17px;
@@ -65,9 +67,9 @@
 .about .bgContainer .contentContainer .formContainer .submit {
   margin-top: 20px;
 }
-.about .bgContainer .contentContainer .formContainer .submit a {
+.about .bgContainer .contentContainer .formContainer .submit .btn {
   background: #f5f5f740;
-  color: #eeeeee;
+  color: #eeeeeed8;
   border-radius: 7px;
   padding: 8px 20px 5px;
   text-transform: uppercase;
@@ -76,10 +78,24 @@
   text-decoration: none;
   letter-spacing: 0.1rem;
   margin-top: 16px !important;
+  font-family: 'Montserrat';
 }
-.about .bgContainer .contentContainer .formContainer .submit a:hover {
+.about .bgContainer .contentContainer .formContainer .submit .btn:hover {
   cursor: pointer;
   color: white;
+}
+.about .bgContainer .contentContainer .formContainer .submit .btnLoading {
+  background: #f5f5f740;
+  color: #c4c3c3d8;
+  border-radius: 7px;
+  padding: 8px 20px 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  margin-top: 16px !important;
+  font-family: 'Montserrat';
 }
 @media (min-width: 992px) {
   .about .bgContainer .contentContainer {
@@ -90,31 +106,5 @@
   }
   .about .bgContainer .contentContainer .formContainer {
     padding: 20px;
-  }
-}
-@media (max-width: 991px) {
-  .about .bgContainer .contentContainer {
-    width: 85%;
-    grid-template-columns: 1fr 1fr;
-  }
-  .about .bgContainer .contentContainer .formContainer {
-    padding: 20px 40px;
-  }
-}
-@media (max-width: 580px) {
-  .about .bgContainer .contentContainer {
-    width: 95%;
-    height: 100%;
-    grid-template-rows: 1fr auto;
-    grid-template-columns: 1fr;
-  }
-  .about .bgContainer .contentContainer .aboutContainer {
-    grid-row-start: 1;
-    grid-row-end: 2;
-  }
-  .about .bgContainer .contentContainer .formContainer {
-    padding: 20px;
-    grid-row-start: 2;
-    grid-row-end: 3;
   }
 }

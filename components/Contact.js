@@ -1,38 +1,47 @@
 import styles from '../styles/About.module.css';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = (props, about, contact) => {
   const [fullname, setFullname] = useState('');
   const [fullnameError, setFullnameError] = useState(false);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
-  const [msg, setMsg] = useState('');
+  const [message, setMessage] = useState('');
   const [messageError, setMessageError] = useState(false);
-  const [messageSent, setMessageSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const router = useRouter();
-
-  useEffect(() => {
-    if (messageSent === true) {
-      setTimeout(() => {
-        setMessageSent(false);
-        router.reload();
-      }, 5000);
-    }
-  }, [messageSent]);
-
-  function onSubmit() {
-    if (formValidation()) {
-      let newMessage = {
-        fullname,
-        email,
-        msg,
+  const onSendEmail = isValidated => {
+    if (isValidated === true) {
+      const templateParams = {
+        from_name: fullname,
+        from_email: email,
+        message,
       };
-      props.onSubmit(newMessage);
-      setMessageSent(true);
+
+      setIsLoading(true);
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+        )
+        .then(
+          function (response) {
+            console.log(response);
+            setFullname('');
+            setEmail('');
+            setMessage('');
+            // setIsLoading(false);
+          },
+          function (error) {
+            console.log(error), 'eeeeer';
+            setIsLoading(false);
+          }
+        );
     }
-  }
+  };
 
   function formValidation() {
     let isValidated = true;
@@ -53,47 +62,15 @@ const Contact = (props, about, contact) => {
       setEmailError(false);
     }
 
-    if (msg.length < 1) {
+    if (message.length < 1) {
       setMessageError(true);
       isValidated = false;
     } else {
       setMessageError(false);
     }
 
+    onSendEmail(isValidated);
     return isValidated;
-  }
-
-  let fullnameErrorDisplay;
-  if (fullnameError === true) {
-    fullnameErrorDisplay = (
-      <p className={styles.error}>Namn måste vara ifyllt</p>
-    );
-  }
-
-  let emailErrorDisplay;
-  if (emailError === true) {
-    emailErrorDisplay = (
-      <p className={styles.error}>E-postadressen är inte giltig</p>
-    );
-  }
-
-  let messageErrorDisplay;
-  if (messageError === true) {
-    messageErrorDisplay = (
-      <p className={styles.error}>Meddelande kan inte vara tomt</p>
-    );
-  }
-
-  let displaySuccessMessage;
-  if (messageSent === true) {
-    displaySuccessMessage = (
-      <div>
-        <p className={styles.success}>
-          Tack för ditt meddelande, jag återkommer med svar så snart som
-          möjligt.
-        </p>
-      </div>
-    );
   }
 
   let aboutDisplay = props.about.map((about, index) => {
@@ -120,32 +97,43 @@ const Contact = (props, about, contact) => {
                   type="text"
                   placeholder="Namn"
                 />
-                {fullnameErrorDisplay}
+                {fullnameError ? (
+                  <p className={styles.error}>Namn måste vara ifyllt</p>
+                ) : null}
               </div>
 
               <div>
                 <input
+                  value={email}
                   type="email"
                   onChange={e => setEmail(e.target.value)}
                   placeholder="Email"
                 />
-                {emailErrorDisplay}
+                {emailError === true ? (
+                  <p className={styles.error}>E-postadressen är inte giltig</p>
+                ) : null}
               </div>
 
               <div>
                 <textarea
+                  value={message}
                   type="text"
-                  onChange={e => setMsg(e.target.value)}
+                  onChange={e => setMessage(e.target.value)}
                   placeholder="Meddelande"
                 ></textarea>
-                {messageErrorDisplay}
+                {messageError === true ? (
+                  <p className={styles.error}>Meddelande kan inte vara tomt</p>
+                ) : null}
               </div>
-
               <div className={styles.submit}>
-                <a className={styles.btn} onClick={onSubmit}>
+                <a
+                  className={
+                    isLoading === false ? styles.btn : styles.btnLoading
+                  }
+                  onClick={formValidation}
+                >
                   Skicka meddelande
                 </a>
-                {displaySuccessMessage}
               </div>
             </form>
           </div>

@@ -5,6 +5,7 @@ import ThumbnailTavlor from '../public/uploads/ThumbnailTavlor.png';
 import styles from '../styles/Card.module.css';
 
 import Link from 'next/link';
+import { ArrowRight } from './Icons';
 
 const Card = () => {
   return (
@@ -20,7 +21,10 @@ const Card = () => {
             alt="Picture of the author"
           />
           <Link href={'/tavlor'}>
-            <h2>Klicka här för att se mina tavlor</h2>
+            <div className={styles.link}>
+              <h3>Se mina tavlor</h3>
+              <ArrowRight />
+            </div>
           </Link>
         </div>
       </div>
@@ -36,7 +40,10 @@ const Card = () => {
             alt="Picture of the author"
           />
           <Link href={'/tavlor'}>
-            <h2>Klicka här för att se min mosaik</h2>
+            <div className={styles.link}>
+              <h3>Se min mosaik</h3>
+              <ArrowRight />
+            </div>
           </Link>
         </div>
       </div>
