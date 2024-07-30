@@ -1,5 +1,5 @@
 import styles from '../styles/About.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 const Contact = (props, about, contact) => {
@@ -10,6 +10,13 @@ const Contact = (props, about, contact) => {
   const [message, setMessage] = useState('');
   const [messageError, setMessageError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [messageStatus, setMessageStatus] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMessageStatus('');
+    }, 5000);
+  }, [messageStatus]);
 
   const onSendEmail = isValidated => {
     if (isValidated === true) {
@@ -33,11 +40,15 @@ const Contact = (props, about, contact) => {
             setFullname('');
             setEmail('');
             setMessage('');
-            // setIsLoading(false);
+            setIsLoading(false);
+            setMessageStatus(
+              'Tack för ditt meddelande, jag återkommer så snart som möjligt!'
+            );
           },
           function (error) {
-            console.log(error), 'eeeeer';
+            console.log(error);
             setIsLoading(false);
+            setMessageStatus('Något gick fel, prova igen.');
           }
         );
     }
@@ -76,7 +87,7 @@ const Contact = (props, about, contact) => {
   let aboutDisplay = props.about.map((about, index) => {
     return (
       <div key={index}>
-        <h2> {about.title} </h2>
+        <h3> {about.title} </h3>
         <div dangerouslySetInnerHTML={{ __html: about.about_text }}></div>
       </div>
     );
@@ -89,7 +100,7 @@ const Contact = (props, about, contact) => {
           <div className={styles.aboutContainer}>{aboutDisplay}</div>
           <div className={styles.formContainer}>
             <form>
-              <h2>Kontakt</h2>
+              <h3>Kontakt</h3>
               <div>
                 <input
                   value={fullname}
@@ -126,14 +137,18 @@ const Contact = (props, about, contact) => {
                 ) : null}
               </div>
               <div className={styles.submit}>
-                <a
-                  className={
-                    isLoading === false ? styles.btn : styles.btnLoading
-                  }
-                  onClick={formValidation}
-                >
-                  Skicka meddelande
-                </a>
+                {messageStatus.length <= 0 ? (
+                  <a
+                    className={
+                      isLoading === false ? styles.btn : styles.btnLoading
+                    }
+                    onClick={formValidation}
+                  >
+                    {isLoading === false ? 'Skicka meddelande' : 'Skickar'}
+                  </a>
+                ) : (
+                  <p>{messageStatus}</p>
+                )}
               </div>
             </form>
           </div>

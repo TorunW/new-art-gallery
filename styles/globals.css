@@ -52,16 +52,58 @@ h3 {
   padding: 0;
   font-weight: lighter;
 }
-h1 {
-  font-size: 60px;
+@media (min-width: 415px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 34px;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: normal;
+    margin: 0;
+  }
+  p {
+    font-size: 16px;
+    font-family: 'Montserrat';
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
 }
 
-h2 {
-  font-size: 48px;
-}
+@media (max-width: 414px) {
+  h1 {
+    font-size: 30px;
+  }
 
-h3 {
-  font-size: 34px;
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: normal;
+    margin: 0;
+  }
+  p {
+    font-size: 12px;
+    font-family: 'Montserrat';
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
 }
 
 .ProseMirror {
@@ -87,19 +129,6 @@ h3 {
 
 .non-active {
   background: none;
-}
-
-h4 {
-  font-size: 24px;
-  font-family: 'Montserrat';
-  font-weight: normal;
-  margin: 0;
-}
-p {
-  font-size: 16px;
-  font-family: 'Montserrat';
-  letter-spacing: 0.5px;
-  margin: 0;
 }
 
 html,

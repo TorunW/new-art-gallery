@@ -108,3 +108,12 @@
     padding: 20px;
   }
 }
+@media (max-width: 991px) {
+  .about .bgContainer .contentContainer {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin: 0 48px;
+  }
+  .about .bgContainer .contentContainer .formContainer {
+    padding: 20px;
+  }
+}

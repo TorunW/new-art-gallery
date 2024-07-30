@@ -16,7 +16,7 @@
 
   a {
     font-family: 'Italiana';
-    font-size: larger;
+    font-size: large;
     text-decoration: none;
     color: var(--white);
     margin: var(--space-grid-big) var(--space-grid-big);
@@ -62,6 +62,31 @@
 .navContainer {
   width: 100%;
   display: flex;
-  padding: var(--space-grid-big);
   justify-content: space-between;
+}
+
+@media (min-width: 415px) {
+  .navContainer {
+    padding: var(--space-grid-big);
+  }
+}
+
+@media (max-width: 414px) {
+  .navContainer {
+    padding: var(--space-grid-small);
+    flex-direction: column;
+    gap: var(--space-grid-small);
+  }
+
+  .navbar,
+  .navbarScrolled {
+    a {
+      font-size: small;
+      margin: var(--space-grid-small);
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
+  }
 }
